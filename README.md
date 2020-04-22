@@ -3,33 +3,30 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|AI, PRIMARY_KEY|
 |nickname|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
 |last_name_kana|string|null: false|
-|email|string|null: false|
+|email|string|null: false| [](メールアドレス)
 |phone_number|string|| [](電話番号)
 |password|string|null: false| [](パスワード)
-|postal_code|string|null: false| [](郵便番号)
-|prefecture_code|string|null: false| [](都道府県)
-|city_name|string|null: false| [](市)
-|street|string|null: false| [](番地、町)
 |birthday_year_id|integer|null: false|
 |birthday_moon_id|integer|null: false|
 |birthday_day_id|integer|null: false|
 |self_introduce|text|-------| [](自己紹介文)
 
 ## Association
-- has_many items
-- has_many comments
+- has_many :items
+- has_many :comments
+- has_one :address
+- has_one :card
 
 
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|AI, PRIMARY_KEY|
+|user_id|integer|null: false|
 |name|text|null: false| [](商品名)
 |content|string|-------| [](商品の説明)
 |price|string|null: false| [](商品の説明)
@@ -46,27 +43,40 @@
 |seller|reference|null: false, foreign_key: true| [](販売価格)
 
 ### Association
-- has_many comments
+- has_many :comments
 - belongs_to :user
+
 
 ## Commentsテーブル(中間テーブル)
 |Column|Type|Options|
 |------|----|-------|
-|id|integer(11)|AI, PRIMARY_KEY|
+|user_id|integer|null: false|
 |comment|text|null: false|
 |item|reference|null: false, foreign_key: true|
 |user|reference|null: false, foreign_key: true|
 
 ### Association
-- belongs_to user
-- belongs_to item
+- belongs_to :user
+- belongs_to :item
 
-## CreateCardsテーブル
+
+## Cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false|
 |customer_id|integer|null: false|
 |card_id|string|null: false|
 
-### Association
+## Association
+- belongs_to :user
+
+
+## Addresss
+|user_id|integer|null: false|
+|postal_code|string|null: false| [](郵便番号)
+|prefecture_code|string|null: false| [](都道府県)
+|city_name|string|null: false| [](市)
+|street|string|null: false| [](番地、町)
+
+## Association
 - belongs_to :user
