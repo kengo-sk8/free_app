@@ -72,6 +72,8 @@
 
 
 ## Addresss
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null: false|
 |postal_code|string|null: false| [](郵便番号)
 |prefecture_code|string|null: false| [](都道府県)
