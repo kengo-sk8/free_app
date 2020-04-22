@@ -4,6 +4,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|AI, PRIMARY_KEY|
+|nickname|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
 |first_name_kana|string|null: false|
@@ -31,6 +32,7 @@
 |id|integer|AI, PRIMARY_KEY|
 |name|text|null: false| [](商品名)
 |content|string|-------| [](商品の説明)
+|price|string|null: false| [](商品の説明)
 |prefecture_code|integer(11)|null: false| [](発送元の地域)
 |status|integer(2)|null:false, default: 0| [](配送料の負担) 
 |deliverymethod|reference|null: false, foreign_key: true|
