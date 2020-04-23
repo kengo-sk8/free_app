@@ -17,17 +17,3 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     end
   end
 end	
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null: false|
-|first_name|string|null: false|
-|last_name|string|null: false|
-|first_name_kana|string|null: false|
-|last_name_kana|string|null: false|
-|email|string|null: false| [](メールアドレス)
-|phone_number|string|| [](電話番号)
-|password|string|null: false| [](パスワード)
-|birthday_year_id|integer|null: false|
-|birthday_moon_id|integer|null: false|
-|birthday_day_id|integer|null: false|
-|self_introduce|text|-------| [](自己紹介文)
