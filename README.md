@@ -83,4 +83,3 @@
 ## Association
 - belongs_to :user
 
-yyyyy
