@@ -7,15 +7,15 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :price, null: false
       t.integer :prefecture_code, null: false 
       t.integer :status, null:false, default: 0
-      t.reference :deliverymethod, null: false, foreign_key: true
-      t.reference :deliveryburden, null: false, foreign_key: true
-      t.reference :deliverydate, null: false, foreign_key: true
-      t.reference :brand, null: false, foreign_key: true
-      t.reference :upper_category, null: false, foreign_key: true
-      t.reference :middle_category, null: false, foreign_key: true
-      t.reference :lower_category, null: false, foreign_key: true
-      t.reference :size, null: false, foreign_key: true
-      t.reference :seller, null: false, foreign_key: true
+      t.references :deliverymethod, null: false
+      t.references :deliveryburden, null: false
+      t.references :deliverydate, null: false
+      t.references :brand, null: false
+      t.references :upper_category, null: false
+      t.references :middle_category, null: false
+      t.references :lower_category, null: false
+      t.references :size, null: false
+      t.references :seller, null: false
       t.timestamps
     end
   end
