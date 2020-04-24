@@ -71,7 +71,7 @@
 - belongs_to :user
 
 
-## Addresss
+## Address
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false|
