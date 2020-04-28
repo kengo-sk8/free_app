@@ -75,4 +75,5 @@ gem 'listen'
 gem "haml-rails"
 gem 'devise'
 gem 'pry-rails'
+gem 'font-awesome-sass'
 
