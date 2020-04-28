@@ -2,3 +2,8 @@
 @import "modules/items";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "color/color";
+@import "./mixin/clearfix";
+@import "sell/sell_header"; 
+@import "sell/sell_main";
+@import "sell/sell_footer";

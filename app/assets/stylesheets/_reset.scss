@@ -12,6 +12,7 @@ html{
   color:#000;
   background:#FFF;
 }
+
 /*
   TODO remove settings on BODY since we can't namespace it.
 */
@@ -86,7 +87,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-size:100%;
+  font-size:normal;
   font-weight:normal;
 }
 q:before,
@@ -122,5 +123,11 @@ select {
 legend {
   color:#000;
 }
+
+a {
+  text-decoration: none;
+  color: #0099e8;
+}
+
 /* YUI CSS Detection Stamp */
 #yui3-css-stamp.cssreset { display: none; }
