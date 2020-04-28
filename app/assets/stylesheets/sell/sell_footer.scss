@@ -1,0 +1,35 @@
+.single-footer {
+  z-index: 1;
+  height: 250px;
+  padding: 40px 0;
+  text-align: center;
+  ul {
+    font-size: 0;
+  }
+  li {
+    font-size: 12px;
+  }
+  li:first-child {
+    margin: 0;
+  }
+  a {
+    display: block;
+    color: #333;
+  }
+  p {
+    margin: 8px 0 0;
+  }
+  small {
+    font-size: 12px;
+  }
+}
+
+.single-footer-logo {
+  width: 80px;
+  height: 65px;
+  margin: 40px auto 0;
+}
+
+img {
+  vertical-align: middle;
+}
