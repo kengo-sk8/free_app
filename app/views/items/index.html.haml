@@ -1,29 +1,29 @@
-%body
-  %header.pcheader
-    .pcheader__inner
-      .pcheader__inner__mainheader
-        .pcheader__inner__mainheader__furimalogo
-          = link_to root_path do
-            = image_tag "/assets/material/logo/logo.png"
-        .searchBox
-          %form{action: "#", method: "get"}
-            %input{name: "utf8", type: "hidden", value: "✓"}
-            %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}
-            %button{type: "submit"}
-              .searchBox__icon
-                %img{src: "/assets/material/icon/icon-search 1.png"}
-            %input{name: "authenticity_token", type: "hidden", value: "#"}
-      .nav
-        %ul.nav__listsleft
-          %li
-            = link_to "カテゴリー"
-          %li.listsleft__item
-            = link_to "ブランド"
-        %ul.nav__listsright
-          %li.listsRight__item
-            = link_to "ログイン"
-          %li.listsRight__item
-            = link_to "新規会員登録"
+
+%header.pcheader
+  .pcheader__inner
+    .pcheader__inner__mainheader
+      .pcheader__inner__mainheader__furimalogo
+        = link_to root_path do
+          = image_tag "/assets/material/logo/logo.png"
+      .searchBox
+        %form{action: "#", method: "get"}
+          %input{name: "utf8", type: "hidden", value: "✓"}
+          %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}
+          %button{type: "submit"}
+            .searchBox__icon
+              %img{src: "/assets/material/icon/icon-search 1.png"}
+          %input{name: "authenticity_token", type: "hidden", value: "#"}
+    .nav
+      %ul.nav__listsleft
+        %li
+          = link_to "カテゴリー"
+        %li.listsleft__item
+          = link_to "ブランド"
+      %ul.nav__listsright
+        %li.listsRight__item
+          = link_to "ログイン"
+        %li.listsRight__item
+          = link_to "新規会員登録"
 .main
   %section.mainvisual
     .mainvisual__content
@@ -111,7 +111,7 @@
           = link_to "新規投稿商品"
       .productLists
         .productList
-          %a{href: "/products/3"}
+          = link_to "/products/3" do
             %figure.productList--img
               = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
             .productList--body
@@ -124,9 +124,10 @@
                     0
                 %p (税込)
         .productList
-          %a{href: "/products/2"}
+          = link_to "/products/2" do
             %figure.productList--img
               = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+              
             .productList--body
               %h3.name product2
               .details
@@ -137,7 +138,7 @@
                     0
                 %p (税込)
         .productList
-          %a{href: "/products/1"}
+          = link_to "/products/1" do
             %figure.productList--img
               = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
             .productList--body
@@ -157,9 +158,9 @@
         = link_to "アーカイバ"
     .productLists
       .productList
-        %a{href: "/products/3"}
+        = link_to "/products/3" do
           %figure.productList--img
-            = link_to "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
           .productList--body
             %h3 product3
             .details
@@ -170,9 +171,9 @@
                   0
               %p (税込)
       .productList
-        %a{href: "/products/2"}
+        = link_to "/products/2" do
           %figure.productList--img
-            = link_to "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
           .productList--body
             %h3 product2
             .details
@@ -183,9 +184,9 @@
                   0
               %p (税込)
       .productList
-        %a{href: "/products/1"}
+        = link_to "/products/1" do
           %figure.productList--img
-            = link_to "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
+            = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
           .productList--body
             %h3 product1
             .details
