@@ -54,6 +54,26 @@ img {
         width: calc(100% - 26px);
         height: 36px;
         padding: 0 0 0 5px;
+        -webkit-writing-mode: horizontal-tb !important;
+        text-rendering: auto;
+        color: -internal-light-dark-color(black, white);
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        display: inline-block;
+        text-align: start;
+        -webkit-appearance: textfield;
+        background-color: -internal-light-dark-color(white, black);
+        -webkit-rtl-ordering: logical;
+        cursor: text;
+        margin: 0em;
+        // font: 400 11px system-ui;
+        border-width: 2px;
+        border-style: inset;
+        border-color: initial;
+        border-image: initial;
       }
     }
   }
@@ -110,14 +130,14 @@ img {
   }
 }
 
-.main .topMiddleDl {
-  background-image: url(/assets/bg-topMiddleDl-pict-5042a3a….jpg);
-  background-position: bottom right;
-  height: 400px;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-}
+// .main .topMiddleDl {
+//   background-image: url(/assets/bg-topMiddleDl-pict-5042a3a….jpg);
+//   background-position: bottom right;
+//   height: 400px;
+//   background-size: cover;
+//   display: flex;
+//   align-items: center;
+// }
 // メイン（ボディ）
 .main {
   background: #f8f8f8;

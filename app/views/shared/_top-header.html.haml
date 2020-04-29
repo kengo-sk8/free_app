@@ -1,0 +1,69 @@
+.pc-header.visible-pc
+  %header
+    .pc-header__inner
+      .pc-header__inner__upper.clearfix
+        %h1.pc-header__inner__upper__logo
+          = link_to root_path do
+            =image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1016580576", alt: "mercari", height: "43", width: "134", class: "mercari_logo_horizontal"
+        = form_tag(simple_searches_path, method: :get, class: "pc-header__inner__upper__form", enforce_utf8: false ) do
+          %input.pc-header__inner__upper__form__input.input-default{name: "keyword", placeholder: "キーワードから探す", type: "search", value: ""}/
+          = button_tag type: "submit", class: "search-button" do
+            %i.fas.fa-search
+      .pc-header__inner__bottom.clearfix
+        %nav.pc-header__inner__bottom__l-left
+          %ul.search-menu
+            %li.search-menu__list.category_list
+              %h2
+                = link_to "カテゴリーを探す", categories_path, class: "search-menu__list__text"
+              %ul#search-menu__list__category-list.pc-header-nav-parent-wrap.category
+                - @upper_categories.each do |upper_category|
+                  %li.pc-header-nav-parent{"data-upper-id": upper_category.id}
+                    %h3.upper_category__text
+                      = link_to upper_category_path(upper_category), class: "category_link" do
+                        = upper_category.name
+                    %ul.pc-header-nav-child-wrap
+                      - if upper_category.middle_categories.present?
+                        - upper_category.middle_categories.each do |middle_category|
+                          %li.pc-header-nav-child{"data-middle-id": middle_category.id}
+                            = link_to middle_category_path(middle_category), class: "middle_category_link" do
+                              = middle_category.name
+                            %ul.pc-header-nav-grand-child-wrap
+                              - if middle_category.lower_categories.present?
+                                - middle_category.lower_categories.each do |lower_category|
+                                  %li.pc-header-nav-grand-child{"data-lower-id": lower_category.id}
+                                    = link_to lower_category_path(lower_category) do
+                                      = lower_category.name
+                              - else
+                                %li.pc-header-nav-grand-child
+                      - else
+                        %li.pc-header-nav-child
+            %li.search-menu__list.brand_list
+              %h2
+                = link_to "ブランドを探す", brands_path, class: "search-menu__list__text"
+                #search-menu__list__brand-list.pc-header-nav-parent-wrap
+        .pc-header__inner__bottom__l-right
+          - if user_signed_in?
+            %ul.personal-menu
+              %li.personal-menu__list.mypage
+                %a.personal-menu__list__mypage-link
+                  %div
+                    =image_tag "https://static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png", class: "mypage-avator", alt: "", width: "32"
+                    = link_to "マイページ", mypages_path
+                #personal-menu__list__mypage-field
+              %li.personal-menu__list.notibfication
+                %a.personal-menu__list__notification-link
+                  %i.far.fa-bell.icon
+                  %span お知らせ
+                  .personal-menu__list__notification-link__count
+                #personal-menu__list__notification-field
+              %li.personal-menu__list.todo
+                %a.personal-menu__list__todo-link
+                  %i.fa.fa-check
+                  %span やることリスト
+                #personal-menu__list__todo-field
+          - else
+            %ul.pc-header__login__nav
+              %li
+                = link_to "ログイン", jp_login_path, class: "sp-header__btn btn--red"
+              %li
+                = link_to "新規会員登録", jp_signup_path, class: "sp-header__btn header-signup"
