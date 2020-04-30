@@ -1,0 +1,48 @@
+.signup-container
+  = render 'signups/header-address'
+  %main.signup-main
+    %section.signup-main__container
+      %h2.signup-main__head.signup-main__head--registration 発送元・お届け先住所入力
+      = form_with model: @user , local: true, url:done_signups_path, method: 'POST', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate' do |f|
+        .signup-main__content
+          .signup-main__form-group
+            = f.label '郵便番号'
+            %span.signup-main__form-require 必須
+            - if @user .errors.full_messages_for(:postal_code).any?
+              = f.text_field :postal_code, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
+            - else
+              = f.text_field :postal_code, { class: 'signup-main__input-default', placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
+            =  render partial: 'error-messages', locals: { user: @user, column: "postal_code"}
+          .signup-main__form-group
+            = f.label '都道府県'
+            %span.signup-main__form-require 必須
+            .signup-main__select-wrap
+              -# = icon 'fas', 'chevron-down'
+              - if @user .errors.full_messages_for(:prefecture_code).any?
+                = f.collection_select :prefecture_code, Prefecture.all, :id, :name, class: 'signup-main__input-default--has-error'
+              - else
+                = f.collection_select :prefecture_code, Prefecture.all, :id, :name
+              =  render partial: 'error-messages', locals: { user: @user, column: "prefecture_code"}
+              -# = icon 'fas', 'chevron-down'
+          .signup-main__form-group
+            = f.label '市区町村'
+            %span.signup-main__form-require 必須
+            - if @user .errors.full_messages_for(:city_name).any?
+              = f.text_field :city_name, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 名古屋市緑区', value: '' }
+            - else
+              = f.text_field :city_name, { class: 'signup-main__input-default', placeholder: '例) 名古屋市緑区', value: '' }
+            =  render partial: 'error-messages', locals: { user: @user, column: "city_name"}
+          .signup-main__form-group
+            = f.label '番地'
+            %span.signup-main__form-require 必須
+            - if @user .errors.full_messages_for(:street).any?
+              = f.text_field :street, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: '例) 六本木1−1−1', value: '' }
+            - else
+              = f.text_field :street, { class: 'signup-main__input-default', placeholder: '例) 六本木1−1−1', value: '' }
+            =  render partial: 'error-messages', locals: { user: @user, column: "street"}
+          .signup-main__form-group
+            = f.label '建物名'
+            %span.signup-main__form-arbitrary 任意
+            = f.text_field :address2, { class: 'signup-main__input-default', placeholder: '例) 栄ビル100' }
+          = f.submit '次へ進む', class: 'signup-main__btn-default signup-main__btn-red'
+  = render 'signups/footer'
