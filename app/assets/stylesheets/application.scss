@@ -13,8 +13,15 @@
  *= require_tree .
  *= require_self
  */
- @import 'font-awesome-sprockets';
- @import 'font-awesome';
+ @import "reset";
+ @import "modules/items";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ @import "color/color";
+ @import "./mixin/clearfix";
+ @import "sell/sell_header"; 
+ @import "sell/sell_main";
+ @import "sell/sell_footer";
  @import 'signup';
  @import 'users/signup-header';
  @import 'users/signup-footer';
