@@ -75,4 +75,7 @@ gem 'listen'
 gem "haml-rails"
 gem 'devise'
 gem 'pry-rails'
-
+gem 'active_hash'
+gem 'payjp'
+gem 'fog-aws'
+gem 'font-awesome-sass'
