@@ -21,6 +21,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item = Item.all
+    # # show表示させる為一時的に上記@item.all追記
+    # @comment = Comment.new
+    # @items = @selling_items.where(user_id: @item.user.id).where.not(id: @item.id)
+    # @brand_items = @selling_items.where(brand_id: @item.brand.id).where.not(id: @item.id)
+  end
+
   private
 
   def item_params
