@@ -35,4 +35,3 @@ protected
     params.require(:address).permit(:postal_code, :prefecture_code, :city_name, :street)
   end
 end
-end
