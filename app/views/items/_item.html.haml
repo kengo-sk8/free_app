@@ -4,30 +4,40 @@
       .sell-container-inner
         %h2.l-single-head
           商品の情報を入力
-        = form_with model: @item, url: items_path, local: true, class: "sell-form" do |f|
+        = form_with model: @item,local: true, class: "sell-form" do |f|
           .sell-upload-box
             %h3.sell-upload-head
               出店画像
               %span.form-require 必須
-            %p 最大10枚までアップロードできます
-            .sell-dropbox-container.clearfix.state-image-number-10
+            %p 最大5枚までアップロードできます
+            .sell-dropbox-container
               .sell-upload-items-container
                 .sell-upload-items.have-item-0
-              - 5.times do
-                = f.fields_for :item_images, ItemImage.new, multiple: true do |image|
-                  %label{class: "sell-upload-drop-box have-item-#{image.index}"}
-                    = image.file_field :image, class: "sell-upload-drop-file", style: "display:none;"
-                    %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
-                    = image_tag asset_path("icon/icon_camera.png"), class: "icon_camera"
+              #image-box 
+              = f.fields_for :images do |image|
+                .js-file_group{"data-index" => "#{image.index}"}
+                  = image.label :scr, class: 'input-image' do
+                    -# = icon('fas', 'camera', class: "icon_camera") 
+                    = image.file_field :src, class: "js-file" #sell-upload-drop-file
+                    %br/
+                    %span.js-remove 削除
+                    -# %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+  
+
+
+
+
+
+
           .sell-content
             .form-group
-              = f.label :name do
+              %label
                 商品名
                 %span.form-require 必須
               %div
                 = f.text_field :name, placeholder: "商品名 (必須 40文字まで)", class: "input-default"
             .form-group
-              = f.label :content do
+              %label
                 商品の説明
                 %span.form-require 必須
               = f.text_area :content, placeholder: "商品の説明 (必須1000文字以内) (色、素材、重さ、定価、注意点など) 例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5", class: "textarea-default"
@@ -35,53 +45,51 @@
             %h3.sell-sub-head 商品の詳細
             .sell-form-box
               .form-group.category
-                = f.label :upper_category_id do
+                %label
                   カテゴリー
                   %span.form-require 必須
                 %div
                   .select-wrap.upper
-                    = f.select :upper_category_id, {カテゴリ: "---"}, class: "select-default", id: "upper_category"    
+                    = f.text_field :upper_category, placeholder: "カテゴリー", class: "select-default", id: "upper_category" 
               .form-group
-                = f.label :status_id do
+                %label
                   ブランド
                   %span.form-require-sub 任意
                 %div
                   .select-wrap
                     = f.text_field :brand, placeholder: "例)シャネル", class: "input-default price"
               .form-group
-                = f.label :status_id do
+                %label
                   商品の状態
                   %span.form-require 必須 
                 %div
                   .select-wrap
-                    = f.select :status_id,  {商品の状態: "---"}, class: "select-default" 
-                    = f.hidden_field :condition_id, value: 1
-                    = f.hidden_field :purchase_status, value: 1
+                    = f.text_field :status, placeholder: "商品の状態", class: "select-default" 
           .sell-content.clearfix
             %h3.sell-sub-head 配送について
             = link_to "?", "#", target: "_blank", class: "form-question"
             .sell-form-box
               .form-group.burden
-                = f.label :delivery_burden_id do
+                %label
                   配送料の負担
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.select :delivery_burden_id,  {prompt: "---"}, class: "select-default delivery_burden" 
+                    = f.text_field :deliveryburden, placeholder: "配送の負担",  class: "select-default delivery_burden" 
               .form-group
                 %label
                   発送元の地域
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.select :delivery_burden_id,  {prompt: "---"}, class: "select-default delivery_burden" 
+                    = f.text_field :prefecture_code,  placeholder: "地域", class: "select-default delivery_burden" 
               .form-group
-                = f.label :delivery_date_id do
+                %label
                   発送までの日数
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.select :delivery_date_id, {prompt: "---"}, class: "select-default" 
+                    = f.text_field  :deliverydate, placeholder: "発送日数", class: "select-default" 
           .sell-content.clearfix
             %h3.sell-sub-head 販売価格(300~9,999,999)
             = link_to "?", "#", target: "_blank", class: "form-question"

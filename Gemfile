@@ -76,5 +76,5 @@ gem "haml-rails"
 gem 'devise'
 gem 'pry-rails'
 gem 'font-awesome-sass'
-gem "carrierwave"
-
+gem 'carrierwave'
+gem 'mini_magick'
