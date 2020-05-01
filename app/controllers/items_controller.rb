@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
     # respond_to do |format|
     #   format.html
     #   format.json
-    end
   end
 
   def create
@@ -21,11 +20,12 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-
+  
   private
 
   def item_params
-    params.require(:item).permit(:name, images_attributes: [:src])
-  end
+    params.require(:item).permit(:name, :content,:upper_category,:brand,:deliveryburden,:price,:status, :prefecture_code, :deliverydate, images_attributes: [:src])
+  end   
+
 
 end
