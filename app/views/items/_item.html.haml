@@ -16,7 +16,7 @@
               #image-box 
               = f.fields_for :images do |image|
                 .js-file_group{"data-index" => "#{image.index}"}
-                  = image.label :scr, class: 'input-image' do
+                  = image.label class: 'input-image' do
                     -# = icon('fas', 'camera', class: "icon_camera") 
                     = image.file_field :src, class: "js-file" #sell-upload-drop-file
                     %br/
