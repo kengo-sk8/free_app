@@ -14,21 +14,14 @@
               .sell-upload-items-container
                 .sell-upload-items.have-item-0
               #image-box 
-              = f.fields_for :images do |image|
-                .js-file_group{"data-index" => "#{image.index}"}
-                  = image.label class: 'input-image' do
-                    -# = icon('fas', 'camera', class: "icon_camera") 
-                    = image.file_field :src, class: "js-file" #sell-upload-drop-file
-                    %br/
-                    %span.js-remove 削除
-                    -# %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
-  
-
-
-
-
-
-
+                = f.fields_for :images do |image|
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = image.label class: 'input-image' do
+                      = icon('fas', 'camera', class: "icon_camera") 
+                      = image.file_field :src, class: "js-file" #sell-upload-drop-file
+                      %br/
+                      %span.js-remove 削除
+                      %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
           .sell-content
             .form-group
               %label

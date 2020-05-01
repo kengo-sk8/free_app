@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  
+  # before_action :set_product, except: [:index, :new, :create]
+
   def index
   end
 
@@ -20,12 +21,23 @@ class ItemsController < ApplicationController
       render :new
     end
   end
-  
-  private
 
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+ 
+  private
   def item_params
     params.require(:item).permit(:name, :content,:upper_category,:brand,:deliveryburden,:price,:status, :prefecture_code, :deliverydate, images_attributes: [:src])
-  end   
+  end  
+
+  # def set_product
+  #   @item = Item.find(params[:id])
+  # end
 
 
 end
