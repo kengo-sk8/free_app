@@ -5,10 +5,11 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.images.build
 
-    respond_to do |format|
-      format.html
-      format.json
+    # respond_to do |format|
+    #   format.html
+    #   format.json
     end
   end
 
@@ -24,7 +25,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :prefecture_code, :content, :upper_category_id, :middle_category_id, :lower_category_id, :size_id, :brand_id, :delivery_burden_id, :delivery_date_id, :delivery_method_id, :status_id, :condition_id, :purchase_status, item_images_attributes: [:id, :image])
+    params.require(:item).permit(:name, images_attributes: [:src])
   end
 
 end
