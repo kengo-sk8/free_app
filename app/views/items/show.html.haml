@@ -1,12 +1,180 @@
-= render  "shared/top-header"
+-# 下記はメインヘッダー呼び出しに使用している
+= render "items/main-header"
 %nav.bread-crumbs__list
   %ul
-    - breadcrumb :show, @item
-    = render "shared/breadcrumbs"
 .single-container
-  = render "shared/item_profile"
-
-= render "shared/app-banner"
-= render "shared/top-footer"
-
-
+  %section.item--box__container.l-single-container.item--photo__expanded
+    %h1.item--name
+      @item.name
+    .item--main__content.clearfix
+      .item--photo
+        .owl--carousel.owl-loaded.owl-drag
+          .owl--stage__outer
+            .owl--stage
+              .owl--item.active
+                .owl--item__inner
+                  = image_tag asset_path("material/pict/pict-reason-03.jpg"), alt: "pict-reason-03.jpg"
+          .owl--nav.disabled
+            .owl-prev prev
+            .owl-next next
+          .owl--dots
+            .owl--dot
+              %span
+              .owl-dot-inner
+      %table.item--detail__table
+        %tbody
+          %tr
+            %th 出品者
+            %td
+              = link_to item_path do
+                @item.name
+              %div
+                .item--user__ratings
+                  = icon("fas","smile")
+                  %span 302
+                .item--user__ratings
+                  %i.fas.fa-grin
+                  %span 4
+                .item--user__ratings
+                  %i.fas.fa-angry
+                  %span 0
+          %tr
+            %th カテゴリー
+            %td
+              = link_to items_path do
+                upper_category
+              = link_to items_path do
+                middle_category
+              = link_to items_path do
+                lower_category
+          %tr
+            %th ブランド
+            %td
+              シャネル
+          %tr
+            %th 商品の状態
+            %td
+              目立った傷や汚れなし
+          %tr
+            %th 配送料の負担
+            %td
+              送料込み(出品者負担)
+          %tr
+            %th 配送の方法
+            %td
+              ゆうゆうメルカリ便
+          %tr
+            %th 配送元地域
+            %td
+              愛知県
+              = link_to items_path do
+                @item.prefecture_code
+          %tr
+            %th 発送日の目安
+            %td
+              2~3日で発送
+    .item--price__box.text__center
+      %span.item--price.bold
+        ○○円
+      %span.item--tax (税込)
+      %span.item--shipping__fee
+        送料出力欄
+      .text__center
+      .item--buy__btn
+        = link_to "購入画面に進む"
+    .item--description.f14
+      %p.item--description__inner
+        商品説明欄（= @item.content
+    .item--button__container.clearfix
+      .item--button__container__left
+        = button_tag type: "button", name: "like!", class: "item--button item--button__like" do
+          = icon("far","heart")
+          %span いいね!
+          %span.fade-in-down{"data-num": "like"} 18
+        = link_to "", class: "item--button item--button__report clearfix" do
+          = icon("fas","flag")
+          %span 不適切な商品の報告
+      .item--button__container__right
+        = link_to "#" do
+          = icon("fas","lock")
+          %span あんしん・あんぜんへの取り組み
+  - if current_page?(items_path) #sell_item_item_pathを後で書く。また、下記のlink_toは、1個目はedit_item_path(@item)に、」item_path(@item)に直す
+    .listing-item-change-box
+      = link_to edit_item_path(@item), class: "btn-default btn-red" do
+        商品の編集 
+      %p.text-center or
+      = button_tag "出品を停止する", class: "btn-default btn-gray"
+      = link_to item_path(@item),  method: :delete, class: "btn-default btn-gray" do
+        この商品を削除する
+  .item--detail__message
+    .message__container
+      .message__content
+        = form_with models: [@item, @comment], url: items_path, local: true, class: "message__form" do |f| #url: item_pathは、後で変更する
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.text_area :comment, class: "textarea--default"
+          = f.button type: "submit", class: "message__submit btn-default btn-gray" do
+            %span コメントする
+      %aside.modal{"data-modal": "delete-comment", "data-close": "modal"}
+        .modal-inner.modal-banner
+          .modal-body
+            .modal-head.bold 確認
+            %div{"data-comment": "body"}
+            %br
+            本当にこのコメントを削除してもよろしいですか？
+          %form{action: "#", method: "POST"}
+            .clearfix
+              .modal-btn.modal-btn-cancel{"data-close": "modal"} キャンセル
+              = button_tag "削除する", type: "submit", class: "modal-btn modal-btn-submit"
+    %ul.nav__item--link--prev--next.clearfix
+      %li.nav__item--link--prev
+        = link_to "#" do
+          = icon("fas","chevron-left")
+          ビーズイソギンチャクリング シルバー
+      %li.nav__item--link--next
+        = link_to "#" do
+          エドウィン EDWIN リングベルト ベルト オリーブ 111 本革 キャンパス
+          = icon("fas","chevron-right")
+    .item--social--media__box
+      %ul.social--media__box
+        %li
+          = link_to "#", class: "share-btn" do
+            = icon("fab","facebook")
+        %li
+          = link_to "#", class: "share-btn" do
+            = icon("fab","twitter")
+        %li
+          = link_to "#", class: "share-btn" do
+            = icon("fab","line")
+        %li
+          = link_to "#", class: "share-btn" do
+            = icon("fab","pinterest")
+    .items--in--user__profile
+      - if @items
+        %section.items--box__container.clearfix.items--box__overflow
+          %h2.items--box__head
+            = link_to @items_path do
+              = @item.user.nickname
+              さんのその他の出品
+          .items--box__content.clearfix
+            = render partial: "shared/one_items", collection: @items, as: "item"
+      - if @brand_items
+        %section.items--box__container.clearfix.items--box__overflow
+          %h2.items--box__head
+            = link_to items_path do
+              = @item.brand.name
+              の
+              = @item.name
+              その他の商品
+          .items--box__content.clearfix
+            = render partial: "shared/one_items", collection: @brand_items, as: "item"
+    %aside.modal{"data-modal": "report-item", "data-close": "modal"}
+      .modal-inner.modal-banner
+        .modal-body
+          .modal-head.bold 確認
+          不適切な商品を報告しますか?
+        .clearfix
+          .modal-btn.modal-btn-cancel{"data-close": "modal"} キャンセル
+          = link_to "#" do
+            = button_tag "はい", class: "modal-btn modal-btn-submit" 
+  = render "items/main-footer"
+-# 上記はメインフッター呼び出しに使用している

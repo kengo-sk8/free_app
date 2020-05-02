@@ -1,29 +1,6 @@
+-# 下記はメインヘッダー呼び出しに使用している
+= render "items/main-header"
 
-%header.pcheader
-  .pcheader__inner
-    .pcheader__inner__mainheader
-      .pcheader__inner__mainheader__furimalogo
-        = link_to root_path do
-          = image_tag asset_path("material/logo/logo.png"), alt: "FURIMA"
-      .searchBox
-        %form{action: "#", method: "get"}
-          %input{name: "utf8", type: "hidden", value: "✓"}
-          %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}
-          %button{type: "submit"}
-            .searchBox__icon
-              %img{src: "/assets/material/icon/icon-search 1.png"}
-          %input{name: "authenticity_token", type: "hidden", value: "#"}
-    .nav
-      %ul.nav__listsleft
-        %li
-          = link_to "カテゴリー"
-        %li.listsleft__item
-          = link_to "ブランド"
-      %ul.nav__listsright
-        %li.listsRight__item
-          = link_to "ログイン"
-        %li.listsRight__item
-          = link_to "新規会員登録",new_user_registration_path
 .main
   %section.mainvisual
     .mainvisual__content
@@ -35,10 +12,11 @@
         %br
         フリマアプリです
       .content__btn
-        = link_to image_tag(asset_path("material/icon/download-on-the-app-store-apple.svg"), class: "abtn"), root_path
-        = link_to image_tag(asset_path("material/icon/google-play-download-android-app.svg"), class: "gbtn"), root_path
-
-    -# .picture
+        = link_to root_path do
+          = image_tag asset_path("material/icon/download-on-the-app-store-apple.svg"),class: "abtn", alt: "download-on-the-app-store-apple.svg"
+        = link_to root_path do
+          = image_tag asset_path("material/icon/google-play-download-android-app.svg"),class: "gbtn", alt: "google-play-download-android-app.svg"
+    .picture
   %section.topintroduction
     %h2
       FURIMAが選ばれる3つの理由
@@ -81,8 +59,10 @@
         %br
         ほしかったあの商品に出会えるかもしれません。
       .btn
-        = link_to image_tag(asset_path("material/icon/download-on-the-app-store-apple.svg"), class: "abtn"), root_path
-        = link_to image_tag(asset_path("material/icon/google-play-download-android-app.svg"), class: "abtn"), root_path
+        = link_to root_path do
+          = image_tag asset_path("material/icon/download-on-the-app-store-apple.svg"),class: "abtn", alt: "download-on-the-app-store-apple.svg"
+        = link_to root_path do
+          = image_tag asset_path("material/icon/google-play-download-android-app.svg"),class: "gbtn", alt: "google-play-download-android-app.svg"
   %section.topkeyfeatures
     %h2 FURIMAの特徴
     .items
@@ -111,7 +91,7 @@
           = link_to "新規投稿商品"
       .productLists
         .productList
-          = link_to root_path do
+          = link_to item_path do
             %figure.productList--img
               = image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), alt: "a007.png"
             .productList--body
@@ -195,47 +175,10 @@
                   %i.fa.fa-star.likeIcon
                   0
               %p (税込)
-%aside.appBanner
-  .inner
-    %h2 だれでもかんたん、人生を変えるフリマアプリ
-    %p 今すぐ無料ダウンロード！
-    .inner__icon
-      = link_to image_tag(asset_path("material/icon/download-on-the-app-store-apple.svg"), class: "abtn"), root_path
-      = link_to image_tag(asset_path("material/icon/google-play-download-android-app.svg"), class: "abtn"), root_path
-.footer
-  %ul.contents
-    %li.content
-      %h2.content__head FURIMAについて
-      %ul
-        %li
-          = link_to "会社概要（運営会社）"
-        %li
-          = link_to "プライバシーポリシー"
-        %li
-          = link_to "FURIMA利用規約"
-        %li
-          = link_to "ポイントに関する特約"
-    %li.content
-      %h2.content__head FURIMAを見る
-      %ul
-        %li
-          = link_to "カテゴリー一覧"
-        %li
-          = link_to "ブランド一覧"
-    %li.content
-      %h2.content__head ヘルプ＆ガイド
-      %ul
-        %li
-          = link_to "FURIMAガイド"
-        %li
-          = link_to "FURIMAロゴ利用ガイドライン"
-        %li
-          = link_to "お知らせ"
-  .footer__logo
-    = link_to root_path do
-      = image_tag asset_path("material/logo/logo-white.png"), alt: "logo-white.png"
-  %p © FURIMA
-  .purchaseBtn
-    %span.purchaseBtn__text 出品する
-    = link_to new_item_path do
-      = image_tag asset_path("material/icon/icon_camera.png"),class: "purchaseBtn__icon", alt: "icon_camera.png"
+-# 下記はメインフッター呼び出しに使用している
+= render "items/main-footer"
+.purchaseBtn
+  %span.purchaseBtn__text 出品する
+  = link_to new_item_path do
+    = image_tag asset_path("material/icon/icon_camera.png"),class: "purchaseBtn__icon", alt: "icon_camera.png"
+

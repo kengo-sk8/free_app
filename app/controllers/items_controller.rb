@@ -21,6 +21,13 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    # アイテム・ユーザー情報の表示に必要なデータが現在テーブルに無いので、マークアップ優先で表示する為にdbに関係する項目はコメントアウトをしています
+    # @comment = Comment.new
+    # @items = @selling_items.where(user_id: @item.user.id).where.not(id: @item.id)
+    # @brand_items = @selling_items.where(brand_id: @item.brand.id).where.not(id: @item.id)
+  end
+
   private
 
   def item_params
