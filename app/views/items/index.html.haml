@@ -91,7 +91,7 @@
           = link_to "新規投稿商品"
       .productLists
         .productList
-          = link_to "items/show" do
+          = link_to item_path do
             %figure.productList--img
               = image_tag asset_path("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"), alt: "a007.png"
             .productList--body

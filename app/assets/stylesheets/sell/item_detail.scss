@@ -275,6 +275,8 @@
     }
   }
   &--stage {
+    left: 0px;
+    width: 3600px;
     position: relative;
     &__outer {
       position: relative;
@@ -376,5 +378,6 @@
 
 .active {
   opacity: 1;
+  width: 300px;
 }
 
