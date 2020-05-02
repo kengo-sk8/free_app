@@ -58,8 +58,9 @@
           %label.signup-main__form-group-text-title 本人確認
           %p.signup-main__form-group__info 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
         .signup-main__form-group
-          = f.label :"お名前(全角)"
-          %span.signup-main__form-group__require 必須
+          %div
+            = f.label :"お名前(全角)"
+          %span.signup-main__form-require 必須
         - if @user.errors.full_messages_for(:last_name).any?  
           = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 吉村' }
         - else
