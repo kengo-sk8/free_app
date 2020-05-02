@@ -1,0 +1,26 @@
+%header.pcheader
+  .pcheader__inner
+    .pcheader__inner__mainheader
+      .pcheader__inner__mainheader__furimalogo
+        = link_to root_path do
+          = image_tag asset_path("material/logo/logo.png"), alt: "FURIMA"
+      .searchBox
+        %form{action: "#", method: "get"}
+          %input{name: "utf8", type: "hidden", value: "✓"}
+          %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}
+          %button{type: "submit"}
+            .searchBox__icon
+              = link_to root_path do
+                = image_tag asset_path("material/icon/icon-search 1.png"), alt: "icon-search 1.png"
+          %input{name: "authenticity_token", type: "hidden", value: "#"}
+    .nav
+      %ul.nav__listsleft
+        %li
+          = link_to "カテゴリー"
+        %li.listsleft__item
+          = link_to "ブランド"
+      %ul.nav__listsright
+        %li.listsRight__item
+          = link_to "ログイン"
+        %li.listsRight__item
+          = link_to "新規会員登録"
