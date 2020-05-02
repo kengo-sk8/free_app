@@ -5,7 +5,7 @@
 .single-container
   %section.item--box__container.l-single-container.item--photo__expanded
     %h1.item--name
-      -# = @item.name
+      @item.name
     .item--main__content.clearfix
       .item--photo
         .owl--carousel.owl-loaded.owl-drag
@@ -14,26 +14,20 @@
               .owl--item.active{style: "width: 300px;"}
                 .owl--item__inner
                   = image_tag asset_path("material/pict/pict-reason-03.jpg"), alt: "pict-reason-03.jpg"
-                  -# = image_tag (@item.item_images.first.image.url), alt: @item.name, style: "opacity: 1;"
           .owl--nav.disabled
             .owl-prev prev
             .owl-next next
           .owl--dots
-            -# - @item.item_images.each do |img|
-              .owl--dot
-                %span
-                .owl-dot-inner
-                  = image_tag (img.image.url)
+            .owl--dot
+              %span
+              .owl-dot-inner
       %table.item--detail__table
         %tbody
           %tr
             %th 出品者
             %td
-              -# 一時的に= link_to item_path do,= @item.name下記追記
               = link_to item_path do
-                -# = @item.name
-              -# = link_to mypages_path do
-              -#   = @item.user.nickname
+                @item.name
               %div
                 .item--user__ratings
                   = icon("fas","smile")
@@ -49,62 +43,48 @@
             %td
               = link_to items_path do
                 upper_category
-                -# = @item.upper_category.name
               = link_to items_path do
                 middle_category
-                -# = @item.middle_category.name
               = link_to items_path do
                 lower_category
-                -# = @item.lower_category.name
           %tr
             %th ブランド
             %td
               シャネル
-              -# = @item.brand.name
           %tr
             %th 商品の状態
             %td
               目立った傷や汚れなし
-              -# = @item.status.name
           %tr
             %th 配送料の負担
             %td
               送料込み(出品者負担)
-              -# = @item.delivery_burden.name
           %tr
             %th 配送の方法
             %td
               ゆうゆうメルカリ便
-              -# = @item.delivery_method.name
           %tr
             %th 配送元地域
             %td
               愛知県
               = link_to items_path do
-                -# = @item.prefecture_code
+                @item.prefecture_code
           %tr
             %th 発送日の目安
             %td
               2~3日で発送
-              -# = @item.delivery_date.name
     .item--price__box.text__center
       %span.item--price.bold
         ○○円
-        -# = number_to_currency(@item.price, unit: "¥ ", precision:0, format: "%u%n")
       %span.item--tax (税込)
       %span.item--shipping__fee
         送料出力欄
-        -# = @item.delivery_burden.name
-    -# - if current_page?(item_path(@item))
       .text__center
-        -# .sales--point__message P 600 をお持ちです
       .item--buy__btn
         = link_to "購入画面に進む"
-      -# = link_to "購入画面に進む", purchase_concern_item_path(@item), class: "item--buy__btn f18-24"
     .item--description.f14
       %p.item--description__inner
         商品説明欄（= @item.content
-        -# = @item.content
     .item--button__container.clearfix
       .item--button__container__left
         = button_tag type: "button", name: "like!", class: "item--button item--button__like" do
@@ -145,30 +125,29 @@
             .clearfix
               .modal-btn.modal-btn-cancel{"data-close": "modal"} キャンセル
               = button_tag "削除する", type: "submit", class: "modal-btn modal-btn-submit"
-  -# - if current_page?(item_path(@item))
     %ul.nav__item--link--prev--next.clearfix
       %li.nav__item--link--prev
         = link_to "#" do
-          = fa_icon "arrow-left"
+          = icon("fas","chevron-left")
           ビーズイソギンチャクリング シルバー
       %li.nav__item--link--next
         = link_to "#" do
           エドウィン EDWIN リングベルト ベルト オリーブ 111 本革 キャンパス
-          = fa_icon "arrow-right"
+          = icon("fas","chevron-right")
     .item--social--media__box
       %ul.social--media__box
         %li
           = link_to "#", class: "share-btn" do
-            = fa_icon "facebook"
+            = icon("fab","facebook")
         %li
           = link_to "#", class: "share-btn" do
-            = fa_icon "twitter"
-        %li.social--hidden__item
-          = link_to "#" do
-            = fa_icon "line"
+            = icon("fab","twitter")
         %li
           = link_to "#", class: "share-btn" do
-            = fa_icon "pinterest"
+            = icon("fab","line")
+        %li
+          = link_to "#", class: "share-btn" do
+            = icon("fab","pinterest")
     .items--in--user__profile
       - if @items
         %section.items--box__container.clearfix.items--box__overflow
