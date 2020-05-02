@@ -372,6 +372,8 @@
   &__login-no-account {
     padding: 24px 32px;
     text-align: center;
+    border-style: solid;
+    border-width: 0;
     p {
       font-size: 14px;
     }
@@ -386,6 +388,7 @@
   }
   &__login-form-inner {
     padding: 24px 32px;
+    border-top: 1px solid #eee;
     &:first-child {
       padding: 24px 32px;
       border: 0;
