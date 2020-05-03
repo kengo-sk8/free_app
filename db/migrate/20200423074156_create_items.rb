@@ -11,9 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :deliveryburden
       t.string :deliverydate
       t.string :brand
-      t.string :upper_category
-      t.string :middle_category
-      t.string :lower_category
+      t.string :category
       t.string :size
       t.string :seller
       t.timestamps
