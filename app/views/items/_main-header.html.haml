@@ -1,26 +1,31 @@
-%header.pcheader
-  .pcheader__inner
-    .pcheader__inner__mainheader
-      .pcheader__inner__mainheader__furimalogo
-        = link_to root_path do
-          = image_tag asset_path("material/logo/logo.png"), alt: "FURIMA"
-      .searchBox
-        %form{action: "#", method: "get"}
-          %input{name: "utf8", type: "hidden", value: "✓"}
-          %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}
-          %button{type: "submit"}
-            .searchBox__icon
-              = link_to root_path do
-                = image_tag asset_path("material/icon/icon-search 1.png"), alt: "icon-search 1.png"
-          %input{name: "authenticity_token", type: "hidden", value: "#"}
-    .nav
-      %ul.nav__listsleft
-        %li
-          = link_to "カテゴリー"
-        %li.listsleft__item
-          = link_to "ブランド"
+.pcheader__inner
+  .pcheader__inner__mainheader
+    .pcheader__inner__mainheader__furimalogo
+      = link_to root_path do
+        = image_tag asset_path("material/logo/logo.png"), alt: "FURIMA"
+    .searchBox
+      %form{action: "#", method: "get"}
+        %input{name: "utf8", type: "hidden", value: "✓"}
+        %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}
+        %button{type: "submit"}
+          .searchBox__icon
+            %img{src: "/assets/material/icon/icon-search 1.png"}
+        %input{name: "authenticity_token", type: "hidden", value: "#"}
+  .nav
+    %ul.nav__listsleft
+      %li
+        = link_to "カテゴリー"
+      %li.listsleft__item
+        = link_to "ブランド"
+    - if user_signed_in?
       %ul.nav__listsright
         %li.listsRight__item
-          = link_to "ログイン"
+          = link_to "ログアウト",destroy_user_session_path
         %li.listsRight__item
-          = link_to "新規会員登録"
+          = link_to "マイページ"
+    - else
+      %ul.nav__listsright
+        %li.listsRight__item
+          = link_to "ログイン",new_user_session_path
+        %li.listsRight__item
+          = link_to "新規会員登録",new_user_registration_path
