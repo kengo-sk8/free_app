@@ -7,9 +7,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
-    # respond_to do |format|
-    #   format.html
-    #   format.json
   end
 
   def create
@@ -28,11 +25,13 @@ class ItemsController < ApplicationController
     #   render :edit
     # end
   end
- 
+
+
+
 
   private
   def item_params
-    params.require(:item).permit(:name, :content,:category,:brand,:deliveryburden,:price,:status, :prefecture_code, :deliverydate, images_attributes: [:src])
+    params.require(:item).permit(:name, :content,:category,:brand,:deliveryburden,:price, :condition_id, :prefecture_code, :deliverydate, images_attributes: [:src])
   end  
 
   # def set_product

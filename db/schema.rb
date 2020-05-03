@@ -31,20 +31,21 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.text "name"
-    t.string "content"
+    t.text "name", null: false
+    t.string "content", null: false
+    t.string "category"
+    t.bigint "condition_id", default: 0, null: false
     t.string "price"
     t.string "prefecture_code"
-    t.string "status"
     t.string "deliverymethod"
     t.string "deliveryburden"
     t.string "deliverydate"
     t.string "brand"
-    t.string "category"
     t.string "size"
     t.string "seller"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["condition_id"], name: "index_items_on_condition_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

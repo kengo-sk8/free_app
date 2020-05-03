@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   root 'items#index'
-  resources :items do
+  resources :items do   
   end  
 end
