@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   # before_action :set_product, except: [:index, :new, :create]
 
   def index
-    
+    @items = Item.all
   end
 
   def new
@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
     if @item.save
       render :create
     else
+      @image = @item.images.build
       render :new
     end
   end
