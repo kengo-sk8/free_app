@@ -20,8 +20,6 @@
     - if user_signed_in?
       %ul.nav__listsright
         %li.listsRight__item
-          = link_to "ログアウト",destroy_user_session_path
-        %li.listsRight__item
           = link_to "マイページ"
     - else
       %ul.nav__listsright
