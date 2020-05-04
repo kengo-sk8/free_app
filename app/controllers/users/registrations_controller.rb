@@ -30,7 +30,29 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       render :new
     end
+  end def edit_profile
+  @profile = User.find(params[:id])
+end
+
+def update_profile
+  @profile = User.find(params[:id])
+  if @profile.update(account_update_params)
+    sign_in(:user, @profile)
+    redirect_to user_path(current_user.id)
+  else
+    flash.now[:alert] = @profile.errors.full_messages
+    render :edit_profile
   end
+end
+
+def destroy
+  if @user.destroy
+    redirect_to deletion_users_path
+  else
+    flash[:notice] = 'アカウント削除できませんでした'
+    redirect_to signout_users_path(current_user.id)
+  end
+end
 
 protected
 
