@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_020312) do
     t.string "prefecture_code", null: false
     t.string "city_name", null: false
     t.string "street", null: false
+    t.string "street2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
