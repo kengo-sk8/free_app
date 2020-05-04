@@ -1,10 +1,19 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.single-container 
+  %header.signup-header
+    %h1
+      = link_to root_path do
+        = image_tag asset_path('material/logo/logo.png')
+  %main.signup-main
+    %section.signup-main__container
+      = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .signup-main__login-form-inner
+          .signup-main__form-group
+            = f.label :メールアドレス
+            = f.email_field :email, { class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可' }
+          .signup-main__form-group
+            = f.submit "メールを送信する", class: "signup-main__btn-default signup-main__btn-red"
+          .signup-main__form-group
+            = link_to "ログイン", new_session_path(resource_name)
+            = link_to "新規登録", new_registration_path(resource_name)
+  = render "devise/registrations/footer"
