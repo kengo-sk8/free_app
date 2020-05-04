@@ -13,15 +13,15 @@
               %span.form-require 必須
             %p 最大5枚までアップロードできます
             #image-box
-              #previews
+              #previews.
                 - if @item.persisted?
                   - @item.images.each_with_index do |image, i|
-                    = image_tag image.src.url, data: { index: i } #width: "100", height: '100'
+                    = image_tag image.src.url, data: { index: i } ,class: 'input-image'
               = f.fields_for :images do |image|
                 .js-file_group{"data-index" => "#{image.index}"}
                   = image.label class: 'input-image' do
-                    = icon('fas', 'camera', class: "icon_camera") 
-                    %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                    -# = icon('fas', 'camera', class: "icon_camera") 
+                    -# %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
                     = image.file_field :src, class: "js-file" #sell-upload-drop-file
                     %br/
                     %span.js-remove 削除

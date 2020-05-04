@@ -34,15 +34,14 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.text "name", null: false
     t.string "content", null: false
     t.string "category"
+    t.string "size"
+    t.string "brand"
     t.bigint "condition_id", default: 0, null: false
     t.bigint "delivery_date_id", default: 0, null: false
     t.bigint "delivery_fee_id", default: 0, null: false
     t.bigint "prefecture_id", null: false
     t.bigint "delivery_way_id", default: 0, null: false
-    t.string "price"
-    t.string "brand"
-    t.string "size"
-    t.string "seller"
+    t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["condition_id"], name: "index_items_on_condition_id"

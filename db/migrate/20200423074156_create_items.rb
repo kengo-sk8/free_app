@@ -5,15 +5,14 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text :name, null: false
       t.string :content, null: false
       t.string :category
+      t.string :size
+      t.string :brand
       t.references :condition, null: false, default: 0
       t.references :delivery_date, null: false, default: 0
       t.references :delivery_fee, null: false, default: 0
       t.references :prefecture, null: false, efault: 0
       t.references :delivery_way, null: false, default: 0
-      t.string :price
-      t.string :brand
-      t.string :size
-      t.string :seller
+      t.integer :price,null: false
       t.timestamps
       # t.integer :user_id, null: false
       # t.text :name, null: false
