@@ -81,3 +81,4 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'ancestry'
 gem 'active_hash'
+
