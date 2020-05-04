@@ -12,32 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_04_30_011640) do
 
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "postal_code", null: false
-    t.string "prefecture_code", null: false
-    t.string "city_name", null: false
-    t.string "street", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "customer_id", null: false
-    t.string "card_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
     t.text "comment"
-    t.bigint "item_id"
-    t.bigint "user_id"
+    t.string "item"
+    t.string "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_comments_on_item_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,41 +29,26 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
-  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id"
-    t.string "image", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_item_images_on_item_id"
-  end
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.text "name", null: false
-    t.string "content"
-    t.string "price", null: false
-    t.integer "prefecture_code", null: false
-    t.integer "status", default: 0, null: false
-    t.bigint "deliverymethod_id", null: false
-    t.bigint "deliveryburden_id", null: false
-    t.bigint "deliverydate_id", null: false
-    t.bigint "brand_id", null: false
-    t.bigint "upper_category_id", null: false
-    t.bigint "middle_category_id", null: false
-    t.bigint "lower_category_id", null: false
-    t.bigint "size_id", null: false
-    t.bigint "seller_id", null: false
+    t.string "content", null: false
+    t.string "category"
+    t.string "size"
+    t.string "brand"
+    t.bigint "condition_id", default: 0, null: false
+    t.bigint "delivery_date_id", default: 0, null: false
+    t.bigint "delivery_fee_id", default: 0, null: false
+    t.bigint "prefecture_id", null: false
+    t.bigint "delivery_way_id", default: 0, null: false
+    t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id"
-    t.index ["deliveryburden_id"], name: "index_items_on_deliveryburden_id"
-    t.index ["deliverydate_id"], name: "index_items_on_deliverydate_id"
-    t.index ["deliverymethod_id"], name: "index_items_on_deliverymethod_id"
-    t.index ["lower_category_id"], name: "index_items_on_lower_category_id"
-    t.index ["middle_category_id"], name: "index_items_on_middle_category_id"
-    t.index ["seller_id"], name: "index_items_on_seller_id"
-    t.index ["size_id"], name: "index_items_on_size_id"
-    t.index ["upper_category_id"], name: "index_items_on_upper_category_id"
+    t.index ["condition_id"], name: "index_items_on_condition_id"
+    t.index ["delivery_date_id"], name: "index_items_on_delivery_date_id"
+    t.index ["delivery_fee_id"], name: "index_items_on_delivery_fee_id"
+    t.index ["delivery_way_id"], name: "index_items_on_delivery_way_id"
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,16 +57,6 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "nickname", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name_kana", null: false
-    t.string "phone_number"
-    t.integer "birthday_year_id", null: false
-    t.integer "birthday_moon_id", null: false
-    t.integer "birthday_day_id", null: false
-    t.text "self_introduce"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -108,5 +64,4 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
   end
 
   add_foreign_key "images", "items"
-  add_foreign_key "item_images", "items"
 end

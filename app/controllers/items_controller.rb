@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   # before_action :set_product, except: [:index, :new, :create]
 
   def index
+    @items = Item.all
   end
 
   def new
@@ -12,18 +13,25 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      render :create
     else
+      @image = @item.images.build
       render :new
     end
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item .destroy
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
   def update
-    # if @item.update(item_params)
-    #   redirect_to root_path
-    # else
-    #   render :edit
-    # end
+    item = Item.find(params[:id])
+    item.update(item_params)
   end
 
   private
