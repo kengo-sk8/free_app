@@ -13,7 +13,7 @@
               %span.form-require 必須
             %p 最大5枚までアップロードできます
             #image-box
-              #previews.
+              #previews
                 - if @item.persisted?
                   - @item.images.each_with_index do |image, i|
                     = image_tag image.src.url, data: { index: i } ,class: 'input-image'
