@@ -14,11 +14,11 @@ class User < ApplicationRecord
   has_one :card 
 
   #正規表現の代入
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i  #@が必要
-  VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/  #半角指定 ハイフンなし
-  VALID_KATAKANA_REGEX = /\A[\p{katakana}\p{blank}ー－]+\z/  #カタカナ
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d!@#\$%\^\&*\)\(+=._-]{7,100}\z/i  #パスワード
-  VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i  #住所
+  # VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i  #@が必要
+  # VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/  #半角指定 ハイフンなし
+  # VALID_KATAKANA_REGEX = /\A[\p{katakana}\p{blank}ー－]+\z/  #カタカナ
+  # VALID_PASSWORD_REGEX = /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d!@#\$%\^\&*\)\(+=._-]{7,100}\z/i  #パスワード
+  # VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i  #住所
 
 
 

@@ -61,7 +61,7 @@ form {
 }
 
 .icon_camera{
-  margin-top: 40px; 
+  margin-top: 50px; 
   width: 20px;
   height: 20px;
 }
@@ -75,14 +75,20 @@ form {
   display: -webkit-box;
   display: flex;
   margin: 16px auto o;
-
 }
 
-.sell-dropbox-container.state-image-number-10 {
+// #previews{
+//   width: 100px;
+//   height: 100px;
+// }
+
+
+.sell-dropbox-container{
   display: block;
   width: 620px;
   height: 162px;
   margin: 16px 0px 0px 0px;
+  display: inline;
   .sell-upload-items {
     &.have-item-0 {
       width: 0;
@@ -111,7 +117,6 @@ form {
     &-container {
       display: inline;
     }
-    display: inline;
   }
 
   .sell-upload-drop-box {
@@ -150,29 +155,32 @@ form {
     float: right;
     display: none;
 
-    .sell-upload-drop-file {
-      width: 100%;
-      height: 100%;
-    }
-
-    pre {
-      position: absolute;
-      top: 50%;
-      left: 16px;
-      right: 16px;
-      text-align: center;
-      font-size: 14px;
-      line-height: 1.5;
-      transform: translate(0, -50%);
-      pointer-events: none;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      border: none;
-    }
   }
 }
 
-.sell-upload-items {
+
+.js-file {  //sell-upload-drop-file
+  width: 100%;
+  height: 100%;
+}
+
+pre {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  right: 16px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  transform: translate(0, -50%);
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: none;
+}
+
+
+#previews {
   .sell-upload-item {
     width: 105px;
     height: 100%;
@@ -251,11 +259,17 @@ i[class^='icon-'], i[class*='icon-'] {
   font-family: 'icon-font';
   speak: none;
   font-style: normal;
-  font-weight: 400;
+font-weight: 400;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
+}
+
+.input-image{
+  // input{
+  //   display: none;
+  // }
 }
 
 .sell-content {
@@ -345,6 +359,7 @@ i[class^='icon-'], i[class*='icon-'] {
 .select-default {
   position: relative;
   z-index: 2;
+  width: 100%;
   height: 48px;
   padding: 0 16px;
   border-radius: 4px;

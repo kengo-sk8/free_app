@@ -1,4 +1,142 @@
 .single-container
-  = render "shared/new-header"
-  = render "shared/item-new-form"
-  = render "shared/new-footer"
+  = render "header"
+  %main.single-main
+  %section.l-single-container.buy-item-container
+    #sell-container
+      .sell-container-inner
+        %h2.l-single-head
+          商品の情報を入力
+        = form_with model: @item,local: true, class: "sell-form" do |f|
+          .sell-upload-box
+            %h3.sell-upload-head
+              出店画像
+              %span.form-require 必須
+            %p 最大5枚までアップロードできます
+            #image-box
+              #previews.
+                - if @item.persisted?
+                  - @item.images.each_with_index do |image, i|
+                    = image_tag image.src.url, data: { index: i } ,class: 'input-image'
+              = f.fields_for :images do |image|
+                .js-file_group{"data-index" => "#{image.index}"}
+                  = image.label class: 'input-image' do
+                    -# = icon('fas', 'camera', class: "icon_camera") 
+                    -# %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                    = image.file_field :src, class: "js-file" #sell-upload-drop-file
+                    %br/
+                    %span.js-remove 削除
+                  - if @item.persisted?
+                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                - if @item.persisted?
+                  .js-file_group{"data-index" => "#{@item.images.count}"}
+                    = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                    .js-remove 削除
+          .sell-content
+            .form-group
+              %label
+                商品名
+                %span.form-require 必須
+              %div
+                = f.text_field :name, placeholder: "商品名 (必須 40文字まで)", class: "input-default"
+            .form-group
+              %label
+                商品の説明
+                %span.form-require 必須
+              = f.text_area :content, placeholder: "商品の説明 (必須1000文字以内) (色、素材、重さ、定価、注意点など) 例)1900年頃のヴィンテージアウターです。ブラックで少し汚れがあります。あなたのハートを射止めます！", rows: "5", class: "textarea-default"
+          .sell-content.clearfix
+            %h3.sell-sub-head 商品の詳細
+            .sell-form-box
+              .form-group.category
+                %label
+                  カテゴリー
+                  %span.form-require 必須
+                %div
+                  .select-wrap.upper
+                    = f.text_field :category, placeholder: "カテゴリー", class: "select-default", id: "upper_category" 
+              .form-group
+                %label
+                  ブランド
+                  %span.form-require-sub 任意
+                %div
+                  .select-wrap
+                    = f.text_field :brand, placeholder: "例)シャネル", class: "select-default" 
+              .form-group
+                %label
+                  商品の状態
+                  %span.form-require 必須 
+                %div
+                  .select-wrap
+                    = f.collection_select :condition_id, Condition.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    -# = f.text_field :status, placeholder: "商品の状態", class: "select-default" 
+          .sell-content.clearfix
+            %h3.sell-sub-head 配送について
+            = link_to "?", "#", target: "_blank", class: "form-question"
+            .sell-form-box
+              .form-group.burden
+                %label
+                  配送料の負担
+                  %span.form-require 必須
+                %div
+                  .select-wrap
+                    = f.collection_select :delivery_fee_id, DeliveryFee.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+              .form-group
+                %label
+                  配送方法
+                  %span.form-require 必須
+                %div
+                  .select-wrap
+                    = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+              .form-group
+                %label
+                  発送元の地域
+                  %span.form-require 必須
+                %div
+                  .select-wrap
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+              .form-group
+                %label
+                  発送までの日数
+                  %span.form-require 必須
+                %div
+                  .select-wrap
+                    = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+          .sell-content.clearfix
+            %h3.sell-sub-head 販売価格(300~9,999,999)
+            = link_to "?", "#", target: "_blank", class: "form-question"
+            .sell-form-box
+              %ul.sell-price
+                %li.form-group
+                  .clearfix
+                    %label.l-left
+                      価格
+                      %span.form-require 必須
+                    .l-right.sell-price-input
+                      %div
+                        = f.text_field :price, placeholder: "例)300", class: "input-default price"
+                %li.clearfix
+                  .l-left 販売手数料(10%)
+                  .l-right.comercial_cost -
+                %li.clearfix.bold
+                  .l-left 販売利益
+                  .l-right.profit -
+          .modal{role: "dialog", tabindex: "-1"}
+            .modal-inner
+          .sell-content.sell-btn-box
+            %div
+              %p
+                = link_to "禁止されている出品", "#"
+                、
+                = link_to "行為", "#"
+                を必ずご確認ください。
+              %p
+                またブランド品でシリアルナンバー等がある場合はご記載ください。
+                = link_to "偽ブランドの販売",  "#"
+                は犯罪であり処罰される可能性があります。
+              %p
+                また、出品にもちまして
+                = link_to "加盟店規約", "#"
+                に同意したことになります。
+            = f.button "出品する", type: "submit", class: "btn-default btn-red"
+            = link_to "もどる", root_path, class: "btn-default btn-gray"
+          .overlay
+  = render "footer"

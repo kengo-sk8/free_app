@@ -4,9 +4,9 @@
 @import "font-awesome";
 @import "color/color";
 @import "./mixin/clearfix";
-@import "sell/sell_header"; 
-@import "sell/sell_main";
-@import "sell/sell_footer";
+@import "sell/header"; 
+@import "sell/items";
+@import "sell/footer";
 @import "sell/item_comment";
 @import "sell/item_detail";
 @import "sell/listing_item_change";
@@ -14,4 +14,3 @@
 @import "users/users_footer";
 @import "users/users_header";
 @import "users/users_main";
-

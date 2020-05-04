@@ -1,15 +1,12 @@
 class ItemsController < ApplicationController
-  
+  # before_action :set_product, except: [:index, :new, :create]
+
   def index
   end
 
   def new
     @item = Item.new
-
-    respond_to do |format|
-      format.html
-      format.json
-    end
+    @item.images.build
   end
 
   def create
@@ -21,17 +18,18 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    # アイテム・ユーザー情報の表示に必要なデータが現在テーブルに無いので、マークアップ優先で表示する為にdbに関係する項目はコメントアウトをしています
-    # @comment = Comment.new
-    # @items = @selling_items.where(user_id: @item.user.id).where.not(id: @item.id)
-    # @brand_items = @selling_items.where(brand_id: @item.brand.id).where.not(id: @item.id)
+  def update
+    # if @item.update(item_params)
+    #   redirect_to root_path
+    # else
+    #   render :edit
+    # end
   end
 
   private
-
   def item_params
-    params.require(:item).permit(:name, :price, :prefecture_code, :content, :upper_category_id, :middle_category_id, :lower_category_id, :size_id, :brand_id, :delivery_burden_id, :delivery_date_id, :delivery_method_id, :status_id, :condition_id, :purchase_status, item_images_attributes: [:id, :image])
-  end
+    params.require(:item).permit(:name, :content,:category,:brand, :condition_id, :delivery_fee_id, :delivery_way_id, :prefecture_code, :prefecture_id, :delivery_date_id, :price,images_attributes: [:src])
+  end  
+
 
 end
