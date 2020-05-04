@@ -1,7 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  def index
-  end
-
+  
   def new
     @user = User.new
   end
