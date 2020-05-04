@@ -35,17 +35,21 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.string "content", null: false
     t.string "category"
     t.bigint "condition_id", default: 0, null: false
+    t.bigint "delivery_date_id", default: 0, null: false
+    t.bigint "delivery_fee_id", default: 0, null: false
+    t.bigint "prefecture_id", null: false
+    t.bigint "delivery_way_id", default: 0, null: false
     t.string "price"
-    t.string "prefecture_code"
-    t.string "deliverymethod"
-    t.string "deliveryburden"
-    t.string "deliverydate"
     t.string "brand"
     t.string "size"
     t.string "seller"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["condition_id"], name: "index_items_on_condition_id"
+    t.index ["delivery_date_id"], name: "index_items_on_delivery_date_id"
+    t.index ["delivery_fee_id"], name: "index_items_on_delivery_fee_id"
+    t.index ["delivery_way_id"], name: "index_items_on_delivery_way_id"
+    t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
