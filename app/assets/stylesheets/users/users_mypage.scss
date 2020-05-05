@@ -1,0 +1,436 @@
+// < マイページ >
+.wrraper{ 
+  height:100%;
+  width:100%;
+  background-color: #f0efef;
+  .mypage{
+    display:flex;
+    width:75%;
+    height:1250px;
+    margin: auto;
+    padding-top:20px;
+    .mypage-side-bar{
+      width:280px;
+      margin-right:60px;
+      li{
+        border-top: 1px solid #eee;
+        &:first-child {
+          border: 0;
+        }
+      }
+      .mypage-side-bar__list-contents{
+        position: relative;
+        display: block;
+        min-height: 48px;
+        padding: 16px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+        box-sizing: border-box;
+        line-height: 14px;
+        text-decoration: none;
+      }
+      .fa-chevron-right{
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        color: #ccc;
+      }
+      a:hover {
+        background: #fafafa;
+        text-decoration: none;
+        opacity: 1;
+      }
+      h3{
+        margin-top:20px;
+      }
+      .mypage-side-bar__nav-head{
+        margin-top:20px;
+      }
+    }
+    .mypage-content{
+      width:700px;
+      height:1000px;
+      .user_box{
+        background-image: image-url("sakura.jpeg");
+        background-size: cover;
+        width:700px;
+        height: 200px;
+        float: left;
+        text-align: center;
+        padding-top: 20px;
+        img{
+          border-radius: 50%;
+          height:60px;
+          width: 60px;
+        }
+        &__name{
+          font-weight: bold;
+          color: #333;
+        }
+        &__info{
+          display: flex;
+          justify-content: center;
+          &__transactions{
+            padding-left:30px;
+          }
+        }
+      }
+      .tabs {
+        margin-top: 50px;
+        padding-bottom:60px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        width: 700px;
+        margin: 0 auto;
+      }
+      .tab_item {
+        width: calc(100%/2);
+        height: 50px;
+        border-top: 1px solid red;
+        background-color: #d9d9d9;
+        line-height: 50px;
+        font-size: 16px;
+        text-align: center;
+        color: #565656;
+        display: block;
+        float: left;
+        text-align: center;
+        font-weight: bold;
+        transition: all 0.2s ease;
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+      input[name="tab_item"] {
+        display: none;
+      }
+      .tab_content {
+        display: none;
+        padding: 40px 40px 0;
+        clear: both;
+        overflow: hidden;
+        .mypage-item__list-link{
+          display: block;
+          min-height: 80px;
+          padding: 16px 16px 40px 16px;
+          color: #333;
+          figure{
+            overflow: hidden;
+            float: left;
+            width: 48px;
+            height: 80px;
+            position: relative;
+            bottom:20px;
+            img{
+              height:48px;
+              width:48px;
+            }
+            a{
+              text-decoration: none;
+              touch-action: manipulation;
+              border-style: solid;
+              border-width: 0;
+              font-size: inherit;
+              text-decoration: none;
+              display: block;
+              height: 112px;
+              margin: 0 auto;
+              background: #eee;
+              color: #333;
+              line-height: 112px;
+              text-align: center;
+            }
+            .mypage-item__body{
+              margin-top: 15px;
+              .mypage-item__text{
+                padding-top: 5px;;
+              }
+            }
+          }
+        }
+        .mypage-content__item-index{
+          border: 0;
+          position: relative;
+          background-color:rgb(163, 158, 158);
+          color: #fff;
+          text-shadow: none;
+          display: list-item;
+          text-align: center;
+          line-height: inherit;
+          a{
+            display: block;
+            height: 56px;
+            margin: 0 auto;
+            background: #eee;
+            color: #333;
+            line-height: 56px;
+            text-align: center;
+            touch-action: manipulation;
+            padding: 0;
+            border-style: solid;
+            border-width: 0;
+            list-style: none;
+            text-decoration: none;
+            cursor: pointer;
+            &:hover {
+              background-color:white;
+            }
+          }
+        }
+      }
+      #all:checked ~ #all_content, #doing:checked ~ #doing_content {
+        display: block;
+      }
+      .tabs input:checked + .tab_item {
+        background-color: white;
+        color: black;
+      }
+    }
+    .transaction-box{
+      height:200px;
+      width:100%;
+    }
+    .footer{
+      height:100px;
+      width:100%;
+      background-color:blue;
+    }
+  }
+}
+// < 本人情報変更ページ >
+.wrraper{
+  height:100%;
+  width:100%;
+  .mypage{
+    display:flex;
+    width:75%;
+    height:1250px;
+    margin: auto;
+    padding-top:20px;
+    .user-content-main{
+      width: 700px;
+      height: 950px;
+      background-color: white;
+      .user-group{
+        width: 700px;
+        height: 950px;
+        background-color: white;
+        .title{
+          height: 100px;
+          width: 700px;
+          border-bottom: 1px solid #eee;
+          line-height: 100px;
+          text-align: center;
+          font-size: 22px;
+        }
+        .error{
+          height: 80px;
+          width: 350px;
+          margin: auto;
+          text-align: center;
+          padding-top: 10px;
+        }
+        .name,
+        .name-read{
+          height: 130px;
+          width: 350px;
+          margin: 20px auto;
+          .name-group,
+          .name-read-group{
+            height: 100px;
+            width: 350px;
+            display: flex;
+            .first,
+            .last,
+            .first-read,
+            .last-read{
+              .first-name-field,
+              .last-name-field,
+              .first-name-read-field,
+              .last-name-read-field{
+                height: 45px;
+                width: 160px;
+                border: 1px solid rgb(234, 232, 232);
+                border-radius: 5px;
+                padding-left: 5px;
+                margin: 10px 10px 0px 0px;
+              }
+            }
+          }
+        }
+        .birthday{
+          height: 100px;
+          width: 350px;
+          margin-bottom: 25px;
+          margin: 20px auto;
+          .birthday-select{
+            #user_birthday_1i,
+            #user_birthday_2i,
+            #user_birthday_3i{
+              height: 45px;
+              width: 90px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 10px;
+              background-color: white;
+            }
+          }
+        }
+        .passward,
+        .passward-two{
+          height: 100px;
+          width: 350px;
+          margin: auto;
+          .passward-group{
+            .title-pass{
+              height: 25px;
+              width: 350px;
+            }
+            .field{
+              .passward-field{
+                height: 45px;
+                width: 350px;
+                border: 1px solid rgb(234, 232, 232);
+                border-radius: 5px;
+                padding-left: 5px;
+              }
+            }
+          }
+          .passward-tow-group{
+            .passward-two-field{
+              height: 45px;
+              width: 350px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 5px;
+            }
+          }
+        }
+        .send{
+          height: 100px;
+          width: 350px;
+          margin-bottom: 25px;
+          margin: auto;
+          .send-btn{
+            height: 45px;
+            width: 100%;
+            background-color: red;
+            font-size: 15px;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 5px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+// < 電話番号変更ページ >
+.wrraper{
+  height:100%;
+  width:100%;
+  .mypage{
+    display:flex;
+    width:75%;
+    height:1250px;
+    margin: auto;
+    padding-top:20px;
+    .phone-change{
+      width: 700px;
+      height: 750px;
+      .phone-group{
+        width: 700px;
+        height: 650px;
+        background-color: white;
+        .title{
+          height: 100px;
+          width: 700px;
+          border-bottom: 1px solid #eee;
+          line-height: 100px;
+          text-align: center;
+          font-size: 22px;
+        }
+        .error{
+          height: 70px;
+          width: 350px;
+          margin: auto;
+          text-align: center;
+          padding-top: 10px;
+        }
+        .phone{
+          height: 100px;
+          width: 350px;
+          margin-bottom: 25px;
+          margin:10px auto;
+          .phone-num{
+            height: 100px;
+            width: 100%;
+            margin: auto;
+            .phone-field{
+              height: 45px;
+              width: 338px;
+              outline: none;
+              border-radius: 5px;
+              padding-left: 10px;
+              border: 1px solid rgb(234, 232, 232);
+            }
+          }
+        }
+        .pass,
+        .passward-two{
+          height: 100px;
+          width: 350px;
+          margin:10px auto;
+          .pass-group,
+          .passward-tow-group{
+            height: 50px;
+            width: 100%;
+            margin: auto;
+            .title-pass{
+              height: 25px;
+              width: 338px;
+            }
+            .field{
+              height: 45px;
+              width: 338px;
+              .pass-field{
+                height: 45px;
+                width: 338px;
+                outline: none;
+                border-radius: 5px;
+                padding-left: 10px;
+                border: 1px solid rgb(234, 232, 232);
+              }
+            }
+            .passward-two-field{
+              height: 45px;
+              width: 338px;
+              outline: none;
+              border-radius: 5px;
+              padding-left: 10px;
+              border: 1px solid rgb(234, 232, 232);
+            }
+          }
+        }
+        .send{
+          height: 100px;
+          width: 350px;
+          margin-bottom: 25px;
+          margin: 20px auto;
+          .send-btn{
+            height: 45px;
+            width: 100%;
+            background-color: red;
+            font-size: 15px;
+            text-align: center;
+            line-height: 45px;
+            border-radius: 5px;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
