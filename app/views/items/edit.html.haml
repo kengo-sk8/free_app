@@ -7,6 +7,7 @@
         %h2.l-single-head
           商品の情報を入力
         = form_with model: @item,local: true, class: "sell-form" do |f|
+          -# - binding.pry
           .sell-upload-box
             %h3.sell-upload-head
               出店画像
@@ -50,16 +51,25 @@
                 %label
                   カテゴリー
                   %span.form-require 必須
-                %div
-                  .select-wrap.upper
-                    = f.text_field :category, placeholder: "カテゴリー", class: "select-default", id: "upper_category" 
+                  .select-wrap
+                    - @parents.each do |parent|
+                      - if @item.category_id == parent.id
+                        .select-wrap__box.parent
+                          = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択して下さい", selected: parent.parent.parent.id}, {id: "parent"})
+                          %i.fa.fa-angle-down
+                        .child-edit
+                          = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.parent.id}, {id: "child"})
+                          %i.fa.fa-angle-down
+                        .grand_child-edit
+                          = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.id}, {id: "grand_child"})
+                          %i.fa.fa-angle-down
               .form-group
                 %label
                   サイズ
                   %span.form-require 必須 
                 %div
                   .select-wrap
-                    = f.collection_select :size_id, Size.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select(:size_id, Size.where(params[:size_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
               .form-group
                 %label
                   ブランド
@@ -73,7 +83,7 @@
                   %span.form-require 必須 
                 %div
                   .select-wrap
-                    = f.collection_select :condition_id, Condition.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select(:condition_id, Condition.where(params[:condition_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
           .sell-content.clearfix
             %h3.sell-sub-head 配送について
             = link_to "?", "#", target: "_blank", class: "form-question"
@@ -84,28 +94,28 @@
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.collection_select :delivery_fee_id, DeliveryFee.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select(:delivery_fee_id, DeliveryFee.where(params[:delivery_fee_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
               .form-group
                 %label
                   配送方法
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select(:delivery_way_id, DeliveryWay.where(params[:delivery_way_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
               .form-group
                 %label
                   発送元の地域
                   %span.form-require 必須
                 %div
-                  .select-wrap
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                  .select-wrap                                                    
+                    = f.collection_select(:prefecture_id, Prefecture.where(params[:prefecture_id]), :id, :name, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
               .form-group
                 %label
                   発送までの日数
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select(:delivery_date_id, DeliveryDate.where(params[:delivery_date_id,]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
           .sell-content.clearfix
             %h3.sell-sub-head 販売価格(300~9,999,999)
             = link_to "?", "#", target: "_blank", class: "form-question"

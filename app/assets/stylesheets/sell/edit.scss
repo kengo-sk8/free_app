@@ -1,0 +1,26 @@
+.child-edit {
+  position: relative;
+  .fa-angle-down {
+    position: absolute;
+    right: 16px;
+    top: 40%;
+    z-index: 10;
+    color: #888;
+    font-size: 25px;
+    transform: translate(0, -50%);
+    float: right;
+  }
+}
+.grand_child-edit {
+  position: relative;
+  .fa-angle-down {
+    position: absolute;
+    right: 16px;
+    top: 40%;
+    z-index: 10;
+    color: #888;
+    font-size: 25px;
+    transform: translate(0, -50%);
+    float: right;
+  }
+}
