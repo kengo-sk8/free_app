@@ -49,10 +49,27 @@
               .form-group.category
                 %label
                   カテゴリー
-                  %span.form-require 必須
+                  .select-wrap
+                    .select-wrap__box.parent
+                      %select#parent.select-wrap__box--select
+                        %option{value: 0} 選択して下さい
+                        - @parents.each do |parent|
+                          %option{value: "#{parent.id}"} #{parent.main_name}
+                      %i.fa.fa-angle-down
+                    .child
+                      %select#child.select-wrap__box--select
+                      %i.fa.fa-angle-down
+                      
+            .grand_child
+              = f.collection_select(:category_id, [], :id, :main_name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
+              %i.fa.fa-angle-down
+              .form-group
+                %label
+                  サイズ
+                  %span.form-require 必須 
                 %div
-                  .select-wrap.upper
-                    = f.text_field :category, placeholder: "カテゴリー", class: "select-default", id: "upper_category" 
+                  .select-wrap
+                    = f.collection_select :size_id, Size.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
               .form-group
                 %label
                   ブランド

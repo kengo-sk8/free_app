@@ -99,7 +99,78 @@ form {
 }
 
 
-.sell-dropbox-container{
+.select-wrap {
+  margin: 8px 0 0;
+  &__box {
+    position: relative;
+    .fa-angle-down {
+      position: absolute;
+      right: 16px;
+      top: 40%;
+      z-index: 10;
+      color: #888;
+      font-size: 25px;
+      transform: translate(0, -50%);
+      float: right;
+    }
+    &--select {
+      width: 100%;
+      margin-bottom: 15px;
+      z-index: 2;
+      height: 48px;
+      padding: 0 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+  }
+  .child {
+    display: none;
+    position: relative;
+    .fa-angle-down {
+      position: absolute;
+      right: 16px;
+      top: 40%;
+      z-index: 10;
+      color: #888;
+      font-size: 25px;
+      transform: translate(0, -50%);
+      float: right;
+    }
+  }
+  .grand_child {
+    display: none;
+    position: relative;
+    .fa-angle-down {
+      position: absolute;
+      right: 16px;
+      top: 40%;
+      z-index: 10;
+      color: #888;
+      font-size: 25px;
+      transform: translate(0, -50%);
+      float: right;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#aaaaaa{
   display: block;
   width: 620px;
   height: 162px;

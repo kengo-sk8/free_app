@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_011640) do
+ActiveRecord::Schema.define(version: 2020_05_05_043636) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "postal_code", null: false
+    t.string "prefecture_code", null: false
+    t.string "city_name", null: false
+    t.string "street", null: false
+    t.string "street2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["item_id"], name: "index_categories_on_item_id"
+  end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -33,10 +54,10 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.integer "user_id"
     t.text "name", null: false
     t.string "content", null: false
-    t.string "category"
     t.string "size"
     t.string "brand"
     t.bigint "condition_id", default: 0, null: false
+    t.bigint "size_id", default: 0, null: false
     t.bigint "delivery_date_id", default: 0, null: false
     t.bigint "delivery_fee_id", default: 0, null: false
     t.bigint "prefecture_id", null: false
@@ -49,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.index ["delivery_fee_id"], name: "index_items_on_delivery_fee_id"
     t.index ["delivery_way_id"], name: "index_items_on_delivery_way_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["size_id"], name: "index_items_on_size_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,6 +79,16 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "nickname", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
+    t.string "phone_number"
+    t.integer "birthday_year_id", null: false
+    t.integer "birthday_moon_id", null: false
+    t.integer "birthday_day_id", null: false
+    t.text "self_introduce"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
