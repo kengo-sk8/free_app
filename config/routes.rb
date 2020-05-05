@@ -27,6 +27,11 @@ Rails.application.routes.draw do
 
   root 'items#index'
   resources :items do   
+    collection do
+      get 'items/new/mid_category', to: 'items#mid_category'
+      get 'items/new/small_category', to: 'items#small_category'
+    end
   end  
-
 end
+
+

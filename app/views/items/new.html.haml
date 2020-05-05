@@ -54,15 +54,15 @@
                       %select#parent.select-wrap__box--select
                         %option{value: 0} 選択して下さい
                         - @parents.each do |parent|
-                          %option{value: "#{parent.id}"} #{parent.main_name}
-                      %i.fa.fa-angle-down
+                          %option{value: "#{parent.id}"} #{parent.name}
+                      -# %i.fa.fa-angle-down
                     .child
                       %select#child.select-wrap__box--select
-                      %i.fa.fa-angle-down
-                      
-            .grand_child
-              = f.collection_select(:category_id, [], :id, :main_name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
-              %i.fa.fa-angle-down
+                      -# %i.fa.fa-angle-down
+                    .grand_child
+                      = f.collection_select(:category_id, [], :id, :name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
+                      -# %i.fa.fa-angle-down
+              
               .form-group
                 %label
                   サイズ
