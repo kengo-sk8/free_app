@@ -74,6 +74,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'listen'
 gem "haml-rails"
 gem 'devise'
+gem 'payjp'
 gem 'pry-rails'
 gem 'font-awesome-sass'
 gem 'carrierwave'
