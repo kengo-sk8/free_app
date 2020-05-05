@@ -1,0 +1,51 @@
+= render "items/header"
+.header-under
+  .box-under
+    .categoty-link
+      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
+      -# = render "products/category_list"
+    .bland-link
+      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
+    .gretel-link
+      -# - breadcrumb :address
+      -# = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
+  -# = render "products/under"
+
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .address-change
+      = form_for @address, url: user_path ,method: :patch do |f|
+        .address-change-header
+          .change-title
+            発送元・お届け先住所変更
+          .change-group
+            = render "devise/shared/error_messages", resource: @address
+            .zip-code
+              = f.label :郵便番号
+              %span.form-group__require 必須
+              .zip-code-group
+                = f.text_field :postal_code, { class: 'signup-main__input-default', placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
+            .prefecture
+              = f.label :都道府県
+              %span.form-group__require 必須
+              .prefecture-group
+                = f.select :prefecture_code, Address.prefectures.keys, {}, class: 'signup-main__input-default'
+            .city
+              = f.label :市区町村
+              %span.form-group__require 必須
+              .city-group
+                = f.text_field :city_name,  { class: 'signup-main__input-default', placeholder: '例) 名古屋市緑区', value: '' }
+            .address
+              = f.label :番地
+              %span.form-group__require 必須
+              .address-group
+                = f.text_field :street, { class: 'signup-main__input-default', placeholder: "例）青葉1-1-1"}
+            .address-last
+              = f.label :建物名
+              %span.form-group__any 任意
+              .address-last-group
+                = f.text_field :street2, { class: 'signup-main__input-default', placeholder: '例) 栄ビル100' }
+            .change-btn
+              = f.submit '変更する',class: "send-btn"
+= render 'items/footer'
