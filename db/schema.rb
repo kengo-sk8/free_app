@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2020_05_05_043636) do
     t.integer "user_id"
     t.text "name", null: false
     t.string "content", null: false
-    t.string "size"
     t.string "brand"
+    t.bigint "category_id", default: 0, null: false
     t.bigint "condition_id", default: 0, null: false
     t.bigint "size_id", default: 0, null: false
     t.bigint "delivery_date_id", default: 0, null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_043636) do
     t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["condition_id"], name: "index_items_on_condition_id"
     t.index ["delivery_date_id"], name: "index_items_on_delivery_date_id"
     t.index ["delivery_fee_id"], name: "index_items_on_delivery_fee_id"
@@ -68,6 +69,16 @@ ActiveRecord::Schema.define(version: 2020_05_05_043636) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "nickname", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
+    t.string "phone_number"
+    t.integer "birthday_year_id", null: false
+    t.integer "birthday_moon_id", null: false
+    t.integer "birthday_day_id", null: false
+    t.text "self_introduce"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

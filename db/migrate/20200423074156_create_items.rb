@@ -4,8 +4,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.text :name, null: false
       t.string :content, null: false
-      t.string :size
       t.string :brand
+      t.references :category, null: false, default: 0
       t.references :condition, null: false, default: 0
       t.references :size, null: false, default: 0
       t.references :delivery_date, null: false, default: 0
