@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 2020_05_05_043636) do
     t.string "ancestry"
     t.index ["ancestry"], name: "index_categories_on_ancestry"
     t.index ["item_id"], name: "index_categories_on_item_id"
+
+ActiveRecord::Schema.define(version: 2020_05_05_041424) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "postal_code", null: false
+    t.string "prefecture_code", null: false
+    t.string "city_name", null: false
+    t.string "street", null: false
+    t.string "street2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
