@@ -1,0 +1,196 @@
+@media screen and (min-width: 768px) {
+  .buy {
+    &--you {
+      &__pay {
+        font-size: 28px;
+      }
+    }
+  }
+}
+
+.buy {
+  &--content {
+    margin: 40px 0 0;
+    padding: 24px 12.5% 0;
+    border-top: 1px solid #f5f5f5;
+    &__inner {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    &:first-of-type {
+      margin: 0;
+    }
+  }
+  &--item {
+    text-align: center;
+    img {
+      width: 148px;
+    }
+    &__name {
+      margin: 8px 0 0;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+  &--price {
+    &__ja {
+      font-size: 28px;
+    }
+    &__table {
+      display: table;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    &__row {
+      display: table-row;
+      border-top: 1px solid $light_gray;
+      &:first-child {
+        border: 0;
+      }
+    }
+    &__cell {
+      display: table-cell;
+      padding: 16px 0;
+      text-align: right;
+      &:first-child {
+        text-align: left;
+      }
+    }
+  }
+  &--form {
+    margin: 0 auto;
+    p {
+      margin: 8px 0 0;
+      line-height: 1.5;
+    }
+  }
+  &--accordion {
+    margin: 16px 0 0;
+    .form-group {
+      margin: 0;
+    }
+  }
+  &--you {
+    &__pay {
+      font-size: 22px;
+    }
+  }
+  &--user {
+    &__info {
+      transition: all ease-out .3s;
+      h3 {
+        margin: 40px 0 0;
+        font-size: 14px;
+        &:first-child {
+          margin: 0;
+        }
+      }
+      address {
+        display: block;
+      }
+      &--text {
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      &--fix {
+        display: block;
+        text-align: right;
+        span {
+          vertical-align: middle;
+        }
+        .icon-arrow-right {
+          vertical-align: middle;
+          margin: 0 0 0 8px;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+.input__default {
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid $light_gray;
+  background-color: $white;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.accordion {
+  &__toggle {
+    padding: 16px;
+    border: 1px solid $light_gray;
+    position: relative;
+    cursor: pointer;
+  }
+  &__parent>ul {
+      padding: 24px 40px;
+      background-color: $ibory_gray;
+      text-align: left;
+  }
+}
+
+.form-group {
+  margin: 0;
+  .radio__default {
+    margin: 16px 0 0;
+    label {
+      margin: 0 0 0 28px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+  }
+  .input__default {
+    width: 100%;
+    margin: 8px 0 0;
+  }
+}
+
+.radio__default {
+  position: relative;
+  input[type='radio'] {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: solid $light_gray;
+    border-radius: 50%;
+    background-color: $white;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    transform: translate(0, -50%);
+    margin: 0;
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+section {
+  display: block;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+figure {
+  margin: 0;
+}
+
+.fa-arrow-up {
+  color: $black;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity .3s;
+}

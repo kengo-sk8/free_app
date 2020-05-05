@@ -1,0 +1,96 @@
+// < 発送元・お届け先住所変更ページ scss >
+.address-change {
+  width: 700px;
+  margin: 0 auto;
+  .address-change-header {
+    width: 650px;
+    background-color: white;
+    margin: auto;
+    height: 900px;
+    .change-title {
+      height: 100px;
+      width: 100%;
+      border-bottom: 1px solid #eae8e8;
+      text-align: center;
+      line-height: 100px;
+      font-size: 28px;
+    }
+    .change-group {
+      width: 50%;
+      height: 100%;
+      margin: auto;
+      margin-top: 30px;
+      .change-btn,
+      .zip-code,
+      .city,
+      .address,
+      .address-last,
+      .prefecture {
+        height: 80px;
+        width: 100%;
+        margin-bottom: 25px;
+        .form-group__require{
+          height: 30px;
+          width: 60px;
+          background-color: red;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .form-group__any{
+          height: 30px;
+          width: 60px;
+          background-color: gray;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .send-btn{
+          height: 45px;
+          width: 100%;
+          background-color: red;
+          font-size: 15px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+        }
+        .zip-code-group,
+        .prefecture-group,
+        .city-group,
+        .address-group,
+        .address-last-group {
+          input {
+            height: 55px;
+            width: 100%;
+            display: flex;
+          }
+          .zip-code-field,
+          .city-field{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .address-field,
+          .address-last-field{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .prefecture-field{
+            height: 45px;
+            width: 160px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+          }
+        }
+      }
+    }
+  }
+}
