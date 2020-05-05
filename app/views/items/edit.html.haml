@@ -55,6 +55,13 @@
                     = f.text_field :category, placeholder: "カテゴリー", class: "select-default", id: "upper_category" 
               .form-group
                 %label
+                  サイズ
+                  %span.form-require 必須 
+                %div
+                  .select-wrap
+                    = f.collection_select :size_id, Size.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+              .form-group
+                %label
                   ブランド
                   %span.form-require-sub 任意
                 %div
@@ -67,7 +74,6 @@
                 %div
                   .select-wrap
                     = f.collection_select :condition_id, Condition.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
-                    -# = f.text_field :status, placeholder: "商品の状態", class: "select-default" 
           .sell-content.clearfix
             %h3.sell-sub-head 配送について
             = link_to "?", "#", target: "_blank", class: "form-question"
@@ -136,7 +142,7 @@
                 また、出品にもちまして
                 = link_to "加盟店規約", "#"
                 に同意したことになります。
-            = f.button "出品する", type: "submit", class: "btn-default btn-red"
+            = f.submit "出品する", class: "btn-default btn-red"
             = link_to "もどる", root_path, class: "btn-default btn-gray"
           .overlay
   = render "footer"
