@@ -3,6 +3,10 @@ main {
   display: block;
 }
 
+.products-done__body {
+  background-color:#eae8e8;
+}
+
 .single-main {
   background-color: #eee;
 }
@@ -77,9 +81,21 @@ form {
   margin: 16px auto o;
 }
 
-#image-box{
-  width: 200px;
-  display: block;
+#image-box {
+  // display: block;
+  // border: 1px dashed #ccc;
+  // position: relative;
+  // background: #f5f5f5;
+  // width: 100%;
+  // height: 162px;
+  // cursor: pointer;
+}
+
+#previews{
+  img {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 
@@ -330,14 +346,24 @@ i[class^='icon-'], i[class*='icon-'] {
   font-family: 'icon-font';
   speak: none;
   font-style: normal;
-font-weight: 400;
+  font-weight: 400;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
 
+.image-box {
+  display: flex;
+  flex-direction: column;
+  width: 560px;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .input-image{
+  // width: 300px;
+  // height: 300px;
   // input{
   //   display: none;
   // }
