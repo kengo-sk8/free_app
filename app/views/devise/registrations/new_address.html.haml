@@ -34,7 +34,7 @@
               = f.text_field :city_name,  { class: 'signup-main__input-default', placeholder: '例) 名古屋市緑区', value: '' }
             =  render partial: 'error-messages', locals: { user: @user, column: "city_name"}
 
-         .signup-main__form-group
+          .signup-main__form-group
             = f.label :番地
             %span.signup-main__form-require 必須
             - if @user .errors.full_messages_for(:city_name).any?

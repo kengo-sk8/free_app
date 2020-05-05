@@ -20,7 +20,7 @@
     - if user_signed_in?
       %ul.nav__listsright
         %li.listsRight__item
-          = link_to "マイページ"
+          = link_to "マイページ", user_path(current_user.id)
     - else
       %ul.nav__listsright
         %li.listsRight__item
