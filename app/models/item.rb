@@ -20,7 +20,7 @@ class Item < ApplicationRecord
   :name,
   :content,
   :condition,
-  # :category_id,
+  :category_id,
   :size,
   :delivery_fee,
   :delivery_way,

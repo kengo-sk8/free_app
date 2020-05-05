@@ -35,6 +35,17 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @parents = Category.all.order("id ASC").limit(607)
+  end
+
+  def mid_category
+    @mid_categories = Category.where(ancestry: params[:big_category_id])
+    render json: @mid_categories
+  end
+
+  def small_category
+    @small_categories = Category.where(ancestry: "#{params[:big_category_id]}/#{params[:mid_category_id]}")
+    render json: @small_categories
   end
 
 

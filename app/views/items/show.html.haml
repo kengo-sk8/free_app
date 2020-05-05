@@ -35,16 +35,16 @@
               %tr
                 %th カテゴリー
                 %td.category-text
-                  -# - @parents.each do |parent|
-                  -#   - if @product.category_id == parent.id
-                  -#     = link_to "#" do
-                  -#       = parent.parent.parent.main_name
-                  -#       %br
-                  -#     = link_to "#" do
-                  -#       = parent.parent.main_name
-                  -#       %br
-                  -#     = link_to "#" do
-                  -#       = parent.main_name
+                  - @parents.each do |parent|
+                    - if @item.category_id == parent.id
+                      = link_to "#" do
+                        = parent.parent.parent.name
+                        %br
+                      = link_to "#" do
+                        = parent.parent.name
+                        %br
+                      = link_to "#" do
+                        = parent.name
                      
 
 
@@ -133,12 +133,12 @@
       .product-links
         .product-links__before
           = link_to "#", class: "product-link-btn" do
-            %i.fa.fa-angle-left
+            = icon('fas', 'angle-left', class: 'image-icon')
             %span 前の商品
         .product-links__after
           = link_to "#", class: "product-link-btn" do
             %span 後ろの商品
-            %i.fa.fa-angle-right
+            = icon('fas', 'angle-right', class: 'image-icon')
       .see-more
         = link_to  'メンズをもっと見る', "#"
   = render "items/main-footer"
