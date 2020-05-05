@@ -25,13 +25,10 @@ class User < ApplicationRecord
   # 新規登録
   validates :nickname, presence: true  #空でないこと
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: 'のフォーマットが不適切です'} #一意性(ユニーク)
-  validates :password, presence: true, length: { in: 7..100 }, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'} #7文字以上100文字以下
-  validates :password_confirmation, presence: true, length: { in: 7..100 }, format: { with: VALID_PASSWORD_REGEX, message: 'は英字と数字両方を含むパスワードを設定してください'} #パスワードの再度確認
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :first_name_kana, presence: true, format: { with: VALID_KATAKANA_REGEX, message: 'はカタカナで入力して下さい'}
   validates :last_name_kana, presence: true, format: { with: VALID_KATAKANA_REGEX, message: 'はカタカナで入力して下さい'}
-  validates :phone_number, presence: true
   validates :birthday_year_id, presence: true
   validates :birthday_moon_id, presence: true
   validates :birthday_day_id, presence: true
