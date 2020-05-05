@@ -76,4 +76,3 @@ class CardsController < ApplicationController
   end
 end
 
-end
