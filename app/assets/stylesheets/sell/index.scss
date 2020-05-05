@@ -600,10 +600,12 @@ img {
         height: 240px;
         margin: 10px 60px 100px 0;
         z-index: 1;
-        .show-btn,
-        .no-btn {
-          text-decoration: none;
-          
+        .show-btn {
+          // text-decoration: none;
+          img {
+            // width: 200px;
+            // height: 200px;
+          }
         }
         .photo {
           width: 200px;
@@ -645,7 +647,7 @@ img {
   &__sixth {
     height: 450px;
     background-color: #f8f8f8;
-    padding: 40px 0 0;
+    padding: 70px 0 0;
     &__top {
       height: 100px;
       text-align: center;
@@ -675,9 +677,12 @@ img {
         height: 240px;
         margin-top: 10px;
         margin-bottom: 100px;
-        .show-btn,
-        .no-btn {
-          text-decoration: none;
+        .show-btn {
+          // text-decoration: none;
+          img {
+            width: 200px;
+            height: 200px;
+          }
         }
         .photo {
           width: 200px;
@@ -910,6 +915,7 @@ img {
 // アプリバナー
 .appBanner {
   background-image:image-url("bg-appBanner-pict.jpg");
+  margin-top: 50px;
   padding: 100px 40px;
   position: relative;
   background-size: cover;

@@ -21,7 +21,7 @@
                 .js-file_group{"data-index" => "#{image.index}"}
                   = image.label class: 'input-image' do
                     -# = icon('fas', 'camera', class: "icon_camera") 
-                    -# %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                    -# %pre.visible-pc クリックしてファイルをアップロード
                     = image.file_field :src, class: "js-file" #sell-upload-drop-file
                     %br/
                     %span.js-remove 削除
