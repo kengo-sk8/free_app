@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, only: [:edit, :show]
 
   def index
     @items = Item.all
@@ -20,13 +20,13 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def destroy
     item = Item.find(params[:id])
     item .destroy
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
@@ -34,10 +34,17 @@ class ItemsController < ApplicationController
     item.update(item_params)
   end
 
+  def shoW
+  end
+
+
   private
   def item_params
-    params.require(:item).permit(:name, :content,:category,:brand, :condition_id, :delivery_fee_id, :delivery_way_id, :prefecture_code, :prefecture_id, :delivery_date_id, :price,images_attributes: [:src])
+    params.require(:item).permit(:name, :content,:category, :size_id, :brand, :condition_id, :delivery_fee_id, :delivery_way_id, :prefecture_code, :prefecture_id, :delivery_date_id, :price,images_attributes: [:src])
   end  
 
+  def set_product
+    @item = Item.find(params[:id])
+  end
 
 end

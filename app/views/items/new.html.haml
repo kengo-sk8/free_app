@@ -55,6 +55,13 @@
                     = f.text_field :category, placeholder: "カテゴリー", class: "select-default", id: "upper_category" 
               .form-group
                 %label
+                  サイズ
+                  %span.form-require 必須 
+                %div
+                  .select-wrap
+                    = f.collection_select :size_id, Size.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+              .form-group
+                %label
                   ブランド
                   %span.form-require-sub 任意
                 %div

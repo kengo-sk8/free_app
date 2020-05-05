@@ -8,6 +8,7 @@ class Item < ApplicationRecord
   # belongs_to :category
   
   belongs_to_active_hash :condition, resence: true
+  belongs_to_active_hash :size, presence: true
   belongs_to_active_hash :delivery_date, presence: true
   belongs_to_active_hash :delivery_fee, presence: true
   belongs_to_active_hash :prefecture, presence: true
@@ -19,7 +20,7 @@ class Item < ApplicationRecord
   :content,
   :condition,
   # :category_id,
-  # :size,
+  :size,
   :delivery_fee,
   :delivery_way,
   :prefecture,

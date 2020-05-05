@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.string "size"
     t.string "brand"
     t.bigint "condition_id", default: 0, null: false
+    t.bigint "size_id", default: 0, null: false
     t.bigint "delivery_date_id", default: 0, null: false
     t.bigint "delivery_fee_id", default: 0, null: false
     t.bigint "prefecture_id", null: false
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.index ["delivery_fee_id"], name: "index_items_on_delivery_fee_id"
     t.index ["delivery_way_id"], name: "index_items_on_delivery_way_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["size_id"], name: "index_items_on_size_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
