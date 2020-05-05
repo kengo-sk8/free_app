@@ -133,12 +133,12 @@
       .product-links
         .product-links__before
           = link_to "#", class: "product-link-btn" do
-            %i.fa.fa-angle-left
+            = icon('fas', 'angle-left', class: 'image-icon')
             %span 前の商品
         .product-links__after
           = link_to "#", class: "product-link-btn" do
             %span 後ろの商品
-            %i.fa.fa-angle-right
+            = icon('fas', 'angle-right', class: 'image-icon')
       .see-more
         = link_to  'メンズをもっと見る', "#"
   = render "items/main-footer"
