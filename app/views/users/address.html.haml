@@ -25,27 +25,27 @@
               = f.label :郵便番号
               %span.form-group__require 必須
               .zip-code-group
-                = f.text_field :postal_code, { class: 'signup-main__input-default', placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
+                = f.text_field :postal_code, { class: 'zip-code-field', placeholder: '例) 123-4567', maxlength: '8', pattern: '\d{3}-\d{4}', value: '' }
             .prefecture
               = f.label :都道府県
               %span.form-group__require 必須
               .prefecture-group
-                = f.select :prefecture_code, Address.prefectures.keys, {}, class: 'signup-main__input-default'
+                = f.select :prefecture_code, Address.prefectures.keys, {}, class: 'prefecture-field'
             .city
               = f.label :市区町村
               %span.form-group__require 必須
               .city-group
-                = f.text_field :city_name,  { class: 'signup-main__input-default', placeholder: '例) 名古屋市緑区', value: '' }
+                = f.text_field :city_name,  { class: 'city-field', placeholder: '例) 名古屋市緑区', value: '' }
             .address
               = f.label :番地
               %span.form-group__require 必須
               .address-group
-                = f.text_field :street, { class: 'signup-main__input-default', placeholder: "例）青葉1-1-1"}
+                = f.text_field :street, { class: 'address-field', placeholder: "例）青葉1-1-1"}
             .address-last
               = f.label :建物名
               %span.form-group__any 任意
               .address-last-group
-                = f.text_field :street2, { class: 'signup-main__input-default', placeholder: '例) 栄ビル100' }
+                = f.text_field :street2, { class: 'address-last-field', placeholder: '例) 栄ビル100' }
             .change-btn
               = f.submit '変更する',class: "send-btn"
 = render 'items/footer'

@@ -1,5 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  
+  before_action :configure_sign_up_params, only: [:create]
+
   def new
     @user = User.new
   end
@@ -29,6 +30,60 @@ class Users::RegistrationsController < Devise::RegistrationsController
       sign_in(:user, @user)
     else
       render :new
+    end
+  end
+
+  def edit_profile
+    @profile = User.find(params[:id])
+  end
+
+  def update_profile
+    @profile = User.find(params[:id])
+    if @profile.update(account_update_params)
+      sign_in(:user, @profile)
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:alert] = @profile.errors.full_messages
+      render :edit_profile
+    end
+  end
+
+  def edit_phone
+    @phone = User.find(params[:id])
+  end
+
+  def update_phone
+    @phone = User.find(params[:id])
+    if @phone.update(account_update_params)
+      sign_in(:user, @phone)
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:alert] = @phone.errors.full_messages
+      render :edit_phone
+    end
+  end
+
+  def edit_introduce
+    @introduce = User.find(params[:id])
+  end
+
+  def update_introduce
+    @introduce = User.find(params[:id])
+    if @introduce.update(account_update_params)
+      sign_in(:user, @introduce)
+      redirect_to user_path(current_user.id)
+    else
+      flash.now[:alert] = @introduce.errors.full_messages
+      render :edit_introduce
+    end
+  end
+
+  def destroy
+    if @user.destroy
+      redirect_to deletion_users_path
+    else
+      flash[:notice] = 'アカウント削除できませんでした'
+      redirect_to signout_users_path(current_user.id)
     end
   end
 
