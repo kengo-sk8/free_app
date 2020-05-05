@@ -34,14 +34,19 @@
               = f.text_field :city_name,  { class: 'signup-main__input-default', placeholder: '例) 名古屋市緑区', value: '' }
             =  render partial: 'error-messages', locals: { user: @user, column: "city_name"}
 
-          -# .signup-main__form-group
-          -#   = f.label :番地
-          -#   %span.signup-main__form-group__require 必須
-          -#   = f.text_field :address, autofocus: true, placeholder: "例）青葉1-1-1", class: 'form-group__input'
+         .signup-main__form-group
+            = f.label :番地
+            %span.signup-main__form-require 必須
+            - if @user .errors.full_messages_for(:city_name).any?
+              = f.text_field :street, { class: 'signup-main__input-default signup-main__input-default--has-error', placeholder: "例）青葉1-1-1", value: '' }
+            - else
+              = f.text_field :street, { class: 'signup-main__input-default', placeholder: "例）青葉1-1-1"}
+            =  render partial: 'error-messages', locals: { user: @user, column: "street"}
+
           .signup-main__form-group
-            = f.label :番地・建物名 
+            = f.label :建物名 
             %span.signup-main__form-arbitrary 任意
-            = f.text_field :street, { class: 'signup-main__input-default', placeholder: '例) 栄ビル100' }
+            = f.text_field :street2, { class: 'signup-main__input-default', placeholder: '例) 栄ビル100' }
           .signup-main__form-group
             = f.submit '登録する', class: 'signup-main__btn-default signup-main__btn-red'
   = render "footer"
