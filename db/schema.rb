@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_011640) do
+ActiveRecord::Schema.define(version: 2020_05_05_041424) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "postal_code", null: false
+    t.string "prefecture_code", null: false
+    t.string "city_name", null: false
+    t.string "street", null: false
+    t.string "street2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -37,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.string "size"
     t.string "brand"
     t.bigint "condition_id", default: 0, null: false
+    t.bigint "size_id", default: 0, null: false
     t.bigint "delivery_date_id", default: 0, null: false
     t.bigint "delivery_fee_id", default: 0, null: false
     t.bigint "prefecture_id", null: false
@@ -49,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_011640) do
     t.index ["delivery_fee_id"], name: "index_items_on_delivery_fee_id"
     t.index ["delivery_way_id"], name: "index_items_on_delivery_way_id"
     t.index ["prefecture_id"], name: "index_items_on_prefecture_id"
+    t.index ["size_id"], name: "index_items_on_size_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
