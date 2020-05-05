@@ -63,8 +63,8 @@
 ## Cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
-|customer_id|integer|null: false|
+|user|references|null: false, foreign_key: true|
+|customer_id|string|null: false|
 |card_id|string|null: false|
 
 ## Association
