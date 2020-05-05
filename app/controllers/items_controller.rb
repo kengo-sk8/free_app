@@ -34,13 +34,13 @@ class ItemsController < ApplicationController
     item.update(item_params)
   end
 
-  def shoW
+  def show
   end
 
 
   private
   def item_params
-    params.require(:item).permit(:name, :content,:category, :size_id, :brand, :condition_id, :delivery_fee_id, :delivery_way_id, :prefecture_code, :prefecture_id, :delivery_date_id, :price,images_attributes: [:src])
+    params.require(:item).permit(:name, :content, :category_id, :size_id, :brand, :condition_id, :delivery_fee_id, :delivery_way_id, :prefecture_code, :prefecture_id, :delivery_date_id, :price,images_attributes: [:src])
   end  
 
   def set_product
