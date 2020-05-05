@@ -35,6 +35,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @parents = Category.all.order("id ASC").limit(607)
   end
 
   def mid_category
