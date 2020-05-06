@@ -1,4 +1,6 @@
+// 投稿編集画面用
 .child-edit {
+  display: none;
   position: relative;
   .fa-angle-down {
     position: absolute;
@@ -11,8 +13,10 @@
     float: right;
   }
 }
+
 .grand_child-edit {
   position: relative;
+  display: none;
   .fa-angle-down {
     position: absolute;
     right: 16px;
