@@ -1,0 +1,39 @@
+= render "items/header"
+.header-under
+  .box-under
+    .categoty-link
+      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
+      -# = render "products/category_list"
+    .bland-link
+      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
+  -#   .gretel-link
+  -#     - breadcrumb :phone
+  -#     = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
+  -# = render "products/under"
+
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .phone-change
+      = form_for @phone, url: update_phone_path do |f|
+        .phone-group
+          .title
+            電話番号変更
+          .error
+            = render "devise/shared/error_messages", resource: @phone
+          .phone
+            = f.label :携帯電話の番号
+            .phone-num
+              = f.text_field :phone_number,class: "phone-field",placeholder: "例)080-1234-5678",id: "phone-num"
+          .pass
+            .pass-group
+              .title-pass
+                = f.label "変更確認のためパスワードを入力してください"
+              .field
+                = f.password_field :password,placeholder: "7文字以上の半角英数字",class: "pass-field",id: "pass",autocomplete: 'off'
+          .passward-two
+            .passward-tow-group
+              = f.password_field :password_confirmation, autocomplete: "password_confirmation",placeholder: "パスワード再入力",class: "passward-two-field",id: "pass-two"
+          .send
+            = f.submit '変更する',class: "send-btn"
+= render 'items/footer'

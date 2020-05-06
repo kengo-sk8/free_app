@@ -71,7 +71,7 @@
     設定
   %ul.mypage-side-bar__list
     %li
-      -# = link_to edit_profile_path(current_user.id), class: 'mypage-side-bar__list-contents' do
+      = link_to edit_profile_path(current_user.id), class: 'mypage-side-bar__list-contents' do
         プロフィール
         = icon 'fas', 'chevron-right'
     %li
@@ -87,11 +87,11 @@
         メール/パスワード
         = icon 'fas', 'chevron-right'
     %li
-      -# = link_to edit_introduce_path(current_user.id), class: 'mypage-side-bar__list-contents' do
+      = link_to edit_introduce_path(current_user.id), class: 'mypage-side-bar__list-contents' do
         本人情報
         = icon 'fas', 'chevron-right'
     %li
-      -# = link_to edit_phone_path(current_user.id), class: 'mypage-side-bar__list-contents' do
+      = link_to edit_phone_path(current_user.id), class: 'mypage-side-bar__list-contents' do
         電話番号の確認
         = icon 'fas', 'chevron-right'
     %li
