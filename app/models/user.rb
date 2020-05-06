@@ -33,6 +33,7 @@ class User < ApplicationRecord
   validates :birthday_moon_id, presence: true
   validates :birthday_day_id, presence: true
 
+
   def birthday
     "#{BirthYear.find(self.birthday_year_id).year}/#{BirthMoom.find(self.birthday_moom_id).month}/#{BirthDay.find(self.birthday_day_id).day}"
   end

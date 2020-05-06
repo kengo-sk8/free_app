@@ -431,6 +431,7 @@
     &__container {
     width: 700px;
     margin: 0 auto;
+    padding: 40px;
     }
     &__inner{
       padding: 64px;
@@ -497,4 +498,8 @@
       }
     }
   }
+}
+
+.signup-container {
+  background-color: #eee;
 }
