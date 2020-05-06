@@ -1,0 +1,41 @@
+= render "items/header"
+.header-under
+  .box-under
+    .categoty-link
+      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
+      -# = render "products/category_list"
+    .bland-link
+      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
+    -# .gretel-link
+    -#   - breadcrumb :card
+    -#   = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
+  -# = render "products/under"
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .chapter__container-two
+      .chapter__head 
+        支払い方法
+      .payment__main
+        .payment__list
+          .payment__list__content
+            .sub__head 
+              クレジットカード一覧
+        .card__payment__list
+          %form.card__payment__content
+          .card__list
+            .card__list__picture
+              = image_tag "#{@card_src}", width: '60', height: '40', alt: @card_brand, id: "card_image"
+          .card__number 
+            = "**** **** **** " + @default_card_information.last4
+          .expire__date 
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            %input{ type: "hidden", name: "card_id", value: "" }
+            %button.delete__button 削除する
+        .how__not__regist
+          .how-font
+            支払い方法について
+= render 'items/footer'
