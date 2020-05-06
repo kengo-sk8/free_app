@@ -1,0 +1,124 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: "は既に使用されています。"
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+            password:
+              taken: "は既に使用されています。"
+              blank: "が入力されていません。"
+              too_short: "は%{count}文字以上に設定して下さい。"
+              too_long: "は%{count}文字以下に設定して下さい。"
+              invalid: "は有効でありません。"
+              confirmation: "が内容とあっていません。"
+    attributes:
+      user:
+        current_password: "現在のパスワード"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
+        nickname: ニックネーム
+        first_name: "姓"
+        last_name: "名"
+        first_name_read: "姓カナ"
+        last_name_read: "名カナ"
+        phone_num: "電話番号"
+        birthday: "生年月日"
+      address:
+        zip_code: "郵便番号"
+        prefecture_id: "都道府県"
+        city: "市区町村"
+        address1: "番地"
+        address2: "建物名"
+    models:
+      user: "ユーザ"
+      address: "送付先情報"
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: "アカウント確認メール再送"
+    mailer:
+      confirmation_instructions:
+        action: "アカウント確認"
+        greeting: "ようこそ、%{recipient}さん!"
+        instruction: "次のリンクでメールアドレスの確認が完了します:"
+      reset_password_instructions:
+        action: "パスワード変更"
+        greeting: "こんにちは、%{recipient}さん!"
+        instruction: "誰かがパスワードの再設定を希望しました。次のリンクでパスワードの再設定が出来ます。"
+        instruction_2: "あなたが希望したのではないのなら、このメールは無視してください。"
+        instruction_3: "上のリンクにアクセスして新しいパスワードを設定するまで、パスワードは変更されません。"
+      unlock_instructions:
+        action: "アカウントのロック解除"
+        greeting: "こんにちは、%{recipient}さん!"
+        instruction: "アカウントのロックを解除するには下のリンクをクリックしてください。"
+        message: "ログイン失敗が繰り返されたため、アカウントはロックされています。"
+    passwords:
+      edit:
+        change_my_password: "パスワードを変更する"
+        change_your_password: "パスワードを変更"
+        confirm_new_password: "確認用新しいパスワード"
+        new_password: "新しいパスワード"
+      new:
+        forgot_your_password: "パスワードを忘れましたか?"
+        send_me_reset_password_instructions: "パスワードの再設定方法を送信する"
+    registrations:
+      edit:
+        are_you_sure: "本当に良いですか?"
+        cancel_my_account: "アカウント削除"
+        currently_waiting_confirmation_for_email: "%{email} の確認待ち"
+        leave_blank_if_you_don_t_want_to_change_it: "空欄のままなら変更しません"
+        title: "%{resource}編集"
+        unhappy: "気に入りません"
+        update: "更新"
+        we_need_your_current_password_to_confirm_your_changes: "変更を反映するには現在のパスワードを入力してください"
+      new:
+        sign_up: "アカウント登録"
+    sessions:
+      new:
+        sign_in: "ログイン"
+    shared:
+      links:
+        back: "戻る"
+        didn_t_receive_confirmation_instructions: "アカウント確認のメールを受け取っていませんか?"
+        didn_t_receive_unlock_instructions: "アカウントの凍結解除方法のメールを受け取っていませんか?"
+        forgot_your_password: "パスワードを忘れましたか?"
+        sign_in: "ログイン"
+        sign_in_with_provider: "%{provider}でログイン"
+        sign_up: "アカウント登録"
+    unlocks:
+      new:
+        resend_unlock_instructions: "アカウントの凍結解除方法を再送する"
+    failure:  
+      deleted_account: "このアカウントは既に削除されています。"
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%m/%d"
+      long: "%Y年%m月%d日(%a)"
+
+    day_names: [日曜日, 月曜日, 火曜日, 水曜日, 木曜日, 金曜日, 土曜日]
+    abbr_day_names: [日, 月, 火, 水, 木, 金, 土]
+
+    month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+    abbr_month_names: [~, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月]
+
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      short: "%y/%m/%d %H:%M"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
+    am: "午前"
+    pm: "午後"
