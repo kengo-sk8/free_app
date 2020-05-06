@@ -111,7 +111,7 @@
                 相手のことを考え丁寧なコメントを心がけましょう。
               %p
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            = form_for [@product, @comment], html: { id: :new_comment } do |f|
+            -# = form_for [@product, @comment], html: { id: :new_comment } do |f|
               = f.text_area :text, class: "comment-area"
               .comment-btn
                 = f.submit "", class: "comment-btn__submit"
