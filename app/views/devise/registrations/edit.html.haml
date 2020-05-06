@@ -1,3 +1,4 @@
+
 = render "items/header"
 .header-under
   .box-under
@@ -10,6 +11,7 @@
     -#   - breadcrumb :edit_mail
     -#   = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
   -# = render "products/under"
+= render "items/main-header"
 .wrraper
   .mypage
     = render 'users/side-bar'
@@ -46,4 +48,5 @@
                 = f.password_field :password_confirmation, autocomplete: "password_confirmation",placeholder: "新しいパスワード再入力",class: "new-pass-two-field",id: "pass-two"
             .send
               = f.submit "変更する",class: "send-btn"
-= render 'items/footer'
+= render 'items/main-footer'
+

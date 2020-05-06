@@ -1,7 +1,12 @@
 .mypage-content
   %a.user_box
-    %h2.user_box__name
-      = @user.nickname
+    %figure
+      -# - if @user.user_image?
+        = image_tag @user.user_image.url 
+      - else 
+        = image_tag 'member_photo_noimage_thumb.png'
+      %h2.user_box__name
+        = @user.nickname
     .user_box__info
       %h2.user_box__info__evalution
         評価
@@ -20,7 +25,7 @@
       %li
         %a.mypage-item__list-link{href: "#"}
           %figure
-            -# = image_tag 'hako1.png'
+            = image_tag 'hako1.png'
           .mypage-item__body
             .mypage-item__text 事務局からのメッセージ
           %time
@@ -32,12 +37,11 @@
       %li
         %a.mypage-item__list-link{href: "#"}
           %figure
-            -# = image_tag 'hako1.png'
+            = image_tag 'hako1.png'
           .mypage-item__body
             .mypage-item__text 現在やることはありません
             %time
               %i.icon-time
               %span 15時間前
-          %i.icon-arrow-right
       %li.mypage-content__item-index
         %a{href: "#"} 一覧を見る

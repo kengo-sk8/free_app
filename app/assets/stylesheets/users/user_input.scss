@@ -1,0 +1,1189 @@
+// < devise、ウィザード形式、ユーザー情報、scss >
+// < 登録選択画面 >
+.user-main{
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  overflow: hidden;
+  .user-header{
+    height: 90px;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+    .icon-user-top{
+      height: 70px;
+      width: 210px;
+      vertical-align: middle;
+    }
+  }
+  .user-new{
+    height: 500px;
+    width: 800px;
+    margin: 50px  auto;
+    background-color: white;
+    .user-new-title{
+      height: 110px;
+      width: 100%;
+      background-color: white;
+      font-size: 30px;
+      text-align: center;
+      line-height: 110px;
+      border-bottom: 1px solid rgb(230, 230, 230);
+    }
+    .link-list{
+      height: 500px;
+      width: 400px;
+      margin: 50px auto;
+      .email-check{
+        height: 70px;
+        width: 400px;
+        background-color: red;
+        border-radius: 5px;
+        margin-top:20px;
+        text-align: center;
+        line-height: 70px;
+        position: relative;
+        .email-font{
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+          padding-right: 20px;
+          display: block;
+          position: absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+        }
+        .email-icon{
+          font-size: 30px;
+          color: white;
+          float: left;
+          padding: 23px 0px 0px 20px;
+        }
+      }
+      .facebook{
+        height: 70px;
+        width: 400px;
+        background-color: rgb(61, 61, 111);
+        border-radius: 5px;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 70px; 
+        position: relative;
+        .facebook-btn{
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+          padding-right: 20px;
+          position: absolute;
+          top:0;
+          left:0;
+          width:100%;
+          height:100%;
+        }
+        .facebook-icon{
+          font-size: 30px;
+          color: white;
+          float: left;
+          padding: 23px 0px 0px 20px;
+        }
+      }
+      .google{
+        height: 68px;
+        width: 398px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 70px; 
+        position: relative;
+        .google-font{
+          padding-right: 20px;
+          .google-btn{
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+            position: absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+          }
+          .google-photo{
+            float: left;
+            padding: 0px 0px 0px 20px;
+            .google-photo-size{
+              height: 30px;
+              width: 30px;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// < 新規登録ページ ヘッダー>
+.user-header{
+  height: 100px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  padding-bottom: 20px;
+  .user-field{
+    height: 100px;
+    width: 660px;
+    margin: auto;
+    .user-header-icon{
+      height: 100px;
+      width: 300px;
+      line-height: 100px;
+      float: left;
+      text-align: center;
+      .user-top{
+        height: 70px;
+        width: 210px;
+        vertical-align: middle;
+      }
+    }
+    .user-header-now{
+      height: 100px;
+      width: 360px;
+      line-height: 100px;
+      float: right;
+      display: flex;
+      .class-one{
+        height: 100px;
+        width: 120px;
+        .class-first{
+          height: 45px;
+          width: 120px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .icon-class-red{
+          border-radius: 50%;
+          background-color: red;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+          position: relative;
+          .user-bottom-1{
+            height: 50px;
+            width: 120px;
+            border-top: 2px solid gray;
+            background-color: rgba(0,0,0,0.0);
+            position: absolute;
+            top: 6px;
+            margin-left: 14px;
+          }
+          .user-bottom-red-1{
+            height: 50px;
+            width: 120px;
+            border-top: 2px solid red;
+            background-color: rgba(0,0,0,0.0);
+            position: absolute;
+            top: 6px;
+            margin-left: 14px;
+          }
+        }
+      }
+      .class-two{
+        height: 100px;
+        width: 120px;
+        .class-second{
+          height: 45px;
+          width: 120px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .icon-class-gray-one{
+          border-radius: 50%;
+          background-color: gray;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+          position: relative;
+          .user-bottom-2{
+            height: 50px;
+            width: 116px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin-left: 14px;
+          }
+          .user-bottom-gray-2{
+            height: 50px;
+            width: 116px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin-left: 14px;
+          }
+        }
+        .icon-class-red-one{
+          border-radius: 50%;
+          background-color: red;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+          position: relative;
+          .user-bottom-red-2{
+            height: 50px;
+            width: 116px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin-left: 14px;
+          }
+          .user-bottom-red-3{
+            height: 50px;
+            width: 106px;
+            border-top: 2px solid red;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin: 0px 14px 0px 14px;
+          }
+          .user-bottom-gray-3{
+            height: 50px;
+            width: 106px;
+            border-top: 2px solid gray;
+            position: absolute;
+            top: 6px;
+            background-color: rgba(0,0,0,0.0);
+            margin: 0px 14px 0px 14px;
+          }
+        }
+      }
+      .class-thrry{
+        height: 100px;
+        width: 120px;
+        .class-third{
+          height: 45px;
+          width: 120px;
+          line-height: 50px;
+          text-align: center;
+        }
+        .icon-class-gray-two{
+          border-radius: 50%;
+          background-color: gray;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+        }
+        .icon-class-red-two{
+          border-radius: 50%;
+          background-color: red;
+          height: 14px;
+          width: 14px;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+// < 会員情報入力ページ >
+.user-content{
+  height: 1600px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .user-content-all{
+    width: 700px;
+    background-color: white;
+    margin:  auto;
+    height: 1500px;
+    .user-content-header{
+      height: 100px;
+      width: 100%;
+      border-bottom: 1px solid rgb(234, 232, 232);
+      text-align: center;
+      line-height: 100px;
+      font-size: 28px;
+    }
+    .user-content-main{
+      width: 50%;
+      height: 1000px;
+      margin: auto;
+      margin-top: 30px;
+      .nickname,
+      .name,
+      .name-read,
+      .email,
+      .pass,
+      .pass-two,
+      .phone,
+      .commit,
+      .send{
+        height: 100px;
+        width: 100%;
+        margin-bottom: 25px;
+        .form-group__require{
+          height: 30px;
+          width: 60px;
+          background-color: red;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .form-group__any{
+          height: 30px;
+          width: 60px;
+          background-color: gray;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .name-group{
+          height: 100px;
+          width: 100%;
+          display: flex;
+          margin: auto;
+          .first{
+            .first-name-field{
+              height: 45px;
+              width: 160px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 5px;
+            }
+            .first-name-field.invalid{
+              border: #ea352d 2px solid;
+            }
+            input[type=text]:focus{
+              outline: none;
+              border-color: #0098E8;
+            }
+            #first-name-error{
+              color: #ea352d;
+              line-height:20px ;
+              font-size: 10px;
+              margin-top: 8px;
+              height: 20px;
+              width: 125px;
+              text-align: left;
+              margin-left: 5px;
+            }
+          }
+          .last{
+            .last-name-field{
+              height: 45px;
+              width: 160px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 10px;
+              margin-left: 10px;
+            }
+            .last-name-field.invalid{
+              border: #ea352d 2px solid;
+            }
+            input[type=text]:focus{
+              outline: none;
+              border-color: #0098E8;
+            }
+            #last-name-error{
+              color: #ea352d;
+              line-height:20px ;
+              font-size: 10px;
+              margin-top: 8px;
+              height: 20px;
+              width: 125px;
+              text-align: left;
+              margin-left: 15px;
+            }
+          }
+        }
+        .name-read-group{
+          height: 100px;
+          width: 100%;
+          display: flex;
+          margin: auto;
+          .first-read{
+            .first-name-read-field{
+              height: 45px;
+              width: 160px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 5px;
+            }
+            #first-name-read-error{
+              color: #ea352d;
+              line-height:20px ;
+              font-size: 10px;
+              margin-top: 8px;
+              height: 20px;
+              width: 140px;
+              text-align: left;
+              margin-left: 5px;
+            }
+            .first-name-read-field.invalid{
+              border: #ea352d 2px solid;
+            }
+          }
+          .last-read{
+            .last-name-read-field{
+              height: 45px;
+              width: 160px;
+              border: 1px solid rgb(234, 232, 232);
+              border-radius: 5px;
+              padding-left: 10px;
+              margin-left: 10px;
+            }
+            #last-name-read-error{
+              color: #ea352d;
+              line-height:20px ;
+              font-size: 10px;
+              margin-top: 8px;
+              height: 20px;
+              width: 140px;
+              text-align: left;
+              margin-left: 15px;
+            }
+            .last-name-read-field.invalid{
+              border: #ea352d 2px solid;
+            }
+          }
+        }
+        .nickname-group,
+        .name-group,
+        .email-group,
+        .pass-group,
+        .pass-two-group,
+        .phone-num{
+          height: 100px;
+          width: 100%;
+          margin: auto;
+          .nickname-field,
+          .email-field,
+          .pass-field,
+          .pass-two-field,
+          .phone-field{
+            height: 45px;
+            width: 338px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .no-pass-field{
+            height: 45px;
+            width: 338px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+            text-align: center;
+            line-height: 45px;
+            color: rgb(171, 168, 168);
+          }
+          .nickname-field.invalid,
+          .email-field.invalid,
+          .pass-field.invalid,
+          .pass-two-field.invalid,
+          .phone-field.invalid{ 
+            border: #ea352d 2px solid;
+          }
+          input[type=text]:focus,
+          input[type=email]:focus,
+          input[type=password]:focus {
+            outline: none;
+            border-color: #0098E8;
+          }
+        }
+        .commit-font-first{
+          height: 20px;
+          width: 100%;
+          text-decoration: none;
+          font-size: 14px;
+          a{
+            text-decoration: none;
+            color: #3ccace;
+          }
+        }
+        .commitfont-end{
+          font-size: 14px;
+          text-align: center;
+        }
+        .send-btn{
+          height: 45px;
+          width: 100%;
+          background-color: #3CCACE;
+          font-size: 15px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+        }
+      }
+      .birthday{
+        height: 110px;
+        width: 100%;
+        margin-bottom: 25px;
+        .birthday-select{
+          line-height: 45px;
+          #user_birthday_1i{
+            height: 45px;
+            width: 90px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+            padding-left: 10px;
+            background-color: white;
+          }
+          #user_birthday_2i{
+            height: 45px;
+            width: 90px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+            padding-left: 10px;
+            background-color: white;
+          }
+          #user_birthday_3i{
+            height: 45px;
+            width: 90px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+            padding-left: 10px;
+            background-color: white;
+          }
+          #user_birthday_1i-error{
+            color: #ea352d;
+            line-height:20px ;
+            font-size: 10px;
+            height: 20px;
+            position: absolute;
+          }
+          #user_birthday_2i-error{
+            color: #ea352d;
+            line-height:20px ;
+            font-size: 10px;
+            height: 20px;
+            position: absolute;
+            left: 660px;
+          }
+          #user_birthday_3i-error{
+            color: #ea352d;
+            line-height:20px ;
+            font-size: 10px;
+            height: 20px;
+            position: absolute;
+            left: 780px;
+          }
+          #user_birthday_1i.invalid{
+            border: #ea352d 2px solid;
+            position: relative;
+          }
+          #user_birthday_2i.invalid{
+            border: #ea352d 2px solid;
+            position: relative;
+          }
+          #user_birthday_3i.invalid{
+            border: #ea352d 2px solid;
+            position: relative;
+          }
+        }
+      }
+      .use-image{
+        height: 100px;
+        width: 100px;
+        margin-bottom: 25px;
+        margin: 20px auto;
+        border-radius:  50%;
+        #user_user_image{
+          height: 100px;
+          width: 100px;
+          background-color: red;
+          border-radius: 50%;
+        }
+        .user-img-icon{
+          height: 100px;
+          width: 100px;
+          background-color: white;
+          border-radius: 100px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+        .before-icon{
+          height: 100px;
+          width: 100px;
+          background-color: white;
+          border-radius: 100px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+        .preview{
+          height: 100px;
+          width: 100px;
+          border-radius: 100px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+      }
+      .user-image-field{
+        display: none;
+      }
+    }
+  }
+}
+// < 送付先情報入力ページ コンテント>
+.user-content-two{
+  height: 1100px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .user-content-all-two{
+    width: 650px;
+    background-color: white;
+    margin:  auto;
+    height: 1000px;
+    .user-content-header{
+      height: 100px;
+      width: 100%;
+      border-bottom: 1px solid rgb(234, 232, 232);
+      text-align: center;
+      line-height: 100px;
+      font-size: 28px;
+    }
+    .user-content-main{
+      width: 50%;
+      height: 100%;
+      margin: auto;
+      margin-top: 30px;
+      .send,
+      .zip-code,
+      .city,
+      .address,
+      .address-last,
+      .prefecture{
+        height: 100px;
+        width: 100%;
+        margin-bottom: 35px;
+        .form-group__require{
+          height: 30px;
+          width: 60px;
+          background-color: red;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .form-group__any{
+          height: 30px;
+          width: 60px;
+          background-color: gray;
+          color: white;
+          padding: 3px;
+          border-radius: 5px;
+        }
+        .zip-code-group,
+        .prefecture-group,
+        .city-group,
+        .address-group,
+        .address-last-group{
+          height: 55px;
+          width: 100%;
+          .zip-code-field,
+          .city-field{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .address-field,
+          .address-last-field{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .prefecture-field{
+            height: 45px;
+            width: 160px;
+            border: 1px solid rgb(234, 232, 232);
+            border-radius: 5px;
+          }
+          .zip-code-field.invalid,
+          .prefecture-field.invalid,
+          .city-field.invalid,
+          .address-field.invalid{ 
+            border: #ea352d 2px solid;
+          }
+          input[type=text]:focus {
+            outline: none;
+            border-color: #0098E8;
+          }
+        }
+        .send-btn{
+          height: 45px;
+          width: 100%;
+          background-color: #3CCACE;
+          font-size: 15px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+        }
+      }
+    }
+  }
+}
+// < 送付先情報登録エラー文字 jquery >
+#zip-code-error,
+#prefecture-error,
+#city-error,
+#address1-error{
+  color: #ea352d;
+  line-height:20px ;
+  font-size: 10px;
+  margin-top: 8px;
+  height: 20px;
+  width: 150px;
+  text-align: left;
+  margin-left: 5px;
+}
+// < 登録完了ページ コンテント >
+.user-content-fin{
+  height: calc(100vh - 100px);
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  overflow: hidden;
+  padding-bottom: 40px;
+  .user-content-fin-main{
+    height: 400px;
+    width: 700px;
+    background-color: white;
+    margin:  auto;
+    .user-content-two-header{
+      height: 100px;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid rgb(234, 232, 232);
+      text-align: center;
+      line-height: 100px;
+      font-size: 28px;
+    }
+    .user-content-two-main{
+      height: 300px;
+      width: 100%;
+      background-color: white;
+      margin: auto;
+      .user-two-group{
+        padding-top: 50px;
+        width: 300px;
+        height: 80px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 18px;
+        margin: auto;
+      }
+      .user-thank-fin{
+        width: 300px;
+        height: 80px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 18px;
+        margin: auto;
+      }
+    }
+    .send{
+      height: 45px;
+      width: 260px;
+      margin-bottom: 25px;
+      margin: auto;
+      background-color: #3CCACE;
+      border-radius: 5px;
+      .send-btn{
+        height: 45px;
+        width: 260px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 45px;
+        border-radius: 5px;
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+// < ログインページ コンテンツ >
+.header-log{
+  height: 140px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .log-field{
+    text-align: center;
+    padding-top: 50px;
+    .icon-user-top{
+      height: 70px;
+      width: 210px;
+      vertical-align: middle;
+      line-height: 140px;
+    }
+  }
+}
+.log{
+  height: 1000px;
+  width: 100%;
+  background-color: rgb(234, 232, 232);
+  .log-in{
+    width: 650px;
+    background-color: white;
+    margin:  auto;
+    height: 800px;
+    .log-in-header{
+      height: 200px;
+      width: 100%;
+      border-bottom: 1px solid rgb(234, 232, 232);
+      text-align: center;
+      font-size: 15px;
+      .new-user-account-title{
+        width: 300px;
+        height: 50px;
+        margin: auto;
+        padding-top: 50px;
+        line-height: 75px;
+      }
+      .new-user-account-create{
+        height: 60px;
+        width: 380px;
+        background-color: #3ccace;
+        margin: auto;
+        border-radius: 5px;
+        text-align: center;
+        line-height: 60px;
+        text-decoration: none;
+        .new-user-account-btn{
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+          padding-right: 20px;
+        }
+      }
+    }
+    .log-in-main{
+      height: 200px;
+      width: 380px;
+      text-align: center;
+      margin: 30px auto;
+      .facebook{
+        height: 65px;
+        width: 380px;
+        background-color: rgb(61, 61, 111);
+        border-radius: 5px;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 65px; 
+        .facebook-btn{
+          text-decoration: none;
+          color: white;
+          font-size: 15px;
+          padding-right: 20px;
+        }
+        .facebook-icon{
+          font-size: 30px;
+          color: white;
+          float: left;
+          padding: 18px 0px 0px 20px;
+        }
+      }
+      .google{
+        height: 63px;
+        width: 378px;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 20px auto;
+        text-align: center;
+        line-height: 65px; 
+        .google-font{
+          padding-right: 20px;
+          .google-btn{
+            text-decoration: none;
+            color: black;
+            font-size: 15px;
+          }
+          .google-photo{
+            float: left;
+            padding: 0px 0px 5px 20px;
+            .google-photo-size{
+              height: 30px;
+              width: 30px;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+    .log-in-bottom{
+      height: 300px;
+      width: 380px;
+      margin: auto;
+      text-align: center;
+      .email,
+      .pass,
+      .send{
+        height: 90px;
+        width: 378px;
+        .email-group,
+        .pass-group{
+          height: 55px;
+          width: 378px;
+          .email-field,
+          .pass-field{
+            height: 45px;
+            width: 368px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+        }
+        .send-btn{
+          height: 45px;
+          width: 378px;
+          font-size: 20px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+          text-decoration: none;
+          background-color: #3CCACE;
+        }
+      }
+      .foget-pass{
+        .foget-field{
+          text-decoration: none;
+          color: #3ccace;
+        }
+      }
+    }
+  }
+}
+// < メール、パスワード変更ページ >
+.edit-email{
+  height: 700px;
+  width: 700px;
+  background-color: white;
+  .edit-email-group{
+    height: 700px;
+    width: 700px;
+    .edit-email-title{
+      height: 100px;
+      width: 700px;
+      font-size: 25px;
+      text-align: center;
+      line-height: 100px;
+      border-bottom: 1px solid rgb(230, 230, 230);
+    }
+    .edit-email-form{
+      height: 600px;
+      width: 350px;
+      margin: auto;
+      .email{
+        height: 140px;
+        width: 100%;
+        margin-bottom: 30px;
+        margin-top: 25px;
+        .email-group{
+          height: 55px;
+          width: 100%;
+          margin: auto;
+          .email-field{
+            height: 45px;
+            width: 338px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .email-field.invalid{ 
+            border: #ea352d 2px solid;
+          }
+          input[type=email]:focus {
+            outline: none;
+            border-color: #0098E8;
+          }
+        }
+      }
+      .current-pass,
+      .new-pass,
+      .new-pass-two,
+      .send{
+        height: 80px;
+        width: 100%;
+        margin-bottom: 25px;
+        .current-pass-group,
+        .new-pass-group,
+        .pass-tow-group{
+          height: 55px;
+          width: 100%;
+          margin: auto;
+          .current-pass-field,
+          .new-pass-field,
+          .new-pass-two-field{
+            height: 45px;
+            width: 338px;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(234, 232, 232);
+          }
+          .current-pass-field.invalid,
+          .new-pass-field.invalid,
+          .new-pass-two-field.invalid{ 
+            border: #ea352d 2px solid;
+          }
+          input[type=password]:focus {
+            outline: none;
+            border-color: #0098E8;
+          }
+        }
+        .send-btn{
+          height: 45px;
+          width: 350px;
+          font-size: 20px;
+          text-align: center;
+          line-height: 45px;
+          border-radius: 5px;
+          color: white;
+          text-decoration: none;
+          background-color: #3CCACE;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  .email-content{
+    color: rgb(189, 189, 189);
+    font-size: 15.3px;
+    margin-top: 20px;
+  }
+}
+// < エラーメッセージ jquery >
+#nickname-error,
+#email-error, 
+#pass-error,
+#pass-two-error,
+#now-pass-error,
+#phone-num-error {
+  color: #ea352d;
+  line-height:20px ;
+  font-size: 10px;
+  margin-top: 8px;
+  height: 20px;
+  width: 320px;
+  text-align: left;
+  margin-left: 5px;
+}
+// < デバイス初期値のエラーメッセージ >
+.error{
+  height: 60px;
+  width: 500px;
+  margin-top: 10px;
+  // width: 100%;
+  // margin: 10px auto;
+  // background-color: red;
+}
+#error_explanation{
+  color: rgb(255, 0, 0);
+  font-size: 12px;
+  height: 100px;
+  width: 100%;
+  li{
+    height: 20px;
+    width: 100%;
+    margin-top: 2px;
+  }
+}
+
+// < パスワードお忘れページ >
+.pass-content-all{
+  height: 500px;
+  width: 700px;
+  margin: auto;
+  background-color: white;
+  .user-content-header{
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    text-align: center;
+    line-height: 100px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .user-content-main{
+    .error{
+      height: 100px;
+      width: 340px;
+      margin: auto;
+      text-align: center;
+      line-height: 100px;
+    }
+    .email{
+      height: 30px;
+      width: 340px;
+      margin: auto;
+    }
+    .email-group{
+      height: 100px;
+      width: 340px;
+      margin: auto;
+      .email-field{
+        height: 45px;
+        width: 338px;
+        outline: none;
+        border-radius: 5px;
+        padding-left: 10px;
+        border: 1px solid rgb(234, 232, 232);
+      }
+    }
+    .submit{
+      height: 70px;
+      width: 340px;
+      margin: auto;
+      .send-btn{
+        height: 45px;
+        width: 350px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 45px;
+        border-radius: 5px;
+        color: white;
+        text-decoration: none;
+        background-color: #3CCACE;
+        margin-top: 10px;
+      }
+    }
+    .render{
+      height: 100px;
+      width: 340px;
+      margin: auto;
+      text-align: center;
+      .login{
+        height: 50px;
+        width: 100%;
+        line-height: 50px;
+        .log-field{
+          text-decoration: none;
+          color: rgb(151, 225, 255);
+          cursor: pointer;
+        }
+      }
+      .signup{
+        height: 50px;
+        width: 100%;
+        line-height: 30px;
+        .up-field{
+          text-decoration: none;
+          color: rgb(151, 225, 255);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
