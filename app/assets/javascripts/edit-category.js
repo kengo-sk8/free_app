@@ -8,7 +8,7 @@ $(function(){
     let parent_id = $(this).val();
     $.ajax({
       type: 'GET',
-      url: '/items/items/edit/mid_category',
+      url: '/items/items/new/mid_category',
       data: {big_category_id: parent_id},
       dataType: 'json'
     })
@@ -34,7 +34,7 @@ $(function(){
 
     $.ajax({
         type: 'GET',
-        url: '/items/items/edit/small_category',
+        url: '/items/items/new/small_category',
         data: {
           big_category_id: parent_id,
           mid_category_id: child_id

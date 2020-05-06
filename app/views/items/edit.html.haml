@@ -20,7 +20,7 @@
                     -# - binding.pry
                     = image_tag image.src.url, data: { index: i } ,class: 'input-image'
               = f.fields_for :images do |image|
-                .js-file_group{"data-index" => "#{image.index}"}
+                .js-file_group{"data-index": "#{image.index}"}
                   = image.label class: 'input-image' do
                     -# = icon('fas', 'camera', class: "icon_camera") 
                     -# %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
@@ -50,20 +50,20 @@
             .sell-form-box
               .form-group.category
                 %label
-                  カテゴリー
-                  %span.form-require 必須
-                  .select-wrap
-                    - @parents.each do |parent|
-                      - if @item.category_id == parent.id
-                        .select-wrap__box.parent
-                          = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択して下さい", selected: parent.parent.parent.id}, {id: "parent"})
-                          = icon('fas', 'angle-down', class: 'image-icon')   
-                        .child-edit
-                          = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.parent.id}, {id: "child"})
-                          = icon('fas', 'angle-down', class: 'image-icon')   
-                        .grand_child-edit
-                          = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.id}, {id: "grand_child"})
-                          = icon('fas', 'angle-down', class: 'image-icon')   
+                カテゴリー
+                %span.form-require 必須
+                .select-wrap
+                  - @parents.each do |parent|
+                    - if @item.category_id == parent.id
+                      .select-wrap__box.parent
+                        = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択して下さい", selected: parent.parent.parent.id}, {id: "parent"})
+                        = icon('fas', 'angle-down', class: 'image-icon')   
+                      .child-edit
+                        = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.parent.id}, {id: "child"})
+                        = icon('fas', 'angle-down', class: 'image-icon')   
+                      .grand_child-edit
+                        = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.id}, {id: "grand_child"})
+                        = icon('fas', 'angle-down', class: 'image-icon')   
               .form-group
                 %label
                   サイズ
@@ -153,7 +153,7 @@
                 また、出品にもちまして
                 = link_to "加盟店規約", "#"
                 に同意したことになります。
-            = f.submit "出品する", class: "btn-default btn-red"
+            = f.submit "再出品する", class: "btn-default btn-red"
             = link_to "もどる", root_path, class: "btn-default btn-gray"
           .overlay
   = render "footer"
