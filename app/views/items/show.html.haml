@@ -78,7 +78,8 @@
           .optional
             .optional__btn
               = link_to "#", class: "optional__btn__link" do
-                %i.fa.fa-flag 不適切な商品の通報
+                = icon('fas', 'flag', class: 'image-icon') 
+                不適切な商品の通報
                 
         .comments-box
           .message-box
@@ -117,19 +118,19 @@
                 = f.submit "", class: "comment-btn__submit"
                 %i.fa.fa-comment コメントする
 
-        -# - if user_signed_in? && current_user.id == @product.user_id
+          -# - if user_signed_in? && current_user.id == @product.user_id   
           .edit-btn
             = link_to "編集", edit_item_path(@item.id), class:"edit-btn__text"
           .delete-btn
             = link_to '削除する', item_path, method: :delete, class:"delete-btn__text"
         -# - elsif user_signed_in?
-          -if @product.buyer_id.present?
-            .purchase-btn-red
-              .purchase-btn-red__text
-                Sold out 
-          - else
-            .purchase-btn
-              = link_to "購入する", purchase_products_path, class:"purchase-btn__text"
+          -# -if @product.buyer_id.present?
+          -#   .purchase-btn-red
+          -#     .purchase-btn-red__text
+          -#       Sold out 
+          -# - else
+          -#   .purchase-btn
+          -#     = link_to "購入する", purchase_products_path, class:"purchase-btn__text"
       .product-links
         .product-links__before
           = link_to "#", class: "product-link-btn" do

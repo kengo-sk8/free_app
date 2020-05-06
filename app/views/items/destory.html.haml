@@ -1,0 +1,25 @@
+-# 商品削除完了画面
+.delete-done
+  .delete-done__header
+    .delete-done__header__logo
+      = link_to image_tag('logo.png', class: "btn"),root_path
+  .delete-done__main
+    %h2 商品の削除されました
+    .delete-done__main__explanation
+      %h1 あなたが出品した商品は
+      =link_to "「出品した商品一覧」",root_path, class:"btn"
+      からいつでも見ることが出来ます。
+    .delete-done__main__choice
+      .return
+        = link_to "トップページへ戻る",root_path, class:"btn"
+  .delete-done__footer
+    %ul
+      %li
+        = link_to 'プライバシーポリシー', "#", class: "footer-text"
+      %li
+        = link_to 'FURIMA利用規約', "#", class: "footer-text"
+      %li
+        = link_to '特定商取引に関する表記', "#", class: "footer-text"
+    .delete-done__footer__logo
+      = link_to image_tag('logo.png', class: "delete-done__footer__logo__icon"),root_path
+      %p © FURIMA
