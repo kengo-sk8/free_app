@@ -71,7 +71,7 @@
                   %span.form-require 必須 
                 %div
                   .select-wrap
-                    -# = f.collection_select :size_id, Size.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select :size_id, Size.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
               .form-group
                 %label
                   ブランド
@@ -85,7 +85,7 @@
                   %span.form-require 必須 
                 %div
                   .select-wrap
-                    -# = f.collection_select :condition_id, Condition.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select :condition_id, Condition.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
           .sell-content.clearfix
             %h3.sell-sub-head 配送について
             = link_to "?", "#", target: "_blank", class: "form-question"
@@ -96,28 +96,28 @@
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    -# = f.collection_select :delivery_fee_id, DeliveryFee.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select :delivery_fee_id, DeliveryFee.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
               .form-group
                 %label
                   配送方法
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    -# = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
               .form-group
                 %label
                   発送元の地域
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    -# = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
               .form-group
                 %label
                   発送までの日数
                   %span.form-require 必須
                 %div
                   .select-wrap
-                    -# = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
+                    = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
           .sell-content.clearfix
             %h3.sell-sub-head 販売価格(300~9,999,999)
             = link_to "?", "#", target: "_blank", class: "form-question"
