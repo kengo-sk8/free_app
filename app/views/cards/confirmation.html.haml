@@ -1,0 +1,33 @@
+= render "items/header"
+.header-under
+  .box-under
+    .categoty-link
+      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
+      -# = render "products/category_list"
+    .bland-link
+      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
+    .gretel-link
+      -# - breadcrumb :card
+      -# = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
+  -# = render "products/under"
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .chapter__container
+      .chapter__head 
+        支払い方法
+      .payment__main    
+        .payment__list
+          .payment__list__content
+            .sub__head
+              クレジットカード一覧
+        .add__card
+          .payment__list__content
+            = link_to edit_card_path(current_user), class: "red__btn", data: {"turbolinks" => false} do
+              .card-icon-one
+              = icon('fas', 'credit-card', class: "card__icon")
+              クレジットカードを追加する
+      .not__regist
+        .not-font
+          支払い方法について
+= render 'items/footer'
