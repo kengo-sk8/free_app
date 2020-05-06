@@ -1,15 +1,4 @@
-= render "items/header"
-.header-under
-  .box-under
-    .categoty-link
-      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
-      -# = render "products/category_list"
-    .bland-link
-      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
-    -# .gretel-link
-    -#   - breadcrumb :edit_card
-    -#   = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
-  -# = render "products/under"
+= render "items/main-header"
 .wrraper
   .mypage
     = render 'users/side-bar'
@@ -21,22 +10,22 @@
             .form__content
               %label.payment__card カード番号
               %span.require__form 必須
-              = text_field_tag "number", "", class: "number input__deafult", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+              = text_field_tag "number", "", class: "input__deafult", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
               %ul.card-info__list
                 %li
-                  = image_tag 'visa.png', width: '40', height: '30'
+                  = image_tag "visa.png", alt: "visa", class: "visa"
                 %li
-                  = image_tag 'ms.png', width: '34', height: '20'
+                  = image_tag "ms.png", alt: "ms", class: "ms"
                 %li
-                  = image_tag 'dc.png', width: '30', height: '20'
+                  = image_tag "dc.png", alt: "dc", class: "dc"
                 %li
-                  = image_tag 'dis.png', width: '30', height: '45'
+                  = image_tag "dis.png", alt: "dis", class: "dis"
                 %li
-                  = image_tag 'saison.png', width: '21', height: '20'
+                  = image_tag "saison.png", alt: "saison", class: "saison"
                 %li
-                  = image_tag 'ame.png', width: '30', height: '20'
+                  = image_tag "ame.png", alt: "ame", class: "ame"
                 %li
-                  = image_tag 'jcb.png', width: '32', height: '20'
+                  = image_tag "jcb.png", alt: "jcb", class: "jcb"
             .form__content.top__margin
               %label.payment__card 有効期限
               %span.require__form 必須
@@ -87,4 +76,4 @@
                   %span.card カードの裏面の番号とは？
             #card_token
             = submit_tag "追加する", id: "token_submit", class: "btn-a"
-= render 'items/footer'
+= render 'items/main-footer'
