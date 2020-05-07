@@ -1,0 +1,10 @@
+.delete-done
+  .delete-done__header
+    .delete-done__header__logo
+      = link_to image_tag('logo.png', class: "btn"),root_path
+  .delete-done__main
+    .delete-accont
+      アカウントの削除が完了しました。
+    .new-account
+      = link_to "新規登録画面はこちらから",new_user_registration_path, class:"btn"
+= render 'items/footer'
