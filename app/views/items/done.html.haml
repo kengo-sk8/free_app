@@ -1,0 +1,38 @@
+-# 商品購入完了画面
+= render "header"
+  .purchase-done__main
+    .purchase-done__main__up
+      %h2 発送をお待ちください
+      %h3 出品者からの発送通知をお待ち下さい
+    .purchase-done__main__explanation
+      %h1 購入が完了しました
+    .purchase-done__main__box
+      .product 
+        .photo
+          = image_tag @item.images[0].image.url, size: '200x200'
+    .name
+      = "商品名 #{@item.name}"
+    .detail
+      .money
+        ="送料込み ¥#{@item.price}"
+    .purchase-done__main__delivery
+      .address
+        %ul.address--delivery
+          配送先
+        %li=@product.user.address.zip_code
+        %li="#{current_user.address.prefecture_id} #{current_user.address.city} #{current_user.address.address1}#{current_user.address.address2}"
+        %li="購入者 #{current_user.first_name} #{current_user.last_name} " 
+    .purchase-done__main__payment
+      .method
+        %ul.method--number
+          支払方法
+          %li
+            = "**** **** **** " + @default_card_information.last4
+          %li
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+    .purchase-done__main__return
+      .purchase-done__main__return__box
+        =link_to 'TOPページへ戻る',root_path, class:"return_btn"
+  = render "footer"
