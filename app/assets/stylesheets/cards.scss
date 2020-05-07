@@ -1,15 +1,15 @@
 
-.wrraper{ 
+.wrraper { 
   height:100%;
   width:100%;
   background-color: #f0efef;
-  .mypage{
+  .mypage {
     display:flex;
     width:75%;
     height:1250px;
     margin: auto;
     padding-top:20px;
-    .chapter__container{
+    .chapter__container {
       width: 700px;
       height: 400px;
       background-color: white;
@@ -21,11 +21,11 @@
         font-size: 25px;
         border-bottom: 1px solid #eee;
       }
-      .payment__main{
+      .payment__main {
         height: 199px;
         width: 100%;
         border-bottom: 1px solid #eee;
-        .payment__list{
+        .payment__list {
           font-size: 16px;
           font-weight: 550;
           width: 400px;
@@ -33,10 +33,10 @@
           margin: 0 auto;
           line-height: 160px;
         }
-        .add__card{
+        .add__card {
           width: 400px;
           height: 60px;
-          background-color: red;
+          background-color: #3CCACE;
           margin: auto;
           text-align: center;
           line-height: 60px;
@@ -45,7 +45,7 @@
               text-decoration: none;
               color: white;
             }
-            .card-icon-one{
+            .card-icon-one {
               .card__icon{
                 color: white;
               }
@@ -66,11 +66,11 @@
   }
 }
 // < クレカ登録ページ editアクション >
-.main__content{
+.main__content {
   width: 100%;
   height: 600px;
   background-color:white ;
-  .chapter__container{
+  .chapter__container {
     padding: 8px 24px;
     margin: 0 auto;
     h2{
@@ -78,17 +78,17 @@
       font-size: 25px;
       font-weight: 600;
     }
-    .chapter__container__inner{
+    .chapter__container__inner {
       padding: 8px 24px;
       margin: 0 auto;
       width: 100%;
-      max-width: 320px;
-      .form__main__container{
-        .form__content{
-          .input__deafult{
-            width: 300px;
+      max-width: 380px;
+      .form__main__container {
+        .form__content {
+          .input__deafult {
+            width: 100%;
             margin: 8px 0 0;
-            height: 25px;
+            // height: 25px;
             padding: 10px 8px;
             border-radius: 4px;
             border: 1px solid #ccc;
@@ -104,10 +104,38 @@
               display: inline-block;
               margin: 0 0 0 8px;
               vertical-align: middle;
+              .visa {
+                  width: 30px;
+                  height: 20px;
+              }
+              .ms {
+                width: 30px;
+                height: 20px;
+              }
+              .dc {
+                width: 30px;
+                height: 20px;
+              }
+              .dis {
+                width: 30px;
+                height: 20px;
+              }
+              .saison {
+                width: 25px;
+                height: 20px;
+              }
+              .ame {
+                width: 30px;
+                height: 20px;
+              }
+              .jcb {
+                width: 40px;
+                height: 30px;
+              }
             }
           }
-          .require__form{
-            background: #ea352d;
+          .require__form {
+            background: #3CCACE;
             margin: 4px 0 0 8px;
             padding: 0 4px;
             border-radius: 2px;
@@ -116,14 +144,14 @@
             vertical-align: top;
           }
         }
-        .form__content.top__margin{
+        .form__content.top__margin {
           margin-top:20px;
           margin-bottom:20px;
-          .select__box.top__margin{
+          .select__box.top__margin {
             display:flex;
-            .select__box__half{
+            .select__box__half {
               width:50%;
-              .select__default{
+              .select__default {
                 height: 45px;
                 width: 70px;
                 border: 1px solid #eae8e8;
@@ -134,11 +162,11 @@
             }
           }
         }
-        .form__content.top__margin{
+        .form__content.top__margin {
           .cvc{
-            width: 300px;
+            width: 100%;
             margin: 8px 0 0;
-            height: 25px;
+            // height: 25px;
             padding: 10px 8px;
             border-radius: 4px;
             border: 1px solid #ccc;
@@ -151,12 +179,12 @@
             margin-top: 8px;
             display: flex;
             justify-content: flex-end;
-            .single__code__text{
-              .form__question{
+            .single__code__text {
+              .form__question {
                 color: #0099e8;
                 font-size:14px;
               }
-              .card{
+              .card {
                 color: #0099e8;
                 font-size:14px;
               }
@@ -165,17 +193,17 @@
         }
       }
     }
-    label{
+    label {
       font-weight: 600;
       display: inline-block;
       touch-action: manipulation;
     }
-    .btn-a{
+    .btn-a {
       height:70px;
       width:100%;
       color:white;
-      background: #ea352d;
-      border: 1px solid #ea352d;
+      background: #3CCACE;
+      border: 1px solid #3CCACE;
       scroll-padding-top: 40px;
       text-decoration: none;
       font-family: sans-serif;
@@ -188,17 +216,17 @@
   }
 }
 // < クレカ支払い方法ページ showアクション >
-.wrraper{ 
+.wrraper { 
   height:100%;
   width:100%;
   background-color: #f0efef;
-  .mypage{
+  .mypage {
     display:flex;
     width:75%;
     height:1250px;
     margin: auto;
     padding-top:20px;
-    .chapter__container-two{
+    .chapter__container-two {
       width: 700px;
       height: 400px;
       background-color: white;
@@ -210,11 +238,11 @@
         font-size: 25px;
         border-bottom: 1px solid #eee;
       }
-      .payment__main{
+      .payment__main {
         height: 299px;
         width: 100%;
         border-bottom: 1px solid #eee;
-        .payment__list{
+        .payment__list {
           font-size: 16px;
           font-weight: 550;
           width: 400px;
@@ -222,21 +250,21 @@
           margin: 0 auto;
           line-height: 160px;
         }
-        .card__payment__list{
+        .card__payment__list {
           height: 200px;
           width: 400px;
           margin: auto;
-          .card__list{
+          .card__list {
             float: left;
             height: 50px;
             width: 100%;
-            .card__list__picture{
+            .card__list__picture {
               height: 40px;
               width: 70px;
 
             }
           }
-          .card__number{
+          .card__number {
             height: 30px;
             width: 200px;
             line-height: 30px;
@@ -248,19 +276,19 @@
             font-size: 15px;
             line-height: 30px;
           }
-          .delete__button{
+          .delete__button {
             height: 40px;
             width: 100px;
-            border: 1px solid red;
+            border: 1px solid #3CCACE;
             border-radius: 5px;
             line-height: 40px;
             text-align: center;
-            color: red;
+            color: #3CCACE;
             font-size: 15px;
             float: right;
           }
         }
-        .how__not__regist{
+        .how__not__regist {
           height: 100px;
           width: 100%;
           background-color: white;

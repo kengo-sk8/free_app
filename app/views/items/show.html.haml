@@ -78,7 +78,8 @@
           .optional
             .optional__btn
               = link_to "#", class: "optional__btn__link" do
-                %i.fa.fa-flag 不適切な商品の通報
+                = icon('fas', 'flag', class: 'image-icon') 
+                不適切な商品の通報
                 
         .comments-box
           .message-box
@@ -102,7 +103,7 @@
                             = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
                         .comments-box__message__items__body__icons__right
                           .message-delete
-                            = link_to "/products/#{@product.id}/comments/#{comment.id}", method:"delete", id: :delete_btn do
+                            = link_to "/products/#{@item.id}/comments/#{item.id}", method:"delete", id: :delete_btn do
                               %i.fa.fa-trash
 
           -if current_user
@@ -111,25 +112,25 @@
                 相手のことを考え丁寧なコメントを心がけましょう。
               %p
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            -# = form_for [@product, @comment], html: { id: :new_comment } do |f|
+            -# = form_for [@item, @comment], html: { id: :new_comment } do |f|
               = f.text_area :text, class: "comment-area"
               .comment-btn
                 = f.submit "", class: "comment-btn__submit"
                 %i.fa.fa-comment コメントする
 
-        -# - if user_signed_in? && current_user.id == @product.user_id
+          -# - if user_signed_in? && current_user.id == @item.user_id   
           .edit-btn
             = link_to "編集", edit_item_path(@item.id), class:"edit-btn__text"
           .delete-btn
-            = link_to '削除する', item_path, method: :delete, class:"delete-btn__text"
+            -# = link_to '削除する', item_path, method: :delete, class:"delete-btn__text"
         -# - elsif user_signed_in?
-          -if @product.buyer_id.present?
-            .purchase-btn-red
-              .purchase-btn-red__text
-                Sold out 
-          - else
-            .purchase-btn
-              = link_to "購入する", purchase_products_path, class:"purchase-btn__text"
+          -# -if @item.buyer_id.present?
+          -#   .purchase-btn-red
+          -#     .purchase-btn-red__text
+          -#       Sold out 
+          -# - else
+          -#   .purchase-btn
+          -#     = link_to "購入する", purchase_items_path, class:"purchase-btn__text"
       .product-links
         .product-links__before
           = link_to "#", class: "product-link-btn" do

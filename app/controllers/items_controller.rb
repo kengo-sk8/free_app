@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_product, only: [:edit, :show]
+  before_action :set_product, only: [:edit, :show, :update]
   before_action :set_card, only: [:purchase, :pay, :done]
 
   def index
@@ -62,12 +62,28 @@ class ItemsController < ApplicationController
     @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      render :destory
+    else
+      redirect_to item_path(@item.id)
+    end
+  end
+
   def edit
+    @parents = Category.all.order("id ASC").limit(607)
   end
 
   def update
-    item = Item.find(params[:id])
-    item.update(item_params)
+    @parents = Category.all.order("id ASC").limit(607)
+    if params[:item][:images_attributes] && @item.update(item_params)
+      redirect_to item_path(@item.id)
+    else
+      flash[:alert] = '商品情報を正しく入力してください'
+     redirect_to edit_item_path
+    end
+
   end
 
   def show
@@ -87,8 +103,9 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :content, :category_id, :size_id, :brand, :condition_id, :delivery_fee_id, :delivery_way_id, :prefecture_code, :prefecture_id, :delivery_date_id, :price,images_attributes: [:src])
+    params.require(:item).permit(:name, :content, :category_id, :size_id, :brand, :condition_id, :delivery_fee_id, :delivery_way_id,  :prefecture_id, :delivery_date_id, :price, images_attributes: [:src, :_destroy, :id])
   end  
+
 
   def set_product
     @item = Item.find(params[:id])

@@ -89,17 +89,15 @@
       .main__fifth__top--under
         = link_to "#", class: "main__fifth__top--under--btn" do
           新規投稿商品
-      .main__fifth__top--list
-        = link_to "一覧", root_path, class: "main__fifth__top--list--btn"
     %ul.main__fifth__box
       -# 掲載数を変更できます
       - @items.last(3).each do |item|
         %li.main__fifth__box--new
           =link_to item_path(item.id), class: "show-btn" do
-            = image_tag item.images[0].src.url
+            = image_tag item.images[0].src.url, size: '200x200'
             .comment
               .comment--name
-                =item.name #.truncate(21)
+                =item.name .truncate(21)
               %ul.comment--price
                 %li
                   ¥
@@ -116,10 +114,11 @@
       - @items.last(3).each do |item|
         %li.main__fifth__box--new
           =link_to item_path(item.id), class: "show-btn" do
-            = image_tag item.images[0].src.url
+            = image_tag item.images[0].src.url, size: '200x200'
+
             .comment
               .comment--name
-                =item.name #.truncate(21)
+                =item.name .truncate(21)
               %ul.comment--price
                 %li
                   ¥
