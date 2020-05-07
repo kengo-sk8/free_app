@@ -93,8 +93,11 @@
 - has_ancestry
 
 ## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |user_id|integer|null: false|
 |src|string|| 
 |item_id|references|null: false|
 
+## Association
 - belongs_to :item
