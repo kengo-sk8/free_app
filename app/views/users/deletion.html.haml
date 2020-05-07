@@ -1,0 +1,20 @@
+.delete-done
+  .delete-done__header
+    .delete-done__header__logo
+      = link_to image_tag('logo.png', class: "btn"),root_path
+  .delete-done__main
+    .delete-accont
+      アカウントの削除が完了しました。
+    .new-account
+      = link_to "新規登録画面はこちらから",new_user_registration_path, class:"btn"
+  .delete-done__footer
+    %ul
+      %li
+        = link_to 'プライバシーポリシー', "#", class: "footer-text"
+      %li
+        = link_to 'FURIMA利用規約', "#", class: "footer-text"
+      %li
+        = link_to '特定商取引に関する表記', "#", class: "footer-text"
+    .delete-done__footer__logo
+      = link_to image_tag('logo.png', class: "delete-done__footer__logo__icon"),root_path
+      %p © FURIMA
