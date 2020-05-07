@@ -35,28 +35,9 @@
 |size|references|null: false, default: 0| [](商品のサイズ)
 |delivery_date|references|null: false, default: 0| [](配送日)
 |delivery_fee|references|null: false, default: 0| [](配送料の負担)
-
-
-|price|string|null: false| [](商品の説明)
-|prefecture_code|integer(11)|null: false| [](発送元の地域)
-|status|integer(2)|null:false, default: 0| [](配送料の負担) 
-|deliverymethod|reference|null: false, foreign_key: true|
-|deliveryburden|reference|null: false, foreign_key: true|
-|deliverydate|reference|null: false, foreign_key: true|
-
-|upper_category|reference|null: false, foreign_key: true| [](カテゴリーupper)
-|middle_category|reference|null: false, foreign_key: true| [](カテゴリーmiddle)
-|lower_category|reference|null: false, foreign_key: true| [](カテゴリーlower)
-
-|seller|reference|null: false, foreign_key: true| [](販売価格)
-
-
-      t.references :delivery_fee, null: false, default: 0
-      t.references :prefecture, null: false, efault: 0
-      t.references :delivery_way, null: false, default: 0
-      t.integer :price,null: false
-
-
+|prefecture|references|null: false, default: 0| [](発送元の地域)
+|delivery_way|references|null: false, default: 0| [](配送方法)
+|price|integer|null: false| [](販売価格)
 
 ### Association
 - has_many :comments
@@ -98,3 +79,22 @@
 
 ## Association
 - belongs_to :user
+
+
+## categoryテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false|
+|item|references|| 
+|name|string|null: false| [](カテゴリー)
+
+## Association
+- has_many :items
+- has_ancestry
+
+## imagesテーブル
+|user_id|integer|null: false|
+|src|string|| 
+|item_id|references|null: false|
+
+- belongs_to :item
