@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_product, only: [:edit, :show]
+  before_action :set_product, only: [:edit, :show, :update]
 
   def index
     @items = Item.all
@@ -36,18 +36,13 @@ class ItemsController < ApplicationController
 
   def update
     @parents = Category.all.order("id ASC").limit(607)
-    if @item.update(item_params)
+    if params[:item][:images_attributes] && @item.update(item_params)
       redirect_to item_path(@item.id)
     else
-      render :edit
+      flash[:alert] = '商品情報を正しく入力してください'
+     redirect_to edit_item_path
     end
-    # if params[:item][:images_attributes] && @item.update(item_params)
-    #   redirect_to item_path(@item.id)
-    # else
-    #   # render :edit
-    #   flash[:alert] = '商品情報を正しく入力してください'
-    #   redirect_to edit_item_path
-    # end
+
   end
 
   def show
@@ -69,10 +64,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :content, :category_id, :size_id, :brand, :condition_id, :delivery_fee_id, :delivery_way_id,  :prefecture_id, :delivery_date_id, :price, images_attributes: [:src, :_destroy, :id])
   end  
-
-  # def edit_item_params 
-  #   params.require(:item).permit(:name, :content, :category_id, :size_id, :brand, :condition_id, :delivery_fee_id, :delivery_way_id, :prefecture_id, :delivery_date_id, :price, [images_attributes: [:src, :_destroy, :id]])
-  # end
 
 
   def set_product

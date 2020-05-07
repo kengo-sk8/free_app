@@ -7,7 +7,6 @@
         %h2.l-single-head
           商品の情報を入力
         = form_with model: @item,local: true, class: "sell-form" do |f|
-          -# - binding.pry
           .sell-upload-box
             %h3.sell-upload-head
               出店画像
@@ -17,22 +16,21 @@
               #previews
                 - if @item.persisted?
                   - @item.images.each_with_index do |image, i|
-                    -# - binding.pry
                     = image_tag image.src.url, data: { index: i } ,class: 'input-image'
               = f.fields_for :images do |image|
                 .js-file_group{"data-index": "#{image.index}"}
-                  = image.label class: 'input-image' do
+                  -# = image.label class: 'input-image' do
                     -# = icon('fas', 'camera', class: "icon_camera") 
                     -# %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
-                    = image.file_field :src, class: "js-file" #sell-upload-drop-file
-                    %br/
-                    %span.js-remove 削除
-                  - if @item.persisted?
-                    = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                  = image.file_field :src, class: "js-file" #sell-upload-drop-file
+                  %br/
+                  %span.js-remove 削除
                 - if @item.persisted?
-                  .js-file_group{"data-index" => "#{@item.images.count}"}
-                    = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-                    .js-remove 削除
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              - if @item.persisted?
+                .js-file_group{"data-index" => "#{@item.images.count}"}
+                  = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+                  .js-remove 削除
           .sell-content
             .form-group
               %label
@@ -57,13 +55,13 @@
                     - if @item.category_id == parent.id
                       .select-wrap__box.parent
                         = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択して下さい", selected: parent.parent.parent.id}, {id: "parent"})
-                        = icon('fas', 'angle-down', class: 'image-icon')   
+                        -# = icon('fas', 'angle-down', class: 'image-icon')   
                       .child-edit
                         = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.parent.id}, {id: "child"})
-                        = icon('fas', 'angle-down', class: 'image-icon')   
+                        -# = icon('fas', 'angle-down', class: 'image-icon')   
                       .grand_child-edit
                         = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.id}, {id: "grand_child"})
-                        = icon('fas', 'angle-down', class: 'image-icon')   
+                        -# = icon('fas', 'angle-down', class: 'image-icon')   
               .form-group
                 %label
                   サイズ
