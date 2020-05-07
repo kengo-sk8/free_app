@@ -53,13 +53,13 @@
               = f.label :"お名前(全角)"
             %span.signup-main__form-require 必須
           - if @user.errors.full_messages_for(:last_name).any?  
-            = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 吉村' }
+            = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 吉村' }
           - else
-            = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 吉村' }
+            = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 吉村' }
           - if @user.errors.full_messages_for(:first_name).any?
-            = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 匡史' }
+            = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half signup-main__input-default--has-error', placeholder: '例) 匡史' }
           -else
-            = f.text_field :first_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 匡史' }
+            = f.text_field :last_name, { class: 'signup-main__input-default signup-main__input-default--half', placeholder: '例) 匡史' }
           =  render partial: 'error-messages', locals: { user: @user, column: "last_name"}
           =  render partial: 'error-messages', locals: { user: @user, column: "first_name"}
           .signup-main__form-group

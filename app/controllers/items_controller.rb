@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_product, only: [:edit, :show, :update, :destroy]
+  before_action :set_product, only: [:edit, :show, :update, :destroy, :purchase, :pay, :done]
 
   def index
     @items = Item.all
@@ -95,7 +95,7 @@ end
 
   private
   def item_params
-    params.require(:item).permit(:name, :content, :category_id, :size_id, :brand, :condition_id, :delivery_fee_id, :delivery_way_id,  :prefecture_id, :delivery_date_id, :price, images_attributes: [:src, :_destroy, :id])
+    params.require(:item).permit(:name, :content, :category_id, :size_id, :brand, :condition_id, :delivery_fee_id, :delivery_way_id,  :prefecture_id, :delivery_date_id, :price, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end  
 
   def set_product

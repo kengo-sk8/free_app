@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_210929) do
     t.bigint "prefecture_id", null: false
     t.bigint "delivery_way_id", default: 0, null: false
     t.integer "price", null: false
+    t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"

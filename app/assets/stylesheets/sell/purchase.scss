@@ -1,0 +1,153 @@
+// < 購入確認ページ >
+.purchase-verification{
+  height: 100%;
+  width: 100%;
+  background-color: #eae8e8;
+  &__header {
+    height: 60px;
+    text-align: center;
+    padding-top: 20px;
+    &__logo {
+      .btn {
+        height: 50px;
+        width: 170px;
+        vertical-align: middle;
+      }
+    }
+  }
+  &__main {
+    background-color: #fff;
+    width: 700px;
+    margin: 0 auto;
+    &__up {
+      padding: 16px;
+      font-size: 25px;
+      text-align: center;
+    }
+    // ここから商品
+    &__box {
+      margin: 0 auto;
+      .product {
+        margin: 0 auto;
+        .photo {
+          background-color: $red;
+          height: 200px;
+          width: 200px;;
+          margin: 0 auto;
+        }
+        .name {
+          text-align: center;
+        }
+      }
+      .detail {
+        display: flex;
+        justify-content: center;
+        .money,
+        .postage {
+          font-size: 20px;
+        }
+      }
+    } 
+
+    &__pay {
+      margin: 0 auto;
+      width: 320px;
+
+      &__point {
+        background-color: #ccc;
+        margin: 16px 0 0;
+        color: #333;
+        padding: 14px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        text-align: center;
+        border-radius: 5px;
+      }
+      &__money {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        font-size: 20px;;
+      }
+      &__decision {
+        width: 320px;
+        height: 60px;
+        background-color: $red;
+        margin: 16px 0 0;
+        text-align: center;
+        line-height: 60px;
+        border-radius: 5px;
+        cursor: pointer;
+        .buy-btn  {
+          color: white;
+          font-size: 18px;
+        }
+      }
+    }
+    &__delivery {
+      margin-top: 40px;
+      padding: 0 150px 0; 
+      .address {
+        font-size: 15px;
+        list-style: none;
+        &--delivery {
+          margin-bottom: 10px;
+        }
+        &--change {
+          text-align: end;
+          &--btn {
+            color: #0099e8;
+            font-size: 14px;
+            text-decoration: none;
+          }
+        }
+      }
+    }  
+    &__payment {
+      margin: 20px 0 20px;
+      padding: 0 150px 30px;
+      .method {
+        font-size: 15px;
+        list-style: none;
+        &--number {
+          margin-bottom: 10px;
+        }
+        &--change {
+          text-align: end;
+          &--btn {
+            color: #0099e8;
+            font-size: 14px;
+            text-decoration: none;
+          }
+        }
+      }
+    }  
+  }
+  &__footer {
+    width: 700px;
+    margin: 0 auto;
+    padding: 40px 0;
+    ul {
+      display: flex;
+      justify-content: center;
+      li {
+        .footer-text {
+          display: block;
+          text-decoration: none;
+          color: #222;
+          font-size: 12px;
+          margin: 16px 0px 0px 16px;
+          text-align: center;
+        }
+      }
+    }
+    &__logo {
+      padding: 40px 0 0;
+      text-align: center;
+      &__icon {
+        width: 185px;
+        height: 49px;
+      }
+    }
+  }
+}
