@@ -47,6 +47,10 @@ Rails.application.routes.draw do
     collection do
       get 'items/new/mid_category', to: 'items#mid_category'
       get 'items/new/small_category', to: 'items#small_category'
+      get 'purchase/:id'=> 'items#purchase', as: 'purchase'          #購入確認ページ
+      post 'pay/:id'=> 'items#pay', as: 'pay'                        #httpメソッドはpostなので注意
+      get 'done/:id'=> 'items#done', as: 'done'                      #購入完了ページ
+      delete 'items/:id' => 'items#destroy'
     end
   end  
 end
