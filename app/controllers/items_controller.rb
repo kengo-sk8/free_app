@@ -21,14 +21,14 @@ class ItemsController < ApplicationController
   end
 
 
-  # def destroy
-  #   item = Item.find(params[:id])
-  #   if item.destroy
-  #     render :destory
-  #   else
-  #     redirect_to item_path(@item.id)
-  #   end
-  # end
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      render :destory
+    else
+      redirect_to item_path(@item.id)
+    end
+  end
     
   def edit
     @parents = Category.all.order("id ASC").limit(607)

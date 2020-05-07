@@ -122,7 +122,7 @@
           .edit-btn
             = link_to "編集", edit_item_path(@item.id), class:"edit-btn__text"
           .delete-btn
-            -# = link_to '削除する', item_path, method: :delete, class:"delete-btn__text"
+            = link_to '削除する', item_path, method: :delete, class:"delete-btn__text"
         -# - elsif user_signed_in?
           -# -if @product.buyer_id.present?
           -#   .purchase-btn-red
