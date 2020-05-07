@@ -84,7 +84,6 @@
 ## categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
 |item|references|| 
 |name|string|null: false| [](カテゴリー)
 
@@ -95,10 +94,8 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
 |src|string|| 
 |item_id|references|null: false|
 
 ## Association
-- belongs_to :item
 - belongs_to :item
