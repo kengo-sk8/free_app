@@ -1,17 +1,15 @@
 -# 商品購入確認画面
 .purchase-verification
-  .purchase-verification__header
-    .purchase-verification__header__logo
-      = link_to image_tag('logo.png', class: "btn"),root_path
+  = render "header"
   .purchase-verification__main
     .purchase-verification__main__up
       購入内容の確認
     .purchase-verification__main__box
       .product 
         .photo
-          = image_tag @item.images[0].image.url, size: '200x200'
+          = image_tag @item.images[0].src.url, size: '200x200'
         .name
-          = "商品名 #{@item.ame}"
+          = "商品名 #{@item.name}"
       %ul.detail
         %li.money="送料込み ¥#{@item.price}"
     .purchase-verification__main__pay
@@ -33,8 +31,8 @@
       .address
         %ul.address--delivery
           配送先
-        %li=@product.user.address.zip_code
-        %li="#{current_user.address.prefecture_id} #{current_user.address.city} #{current_user.address.address1}#{current_user.address.address2}"
+        %li=@item.user.address.postal_code
+        %li="#{current_user.address.prefecture_code} #{current_user.address.city_name} #{current_user.address.street}#{current_user.address.street2}"
         %li="購入者 #{current_user.first_name} #{current_user.last_name} " 
         .address--change
           = link_to address_user_path(current_user.id), class:"address--change--btn" do
@@ -56,14 +54,4 @@
           .method--change
             = link_to confirmation_card_path(current_user.id), class:"method--change--btn" do
               変更する
-  .purchase-verification__footer
-    %ul
-      %li
-        = link_to 'プライバシーポリシー', "#", class: "footer-text"
-      %li
-        = link_to 'FURIMA利用規約', "#", class: "footer-text"
-      %li
-        = link_to '特定商取引に関する表記', "#", class: "footer-text"
-    .products-exhibit__footer__logo
-      = link_to image_tag('logo.png', class: "products-exhibit__footer__logo__icon"),root_path
-      %p © FURIMA
+  = render "footer"

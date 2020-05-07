@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :user,optional: true
+  belongs_to :user
 
   has_many :category
   has_many :comments
