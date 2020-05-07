@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_product, only: [:edit, :show]
+  before_action :set_product, only: [:edit, :show, :destroy]
 
   def index
     @items = Item.all
@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
 
 
   def destroy
-    item = Item.find(params[:id])
     if item.destroy
       render :destory
     else
