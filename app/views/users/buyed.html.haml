@@ -1,0 +1,44 @@
+.header-under
+  .box-under
+  = render "items/main-header"
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .main-products
+      .title-group
+        .gray-now-title
+          = link_to "出品中", now_user_path(current_user.id), class: "now-field" 
+        .white-trans-title
+          = link_to "取引中", nowbuy_user_path(current_user.id), class: "trans-field" 
+        .gray-buy-end
+          = link_to "売却済み", buyed_user_path(current_user.id), class: "buy-end-field" 
+      .products-group
+        - @item.last(10).each do |item|
+          - if item.buyer_id
+            .groups
+              .image
+                = link_to done_items_path(item.id), class: "my-link" do
+                  = image_tag item.images[0].image.url
+              -if item.buyer_id.present? 
+                .sold-like
+                  .sold-inner
+                    SOLD
+              .info
+                .title-field
+                  = item.name.truncate(29)
+                .other-field
+                  %i.fas.fa-heart.heart
+                  -# .count
+                  -#   - if product.likes_count.present?
+                  -#     = product.likes_count
+                  -#   - else
+                  -#     = "#{product.likes_count} 0"
+                  .now-now-red
+                    .now-text
+                      売却済み
+              .icon-field
+                = link_to done_items_path(item.id) do
+                  %i.fa.fa-angle-right.right-icon
+      -# .page
+      -#   = paginate(@product)
+= render 'items/footer'

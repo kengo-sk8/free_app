@@ -1,0 +1,57 @@
+.header-under
+  .box-under
+  = render "items/main-header"
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .support-main
+      .support-title
+        .title-text
+          お問い合わせ項目を選ぶ
+      .support-content
+        .support-group
+          .link-title
+            = link_to "会員登録・ログインについて","",class:"support-btn"
+          .rigth-icons
+            %i.fa.fa-angle-right.rights
+        .support-group
+          .link-title
+            = link_to "購入・支払いについて","",class:"support-btn"
+          .rigth-icons
+            %i.fa.fa-angle-right.rights
+        .support-group
+          .link-title
+            = link_to "発送・受取・評価について","",class:"support-btn"
+          .rigth-icons
+            %i.fa.fa-angle-right.rights
+        .support-group
+          .link-title
+            = link_to "売上の申請申込について","",class:"support-btn"
+          .rigth-icons
+            %i.fa.fa-angle-right.rights
+        .support-group
+          .link-title
+            = link_to "トラブルがあった","",class:"support-btn"
+          .rigth-icons
+            %i.fa.fa-angle-right.rights
+        .support-group
+          .link-title
+            = link_to "機能要望","",class:"support-btn"
+          .rigth-icons
+            %i.fa.fa-angle-right.rights
+        .support-group
+          .link-title
+            = link_to "不具合の申請","",class:"support-btn"
+          .rigth-icons
+            %i.fa.fa-angle-right.rights
+        .support-group
+          .link-title
+            = link_to "退会したい","",class:"support-btn"
+          .rigth-icons
+            %i.fa.fa-angle-right.rights
+        .support-group
+          .link-title
+            = link_to "その他","",class:"support-btn"
+          .rigth-icons
+            %i.fa.fa-angle-right.rights
+= render 'items/footer'
