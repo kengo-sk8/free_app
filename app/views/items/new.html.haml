@@ -21,8 +21,6 @@
                     = image_tag image.src.url, data: { index: i } ,class: 'input-image'
               = f.fields_for :images do |image|
                 .js-file_group{"data-index" => "#{image.index}"}
-                    -# = icon('fas', 'camera', class: "icon_camera") 
-                    -# %pre.visible-pc クリックしてファイルをアップロード
                   = image.file_field :src, class: "js-file" #sell-upload-drop-file
                   %br/
                   %span.js-remove 削除
