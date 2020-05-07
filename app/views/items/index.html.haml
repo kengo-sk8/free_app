@@ -91,10 +91,10 @@
           新規投稿商品
     %ul.main__fifth__box
       -# 掲載数を変更できます
-      -# - @items.last(3).each do |item|
-      -#   %li.main__fifth__box--new
-      -#     =link_to item_path(item.id), class: "show-btn" do
-            = image_tag item.images[0].src.url
+      - @items.last(3).each do |item|
+        %li.main__fifth__box--new
+          =link_to item_path(item.id), class: "show-btn" do
+            = image_tag item.images[0].src.url, size: '200x200'
             .comment
               .comment--name
                 =item.name .truncate(21)
@@ -111,10 +111,11 @@
         = link_to "#", class: "main__sixth__top--under--btn" do
           アーカイバ
     %ul.main__sixth__box
-      -# - @items.last(3).each do |item|
-      -#   %li.main__fifth__box--new
-      -#     =link_to item_path(item.id), class: "show-btn" do
-            = image_tag item.images[0].src.url
+      - @items.last(3).each do |item|
+        %li.main__fifth__box--new
+          =link_to item_path(item.id), class: "show-btn" do
+            = image_tag item.images[0].src.url, size: '200x200'
+
             .comment
               .comment--name
                 =item.name .truncate(21)

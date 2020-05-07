@@ -36,18 +36,13 @@ class ItemsController < ApplicationController
 
   def update
     @parents = Category.all.order("id ASC").limit(607)
-    if @item.update(item_params)
+    if params[:item][:images_attributes] && @item.update(item_params)
       redirect_to item_path(@item.id)
     else
-      render :edit
+      flash[:alert] = '商品情報を正しく入力してください'
+     redirect_to edit_item_path
     end
-    # if params[:item][:images_attributes] && @item.update(item_params)
-    #   redirect_to item_path(@item.id)
-    # else
-    #   # render :edit
-    #   flash[:alert] = '商品情報を正しく入力してください'
-    #   redirect_to edit_item_path
-    # end
+
   end
 
   def show
