@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :set_product, only: [:edit, :show, :update]
+  before_action :set_product, only: [:edit, :show,, :update, :destroy]
 
-  # def index
-  #   @items = Item.all
-  # end
+
+  def index
+    @items = Item.all
+  end
 
   def new
     @item = Item.new
@@ -21,14 +22,13 @@ class ItemsController < ApplicationController
   end
 
 
-  # def destroy
-  #   item = Item.find(params[:id])
-  #   if item.destroy
-  #     render :destory
-  #   else
-  #     redirect_to item_path(@item.id)
-  #   end
-  # end
+  def destroy
+    if @item.destroy
+      render :destory
+    else
+      redirect_to item_path(@item.id)
+    end
+  end
     
   def edit
     @parents = Category.all.order("id ASC").limit(607)
