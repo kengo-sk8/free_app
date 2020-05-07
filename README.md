@@ -26,21 +26,37 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
+|user_id|integer||
 |name|text|null: false| [](商品名)
-|content|string|-------| [](商品の説明)
+|content|string|null: false| [](商品の説明)
+|brand|string|| [](ブランド)
+|category|references|null: false, default: 0| [](カテゴリー)
+|condition|references|null: false| [](商品の状態)
+|size|references|null: false, default: 0| [](商品のサイズ)
+|delivery_date|references|null: false, default: 0| [](配送日)
+|delivery_fee|references|null: false, default: 0| [](配送料の負担)
+
+
 |price|string|null: false| [](商品の説明)
 |prefecture_code|integer(11)|null: false| [](発送元の地域)
 |status|integer(2)|null:false, default: 0| [](配送料の負担) 
 |deliverymethod|reference|null: false, foreign_key: true|
 |deliveryburden|reference|null: false, foreign_key: true|
 |deliverydate|reference|null: false, foreign_key: true|
-|brand|reference|null: false, foreign_key: true| [](ブランド)
+
 |upper_category|reference|null: false, foreign_key: true| [](カテゴリーupper)
 |middle_category|reference|null: false, foreign_key: true| [](カテゴリーmiddle)
 |lower_category|reference|null: false, foreign_key: true| [](カテゴリーlower)
-|size|reference|null: false, foreign_key: true| [](商品のサイズ)
+
 |seller|reference|null: false, foreign_key: true| [](販売価格)
+
+
+      t.references :delivery_fee, null: false, default: 0
+      t.references :prefecture, null: false, efault: 0
+      t.references :delivery_way, null: false, default: 0
+      t.integer :price,null: false
+
+
 
 ### Association
 - has_many :comments
