@@ -11,6 +11,7 @@ class CardsController < ApplicationController
   end
 
   def create
+    # binding.pry
     if params['payjp-token'].blank?
       redirect_to action: "edit", id: current_user.id
     else

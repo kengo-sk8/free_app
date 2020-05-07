@@ -8,10 +8,11 @@ class User < ApplicationRecord
     belongs_to_active_hash :birth_moom
     belongs_to_active_hash :birth_day     
   
-  has_many :items
-  has_many :comments
-  has_one :address
-  has_one :card 
+  has_many :items, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_one :address, dependent: :destroy
+  has_many :cards, dependent: :destroy
+  accepts_nested_attributes_for :card 
 
 
   #正規表現の代入

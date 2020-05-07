@@ -2,7 +2,7 @@
   %header.signup-header
     %h1
       = link_to root_path do
-        = image_tag asset_path('material/logo/logo.png')
+        = image_tag asset_path('logo.png')
   %main.signup-main
     %section.signup-main__container
       = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|

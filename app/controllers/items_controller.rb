@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_product, only: [:edit, :show]
+  before_action :set_card, only: [:purchase, :pay, :done]
 
   def index
     @items = Item.all
@@ -24,6 +25,41 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item .destroy
+  end
+
+  def purchase
+    if @card.blank?
+      flash.now[:alert] = 'カードを登録してください。'
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+  end
+
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @product.price,
+    customer: @card.customer_id,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+    if @product.update( buyer_id: current_user.id)
+      redirect_to done_products_path(@product.id)
+    else
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def done
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    #保管した顧客IDでpayjpから情報取得
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+    @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
   def edit
