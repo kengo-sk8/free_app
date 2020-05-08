@@ -103,7 +103,7 @@
                             = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
                         .comments-box__message__items__body__icons__right
                           .message-delete
-                            = link_to "/products/#{@item.id}/comments/#{item.id}", method:"delete", id: :delete_btn do
+                            = link_to "/items/#{@item.id}/comments/#{item.id}", method:"delete", id: :delete_btn do
                               %i.fa.fa-trash
 
           -if current_user
