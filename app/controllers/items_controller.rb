@@ -8,15 +8,19 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.build
+    #.images.buildで@itemに画像のデータを追加で格納している
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
       render :create
+      # 出品画面で必須項目に全ての値が入力された際、保存がされてcreate画面に移動する
     else
       @image = @item.images.build
       render :new
+      # else以下の記述の意味
+      # 入力必須コマンドに値が格納されていない状態で出品してしまった場合、再度出品画面に遷移した際、画像の選択画面が消え画像挿入できなくなる。（必須 image = @item.images.build）
     end
   end
 
@@ -30,10 +34,12 @@ class ItemsController < ApplicationController
     
   def edit
     @parents = Category.all.order("id ASC").limit(607)
+    # カテゴリーに保存されているデータを出力する為、記述した。
   end
 
   def update
     @parents = Category.all.order("id ASC").limit(607)
+    # カテゴリーに保存されているデータを出力する為、記述した。
     if params[:item][:images_attributes] && @item.update(item_params)
       redirect_to item_path(@item.id)
     else
@@ -96,10 +102,14 @@ end
   private
   def item_params
     params.require(:item).permit(:name, :content, :category_id, :size_id, :brand, :condition_id, :delivery_fee_id, :delivery_way_id,  :prefecture_id, :delivery_date_id, :price, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
+    # images_attributes: [:src, :_destroy, :id]の意味を下記に記載
+    # fields_forを利用して作成されたフォームから来る値は、○○s_attributes: [:××]という形でparamsに入る。これにより、itemとimageを紐つけしている。
+    # ○○は関連付く側のモデルの名前(今回はimage)、××にはフォーム(今回は画像のカラム名は、src)に対応するカラムの名前が入る。
   end  
 
   def set_product
     @item = Item.find(params[:id])
+    # :edit, :update, :showにitem.idを与える必要がある為、記述した
   end
 
 end

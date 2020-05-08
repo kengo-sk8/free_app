@@ -48,9 +48,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false|
-|comment|text|null: false|
-|item|reference|null: false, foreign_key: true|
-|user|reference|null: false, foreign_key: true|
+|item|reference|null: false|
+|user|reference|null: false|
+|text|text|null: false|
 
 ### Association
 - belongs_to :user
