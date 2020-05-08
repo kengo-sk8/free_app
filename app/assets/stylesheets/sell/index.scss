@@ -989,23 +989,32 @@ img {
   }
 }
 
-.purchaseBtn {
-  width: 120px;
-  background: #3CCACE;
-  text-align: center;
-  border-radius: 4%;
-  bottom: 32px;
-  right: 32px;
-  position: fixed;
-  padding: 15px;
-  span {
-    color: #fff;
-    display: block;
-    font-size: 18px;
-    text-decoration: none;
-    margin-bottom: 5px;
+
+.seller-content {
+  .exhibition-btn {
+    width: 120px;
+    background: #3CCACE;
+    text-align: center;
+    border-radius: 4%;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    padding: 10px 0;
+    z-index: 500;
+    &__text {
+      color: #fff;
+      display: block;
+      font-size: 18px;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+    &__icon {
+      width: 45%;
+    }
   }
-  .purchaseBtn__icon {
-    width: 60%;
-  }  
+  .exhibition-btn:hover {
+    opacity: 0.9;
+  }
 }
+
+

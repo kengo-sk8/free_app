@@ -83,7 +83,7 @@
                 
         .comments-box
           .message-box
-            -# -if @comments 
+            -if @comments 
               -@comments.each do |comment|
                 .comments-box__message
                   .comments-box__message__items
@@ -112,7 +112,7 @@
                 相手のことを考え丁寧なコメントを心がけましょう。
               %p
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            -# = form_for [@item, @comment], html: { id: :new_comment } do |f|
+            = form_for [@item, @comment], html: { id: :new_comment } do |f|
               = f.text_area :text, class: "comment-area"
               .comment-btn
                 = f.submit "", class: "comment-btn__submit"

@@ -50,6 +50,9 @@ class ItemsController < ApplicationController
 
   def show
     @parents = Category.all.order("id ASC").limit(607)
+    # カテゴリーに保存されているデータを出力する為、記述した。
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def mid_category
