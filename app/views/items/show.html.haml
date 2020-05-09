@@ -83,28 +83,28 @@
                 
         .comments-box
           .message-box
-            -# -if @comments 
+            -if @comments 
               -@comments.each do |comment|
                 .comments-box__message
                   .comments-box__message__items
                     .comments-box__message__items__user
-                      - if comment.user.user_image.present?
-                        = image_tag comment.user.user_image.url, size: '30x30'
-                      - else 
-                        = image_tag 'member_photo_noimage_thumb.png', size: '30x30'
+                      -# - if comment.user.user_image.present?
+                      -#   = image_tag comment.user.user_image.url, size: '30x30'
+                      -# - else 
+                      -#   = image_tag 'member_photo_noimage_thumb.png', size: '30x30'
                       .comments-box__message__items__user__name
                         = comment.user.nickname
                     .comments-box__message__items__body
                       = comment.text
                       .comments-box__message__items__body__icons
                         .comments-box__message__items__body__icons__left
-                          %i.fa.fa-history
+                          = icon('fas', 'history')
                           %span
                             = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
                         .comments-box__message__items__body__icons__right
                           .message-delete
-                            = link_to "/items/#{@item.id}/comments/#{item.id}", method:"delete", id: :delete_btn do
-                              %i.fa.fa-trash
+                            = link_to "/items/#{@item.id}/comments/#{comment.id}", method:"delete", id: :delete_btn do
+                              = icon('fas', 'trash')
 
           -if current_user
             .caution-area
@@ -112,11 +112,10 @@
                 相手のことを考え丁寧なコメントを心がけましょう。
               %p
                 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            -# = form_for [@item, @comment], html: { id: :new_comment } do |f|
-              = f.text_area :text, class: "comment-area"
+            = form_for [@item, @comment], html: { id: :new_comment } do |f|
+              = f.text_area :text, placeholder: "コメントして下さい",class: "comment-area"
               .comment-btn
-                = f.submit "", class: "comment-btn__submit"
-                %i.fa.fa-comment コメントする
+                = f.submit "コメントする", class: "comment-btn__submit"
 
         - if user_signed_in? && current_user.id == @item.user_id   
           .edit-btn

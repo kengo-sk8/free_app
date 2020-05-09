@@ -133,8 +133,3 @@
               .item-sold-inner
                 SOLD
   = render "items/main-footer"
-.purchaseBtn
-  %span.purchaseBtn__text 出品する
-  = link_to new_item_path do
-    = image_tag asset_path("icon_camera.png"),class: "purchaseBtn__icon", alt: "icon_camera.png"
-  
