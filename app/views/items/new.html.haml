@@ -59,7 +59,7 @@
                       %select#child.select-wrap__box--select
                       = icon('fas', 'angle-down', class: 'image-icon')   
                     .grand_child
-                      = f.collection_select(:category_id, [], :id, :name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
+                      = f.collection_select(:category_id, [], :id, :name, {prompt: "選択して下さい"},{class: 'select-wrap__box--select', id: "grand_child",})
                       = icon('fas', 'angle-down', class: 'image-icon')   
               
               .form-group
