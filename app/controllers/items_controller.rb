@@ -42,9 +42,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def show
-  #   @parents = Category.all.order("id ASC").limit(607)
-  # end
+  def show
+    @parents = Category.order("id ASC").limit(607)
+  end
 
   def mid_category
     @mid_categories = Category.where(ancestry: params[:big_category_id])
