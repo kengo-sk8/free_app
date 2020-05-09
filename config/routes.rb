@@ -45,9 +45,10 @@ Rails.application.routes.draw do
   
   root 'items#index'
   resources :items do   
+    resources :comments, only: [:create, :destroy, :show, :index] #itemのindexとshowにidを渡す為、:show, :indexを追加した
     collection do
-      get 'items/new/mid_category', to: 'items#mid_category'
-      get 'items/new/small_category', to: 'items#small_category'
+      get 'items/new/mid_category', to: 'items#mid_category'         #「子」カテゴリーテーブルを作成する為、記述した
+      get 'items/new/small_category', to: 'items#small_category'     #「孫」カテゴリーテーブルを作成する為、記述した
       get 'purchase/:id'=> 'items#purchase', as: 'purchase'          #購入確認ページ
       post 'pay/:id'=> 'items#pay', as: 'pay'                        #httpメソッドはpostなので注意
       get 'done/:id'=> 'items#done', as: 'done'                      #購入完了ページ
