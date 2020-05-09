@@ -1,0 +1,123 @@
+// < プロフィール変更ページ >
+.user-change {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 7px 24px;
+  text-align: center;
+  width: 700px;
+  background-color: white;
+  height: 800px;
+  padding-top: 25px;
+  &--header {
+    .change-title {
+      font-size: 24px;
+    }
+    .change-group {
+      text-align: center;
+      // background-color: blue;
+      // background-color: #3CCACE;
+      // border-radius: 5px;
+      // border: 1px solid silver;
+      display: flex;
+      justify-content: center;
+      padding: 100px 15px 50px;
+      background-image: image-url("sakura.jpeg");
+      background-size: cover;
+      .change-icon {
+        margin-right: 20px;
+        .user-img-icon,
+        .before-icon {
+          height:45px;
+          width: 45px;
+        }
+        .user-img-icon,
+        img.preview,
+        .before-icon:hover {
+          cursor: pointer;
+          height:45px;
+          width: 45px;
+          border-radius: 100%;
+        }
+      }
+      .change-name {
+        font-size: 20px;
+        font-weight: normal;
+        padding-top: 10px;
+        .nickname-field{
+          border-radius: 5px;
+          border: 1px solid silver;
+        }
+      }
+    }
+  }
+  .user-change-introduction {
+    text-align: center;
+    margin-top: 30px;
+    .introduction {
+      &--text {
+        width: 90%;
+        height :150px;
+        font-size: 15px;
+        font-weight: lighter;
+        border-radius: 5px;
+        border: 1px solid silver;
+      }
+    }
+    .passward{
+      .passward-group{
+        margin-top: 20px;
+        .title-pass{
+          width: 90%;
+          height :30px;
+          font-size: 15px;
+          text-align: left;
+          margin: auto;
+          line-height: 30px;
+        }
+        .field{
+          .passward-field{
+            width: 90%;
+            height :30px;
+            font-size: 15px;
+            font-weight: lighter;
+            border-radius: 5px;
+            border: 1px solid silver;
+          }
+        }
+      }
+    }
+    .passward-two{
+      .passward-tow-group{
+        .passward-two-field{
+          margin: 20px;
+          width: 90%;
+          height :30px;
+          font-size: 15px;
+          font-weight: lighter;
+          border-radius: 5px;
+          border: 1px solid silver;
+        }
+      }
+    }
+    .change-btn {
+      width: 90%;
+      height: 60px;
+      background-color: #3CCACE;
+      color: white;
+      font-size: 15px;
+      padding: 12px 0;
+      margin: auto;
+      position: relative; 
+      .send-btn {
+        color: white;
+        background-color: #3CCACE;
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        cursor: pointer;
+      }
+    }
+  }
+}
