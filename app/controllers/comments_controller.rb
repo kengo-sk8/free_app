@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
       flash.now[:alert] = 'メッセージを入力してください。'
       render :show
     end
-  en
+  end
 
   def destroy
     @comment = Comment.find(params[:id])
