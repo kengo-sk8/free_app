@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   
   
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :comments
   has_one :address
   has_one :card 
-
+  has_many :sns_credentials
 
   #正規表現の代入
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i  #@が必要

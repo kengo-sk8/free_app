@@ -102,7 +102,11 @@
                 %li
                   ¥
                   = item.price
-              %p.tax (税込み)        
+              %p.tax (税込み)   
+          -if item.buyer_id.present? 
+            .item-sold
+              .item-sold-inner
+                SOLD     
   .main__sixth
     .main__sixth__top
       .main__sixth__top--up
@@ -124,4 +128,8 @@
                   ¥
                   = item.price
               %p.tax (税込み)
+          -if item.buyer_id.present? 
+            .item-sold
+              .item-sold-inner
+                SOLD
   = render "items/main-footer"

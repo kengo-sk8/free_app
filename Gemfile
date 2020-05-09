@@ -77,6 +77,9 @@ gem 'devise'
 gem 'payjp'
 gem 'dotenv-rails'
 gem 'pry-rails'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
 gem 'font-awesome-sass' #アイコンの画像を挿入する為、記述した
 gem 'carrierwave' #画像を保存する為に導入した
 gem 'mini_magick' #画像を保存する為に導入した
@@ -86,3 +89,4 @@ gem 'active_hash' #item、deviseの登録、出品画面で使用した。(各�
 gem 'rails-i18n' #config/locales内にある〇〇.ja.ymlを起動させる為、導入した。(config/application.rbにconfig.i18n.default_locale = :jaを記載)
 gem 'jquery-turbolinks'  #jsがリロードしないと起動しない為、このgemを導入した。これによりページ遷移後、JSが起動する。
 gem 'fog-aws' #画像をアップロードする際、外部のストレージを選択しアップロードするのを補助してくれるGem
+

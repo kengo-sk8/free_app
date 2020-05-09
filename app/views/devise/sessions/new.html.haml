@@ -1,31 +1,37 @@
-.single-container 
-  %header.signup-header
-    %h1
-      = link_to root_path do
-        = image_tag asset_path('logo.png')
-  %main.signup-main
-    .signup-main__login-panel
-      .signup-main__login-no-account
-        %p アカウントをお持ちでない方はこちら
-        = link_to '/users/sign_up/' do
-          新規会員登録
-      .signup-main__login-form-inner
-        %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--facebook{ id: 'facebook-login' }
-          = icon 'fab', 'facebook-square'
-          Facebookでログイン
-        %button.signup-main__btn-default.signup-main__btn-sns.signup-main__btn-sns--google{ id: 'google-login' }
-          Googleでログイン
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .signup-main__login-form-inner
-          .signup-main__form-group
-            = f.label :メールアドレス
-            = f.email_field :email,{ class: 'signup-main__input-default', placeholder: 'PC・携帯どちらでも可' }
-          .signup-main__form-group
-            = f.label :パスワード
-            = f.password_field :password, { class: 'signup-main__input-default', placeholder: '7文字以上' }
-          %button.signup-main__login-submit.signup-main__btn-default.signup-main__btn-red{ type: 'submit' }
-            = f.submit "ログイン", class: "signup-main__btn-default signup-main__btn-red"
-          .signup-main__form-group
+.header-log
+  .log-field
+    = link_to image_tag('logo.png', class: "icon-user-top"),root_path
+.log
+  .log-in
+    .log-in-header
+      .new-user-account
+        アカウントをお持ちでない方はこちら
+        .new-user-account-title
+        .new-user-account-create
+          - if devise_mapping.registerable? && controller_name != 'registrations'
+            = link_to "新規会員登録", new_registration_path(resource_name),class:"new-user-account-btn"
+    .log-in-main
+      .facebook
+        .facebook-field
+          = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post,class: "facebook-btn"
+          %i.fab.fa-facebook-square.facebook-icon
+      .google
+        .google-font
+          = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post,class: "google-btn"
+          .google-photo
+            -# = image_tag 'google.jpg', class:"google-photo-size"
+    .log-in-bottom
+      = form_for(resource, as: resource_name, html: { id: :login_form }, url: session_path(resource_name)) do |f|
+        .email
+          .email-group
+            = f.email_field :email, autofocus: true, autocomplete: "email-field",placeholder: "メールアドレス",class: "email-field",id: "email"
+        .pass
+          .pass-group
+            = f.password_field :password, autocomplete: "pass-field",placeholder: "パスワード",class: "pass-field",id: "pass"
+        .send
+          = f.submit "ログイン",class: "send-btn"
+        .foget-pass
           - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-            = link_to "パスワードをお忘れの方", new_password_path(resource_name)
-  = render "devise/registrations/footer"
+            = link_to "パスワードお忘れの方", new_password_path(resource_name),class: "foget-field"
+        .error
+          = render "devise/shared/error_messages", resource: @user

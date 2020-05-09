@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
 
   def configre_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :last_name, :first_name_kana, :last_name_kana,:birthday_year_id, :birthday_moon_id, :birthday_day_id])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :first_name, :last_name, :first_name_kana, :last_name_kana,:birthday_year_id, :birthday_moon_id, :birthday_day_id])
   end
 
   def set_ancestry
