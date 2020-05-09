@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_ancestry
 
   private
+  #ベイシック認証関連の設定
   def production?
     Rails.env.production?
   end

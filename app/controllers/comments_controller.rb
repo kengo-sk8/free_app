@@ -5,21 +5,20 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to product_path(params[:item_id])  }
+        format.html { redirect_to item_path(params[:item_id])  }
         format.json
       end
     else
       flash.now[:alert] = 'メッセージを入力してください。'
       render :show
     end
-  end
+  en
 
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy
-      redirect_to product_path(@item.id)
+      redirect_to item_path(@item.id)
     else
-      flash.now[:alert] = 'メッセージ削除に失敗しました。'
       render :show
     end
   end
@@ -30,6 +29,6 @@ class CommentsController < ApplicationController
   end
 
   def set_instance
-    @item = Iten.find(params[:item_id])
+    @item = Item.find(params[:item_id])
   end
 end
