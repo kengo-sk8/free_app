@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   end
     
   def edit
-    @parents = Category.order("id ASC").limit(607)
+    @parents = Category.all.order("id ASC").limit(607)
   end
 
   def update
