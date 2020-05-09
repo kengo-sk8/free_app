@@ -84,25 +84,25 @@
         }
       }
     }
-    // &__delivery {
-    //   margin-top: 40px;
-    //   padding: 0 150px 0; 
-    //   .address {
-    //     font-size: 15px;
-    //     list-style: none;
-    //     &--delivery {
-    //       margin-bottom: 10px;
-    //     }
-    //     &--change {
-    //       text-align: end;
-    //       &--btn {
-    //         color: #0099e8;
-    //         font-size: 14px;
-    //         text-decoration: none;
-    //       }
-    //     }
-    //   }
-    // }  
+    &__delivery {
+      margin-top: 40px;
+      padding: 0 150px 0; 
+      .address {
+        font-size: 15px;
+        list-style: none;
+        &--delivery {
+          margin-bottom: 10px;
+        }
+        &--change {
+          text-align: end;
+          &--btn {
+            color: #0099e8;
+            font-size: 14px;
+            text-decoration: none;
+          }
+        }
+      }
+    }  
     &__payment {
       margin: 20px 0 20px;
       padding: 0 150px 30px;

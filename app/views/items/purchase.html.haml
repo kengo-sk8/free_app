@@ -3,30 +3,30 @@
   = render "header"
   .purchase-verification__main
     .purchase-verification__main__up
-    -#   購入内容の確認
-    -# .purchase-verification__main__box
-    -#   .product 
-    -#     .photo
-    -#       = image_tag @item.images[0].src.url, size: '200x200'
-    -#     .name
-    -#       = "商品名 #{@item.name}"
-    -#   %ul.detail
-    -#     %li.money="送料込み ¥#{@item.price}"
-    -# .purchase-verification__main__pay
-    -#   .purchase-verification__main__pay__point
-    -#     ポイントはありません
-    -#   .purchase-verification__main__pay__money
-    -#     .purchase-verification__main__pay__money--left
-    -#       支払金額
-    -#     .purchase-verification__main__pay__money--right
-    -#       =" ¥#{@item.price}"
-    -#   .purchase-verification__main__pay__decision
-    -#     - if @default_card_information.blank?
-    -#       .buy-btn 
-    -#         支払い方法を追加してください。
-    -#     - else
-    -#       = form_tag(action: :pay, method: :post) do
-    -#         %button.buy-btn 購入する
+      購入内容の確認
+    .purchase-verification__main__box
+      .product 
+        .photo
+          = image_tag @item.images[0].src.url, size: '200x200'
+        .name
+          = "商品名 #{@item.name}"
+      %ul.detail
+        %li.money="送料込み ¥#{@item.price}"
+    .purchase-verification__main__pay
+      .purchase-verification__main__pay__point
+        ポイントはありません
+      .purchase-verification__main__pay__money
+        .purchase-verification__main__pay__money--left
+          支払金額
+        .purchase-verification__main__pay__money--right
+          =" ¥#{@item.price}"
+      .purchase-verification__main__pay__decision
+        - if @default_card_information.blank?
+          .buy-btn 
+            支払い方法を追加してください。
+        - else
+          = form_tag(action: :pay, method: :post) do
+            %button.buy-btn 購入する
     .purchase-verification__main__delivery
       .address
         %ul.address--delivery
