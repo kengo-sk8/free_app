@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_product, only: [:edit, :show, :update, :destroy, :purchase, :pay, :done]
+  before_action :set_card, only: [:purchase, :pay, :done]
 
   def index
     @items = Item.all
@@ -78,7 +79,7 @@ def pay
   currency: 'jpy'
   )
   if @item.update( buyer_id: current_user.id)
-    redirect_to done_products_path(@item.id)
+    redirect_to done_items_path(@item.id)
   else
     redirect_back(fallback_location: root_path)
   end
@@ -101,4 +102,7 @@ end
     @item = Item.find(params[:id])
   end
 
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
 end

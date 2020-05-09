@@ -1,0 +1,132 @@
+// 商品購入完了画面
+.purchase-done {
+  height: 100%;
+  width: 100%;
+  background-color: #eae8e8;
+  &__header {
+    height: 70px;
+    text-align: center;
+    padding-top: 30px;
+    &__logo {
+      .btn {
+        height: 50px;
+        width: 170px;
+        vertical-align: middle;
+      }
+    }
+  }
+  &__main {
+    background-color: #fff;
+    width: 700px;
+    margin: 0 auto;
+    &__up {
+      background-color: #fff6de;
+      h2 {
+        padding: 32px 16px 0;
+        font-size: 20px;
+        text-align: center;
+        color: red;
+      }
+      h3 {
+        padding: 15px 16px 32px;
+        font-size: 15px;
+        text-align: center;
+      }
+    }
+    // ここから商品
+    &__explanation {
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: bold;
+      padding-top: 10px;;
+    }
+    &__box {
+      margin: auto;
+      height: 200px;
+      width: 200px;
+    } 
+    .name {
+      text-align: center;
+      margin-top: 5px;
+    }
+    .detail {
+      height: 50px;
+      width: 200px;
+      text-align: center;
+      line-height: 50px;
+      margin: auto;
+      .money {
+        font-size: 15px;
+      }
+    }
+    &__delivery {
+      height: 120px;
+      width: 300px;
+      margin: 10px auto;
+      text-align: center;
+      .address {
+        font-size: 15px;
+        list-style: none;
+        &--delivery {
+          margin-bottom: 5px;
+        }
+      }
+    }  
+    &__payment {
+      height: 80px;
+      width: 300px;
+      margin: auto;
+      text-align: center;
+      .method {
+        font-size: 15px;
+        list-style: none;
+      }
+    }  
+    &__return {
+      margin: 40px 0 20px;
+      padding: 0 200px 30px;
+      text-align: center;
+      &__box {
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        border-radius: 100px;
+        height: 50px;
+        width: 300px;
+        line-height: 50px;
+        text-align: center;
+      }
+      .return_btn {
+        text-decoration: none;
+        color: white;
+      }
+    }
+  }
+  &__footer {
+    width: 700px;
+    margin: 0 auto;
+    padding: 40px 0;
+    ul {
+      display: flex;
+      justify-content: center;
+      li {
+        .footer-text {
+          display: block;
+          text-decoration: none;
+          color: #222;
+          font-size: 12px;
+          margin: 16px 0px 0px 16px;
+          text-align: center;
+        }
+      }
+    }
+    &__logo {
+      padding: 40px 0 0;
+      text-align: center;
+      &__icon {
+        width: 185px;
+        height: 49px;
+      }
+    }
+  }
+}
