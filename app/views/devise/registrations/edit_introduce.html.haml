@@ -1,16 +1,4 @@
-= render "items/header"
-.header-under
-  .box-under
-    .categoty-link
-      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
-      -# = render "products/category_list"
-    .bland-link
-      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
-  -#   .gretel-link
-  -#     - breadcrumb :introduce
-  -#     = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
-  -# = render "products/under"
-
+= render "items/main-header"
 .wrraper
   .mypage
     = render 'users/side-bar'
@@ -22,29 +10,32 @@
           .error
             = render "devise/shared/error_messages", resource: @introduce
           .name
-            = f.label :"お名前(全角)"
+            %label お名前(全角)
             .name-group
               .first
                 = f.text_field :first_name, placeholder: "例) 山田",class: "first-name-field",id: "first-name"
               .last
                 = f.text_field :last_name, placeholder: "例) 太郎",class: "last-name-field",id: "last-name"
           .name-read
-            = f.label :"お名前カナ(全角)"
+            %label  お名前カナ(全角)
             .name-read-group
               .first-read
                 = f.text_field :first_name_kana,placeholder: "例) ヤマダ",class: "first-name-read-field",id: "first-name-read"
               .last-read
                 = f.text_field :last_name_kana, placeholder: "例) タロウ",class: "last-name-read-field",id: "last-name-read"
           .birthday
-            = f.label :生年月日
+            %label 生年月日
             .birthday-select
-              = f.collection_select :birthday_year_id, BirthYear.all, :id, :year, name: 'year', prompt: '--', class: 'signup-main__select-default'
+              = f.collection_select :birthday_year_id, BirthYear.all, :id, :year, name: 'year', prompt: '__', class: 'signup-main__select-default'
+              %label 年
               = f.collection_select :birthday_moon_id, BirthMoom.all, :id, :month, name: 'month', prompt: '--', class: 'signup-main__select-default'
+              %label 月
               = f.collection_select :birthday_day_id, BirthDay.all, :id, :day, name: 'day', prompt: '--', class: 'signup-main__select-default'
+              %label 日
           .passward
             .passward-group
               .title-pass
-                = f.label "変更確認のためパスワードを入力してください"
+                %label 変更確認のためパスワードを入力してください
               .field
                 = f.password_field :password,placeholder: "7文字以上の半角英数字",class: "passward-field",id: "pass",autocomplete: 'off'
           .passward-two
@@ -52,4 +43,4 @@
               = f.password_field :password_confirmation, autocomplete: "password_confirmation",placeholder: "パスワード再入力",class: "passward-two-field",id: "pass-two"
           .send
             = f.submit '変更する',class: "send-btn"
-= render 'items/footer'
+= render 'items/main-footer'

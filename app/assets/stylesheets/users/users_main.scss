@@ -207,10 +207,10 @@
       &:first-of-type {
         width: calc(34% - 17px);
       }
-      .fa-chevron-down{
+      .fa-chevron-down {
         right: 12px;
       }
-      select{
+      select {
         padding: 0 10px;
       }
       &+span {
@@ -234,7 +234,7 @@
     color: #888;
     line-height: 1.5;
   }
-  &__text{
+  &__text {
     &--center{
       text-align: center;
     }
@@ -242,7 +242,7 @@
       text-align: right;
     }
   }
-  &__btn-red{
+  &__btn-red {
     background: #3CCACE;
     border: 1px solid #3CCACE;
     color: #fff;

@@ -9,7 +9,7 @@
     height:1250px;
     margin: auto;
     padding-top:20px;
-    .mypage-side-bar{
+    .mypage-side-bar {
       width:280px;
       margin-right:60px;
       li{
@@ -18,7 +18,7 @@
           border: 0;
         }
       }
-      .mypage-side-bar__list-contents{
+      .mypage-side-bar__list-contents {
         position: relative;
         display: block;
         min-height: 48px;
@@ -200,11 +200,11 @@
         color: black;
       }
     }
-    .transaction-box{
+    .transaction-box {
       height:200px;
       width:100%;
     }
-    .footer{
+    .footer {
       height:100px;
       width:100%;
       background-color:blue;
@@ -212,24 +212,24 @@
   }
 }
 // < 本人情報変更ページ >
-.wrraper{
+.wrraper {
   height:100%;
   width:100%;
-  .mypage{
+  .mypage {
     display:flex;
     width:75%;
     height:1250px;
     margin: auto;
     padding-top:20px;
-    .user-content-main{
+    .user-content-main {
       width: 700px;
       height: 950px;
       background-color: white;
-      .user-group{
+      .user-group {
         width: 700px;
         height: 950px;
         background-color: white;
-        .title{
+        .title {
           height: 100px;
           width: 700px;
           border-bottom: 1px solid #eee;
@@ -237,7 +237,7 @@
           text-align: center;
           font-size: 22px;
         }
-        .error{
+        .error {
           height: 80px;
           width: 350px;
           margin: auto;
@@ -245,12 +245,12 @@
           padding-top: 10px;
         }
         .name,
-        .name-read{
+        .name-read {
           height: 130px;
           width: 350px;
           margin: 20px auto;
           .name-group,
-          .name-read-group{
+          .name-read-group {
             height: 100px;
             width: 350px;
             display: flex;
@@ -261,7 +261,7 @@
               .first-name-field,
               .last-name-field,
               .first-name-read-field,
-              .last-name-read-field{
+              .last-name-read-field {
                 height: 45px;
                 width: 160px;
                 border: 1px solid rgb(234, 232, 232);
@@ -272,15 +272,15 @@
             }
           }
         }
-        .birthday{
+        .birthday {
           height: 100px;
           width: 350px;
           margin-bottom: 25px;
           margin: 20px auto;
-          .birthday-select{
-            #user_birthday_1i,
-            #user_birthday_2i,
-            #user_birthday_3i{
+          .birthday-select {
+            #user_birthday_year_id,
+            #user_birthday_moon_id,
+            #user_birthday_day_id {
               height: 45px;
               width: 90px;
               border: 1px solid rgb(234, 232, 232);
