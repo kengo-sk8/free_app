@@ -94,13 +94,13 @@
                       = comment.text
                       .comments-box__message__items__body__icons
                         .comments-box__message__items__body__icons__left
-                          = icon('fas', 'history', class: 'fa-history')
+                          = icon('fas', 'history')
                           %span
                             = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
                         .comments-box__message__items__body__icons__right
                           .message-delete
                             = link_to "/items/#{@item.id}/comments/#{comment.id}", method:"delete", id: :delete_btn do
-                              = icon('fas', 'trash', id: 'fa-trash')
+                              = icon('fas', 'trash')
 
           -if current_user
             .caution-area

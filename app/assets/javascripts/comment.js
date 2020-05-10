@@ -1,4 +1,4 @@
-jQuery(function($){
+$(function(){
   function buildHTML(comment){
     var html = `<div class="comments-box__message">
                   <div class="comments-box__message__items">
@@ -9,13 +9,13 @@ jQuery(function($){
                       ${comment.text}
                       <div class="comments-box__message__items__body__icons">
                         <div class="comments-box__message__items__body__icons__left">
-                          <i class="fa-history"></i>
+                          <i class="fas fa-history"></i>
                           <span>${comment.created_at}</span>
                         </div>
                         <div class="comments-box__message__items__body__icons__right">
                           <div class="message-delete">
                             <a id="delete_btn" rel="nofollow" data-method="delete" href="/items/${comment.item_id}/comments/${comment.id}">
-                              <i class="fa-trash"></i>
+                              <i class="fas fa-trash"></i>
                             </a>
                           </div>
                         </div>
@@ -26,7 +26,7 @@ jQuery(function($){
     return html;
   }
   // ↓送信ボタンクリック時にイベント発火
-  jQuery('#new_comment').on('submit', function(e){
+  $('#new_comment').on('submit', function(e){
     //↓e.preventDefaultで送信ボタンクリック時の通信を止める 
     e.preventDefault();
     var formData = new FormData(this);
