@@ -19,9 +19,6 @@
                     = image_tag image.src.url, data: { index: i } ,class: 'input-image'
               = f.fields_for :images do |image|
                 .js-file_group{"data-index": "#{image.index}"}
-                  -# = image.label class: 'input-image' do
-                    -# = icon('fas', 'camera', class: "icon_camera") 
-                    -# %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
                   = image.file_field :src, class: "js-file" #sell-upload-drop-file
                   %br/
                   %span.js-remove 削除
@@ -55,13 +52,10 @@
                     - if @item.category_id == parent.id
                       .select-wrap__box.parent
                         = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択して下さい", selected: parent.parent.parent.id}, {id: "parent"})
-                        -# = icon('fas', 'angle-down', class: 'image-icon')   
                       .child-edit
                         = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.parent.id}, {id: "child"})
-                        -# = icon('fas', 'angle-down', class: 'image-icon')   
                       .grand_child-edit
                         = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.id}, {id: "grand_child"})
-                        -# = icon('fas', 'angle-down', class: 'image-icon')   
               .form-group
                 %label
                   サイズ
