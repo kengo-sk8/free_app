@@ -1,9 +1,9 @@
-require 'rails_helper' #1行目の「require 'rails_helper'」は、rails_helper.rb内の記述を読み込むことで共通の設定を有効している
-describe item do #このdescribeは、do ~ endまでのテストのまとまりを作る。
+require 'rails_helper' 
+describe Item do #必ず頭文字を大文字で記述する。また、describeは、do ~ endまでのテストのまとまりを作る。
   describe '#create' do #describeは、ネストして作成する事が出来る。「itemクラスにあるcreateメソッドをテストするまとまり」であることを示している。
     #describeとdoの間にメソッド名を書く際は#をつけるのが慣習らしい。
 
-    it "item_nameがない場合は登録できないこと" do   #it ~ doの間はそのexampleでどんなテストをしているか説明文を記入する
+    it "nameがない場合は登録できないこと" do   #it ~ doの間はそのexampleでどんなテストをしているか説明文を記入する
       item = build(:item, name: nil)
       item.valid? #この記述(valid?)により「バリデーションにより保存ができない状態であるか」を確認する。
       expect(item.errors[:name]).to include("を入力してください") 
@@ -70,15 +70,15 @@ describe item do #このdescribeは、do ~ endまでのテストのまとまり�
   describe '#update' do
 
     it "item_nameがない場合は登録できないこと" do
-      item = build(:item, item_name: nil)
+      item = build(:item, name: nil)
       item.valid?
-      expect(item.errors[:item_name]).to include("を入力してください")
+      expect(item.errors[:name]).to include("を入力してください")
     end
 
     it "descriptionがない場合は登録できないこと" do
-      item = build(:item, description: nil)
+      item = build(:item, content: nil)
       item.valid?
-      expect(item.errors[:description]).to include("を入力してください")
+      expect(item.errors[:content]).to include("を入力してください")
     end
 
     it "conditionがない場合は登録できないこと" do
