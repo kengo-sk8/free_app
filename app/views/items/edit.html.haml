@@ -4,133 +4,133 @@
   %section.l-single-container.buy-item-container
     #sell-container
       .sell-container-inner
-        %h2.l-single-head
-          商品の情報を入力
-        = form_with model: @item,local: true, class: "sell-form" do |f|
-          .sell-upload-box
-            %h3.sell-upload-head
-              出店画像
-              %span.form-require 必須
-            %p 最大5枚までアップロードできます
-            #image-box
-              #previews
-                - if @item.persisted?
-                  - @item.images.each_with_index do |image, i|
-                    = image_tag image.src.url, data: { index: i } ,class: 'input-image'
-              = f.fields_for :images do |image|
-                .js-file_group{"data-index": "#{image.index}"}
-                  = image.file_field :src, class: "js-file" #sell-upload-drop-file
-                  %br/
-                  %span.js-remove 削除
-                - if @item.persisted?
-                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-              - if @item.persisted?
-                .js-file_group{"data-index" => "#{@item.images.count}"}
-                  = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-                  .js-remove 削除
-          .sell-content
-            .form-group
-              %label
-                商品名
-                %span.form-require 必須
-              %div
-                = f.text_field :name, placeholder: "商品名 (必須 40文字まで)", class: "input-default"
-            .form-group
-              %label
-                商品の説明
-                %span.form-require 必須
-              = f.text_area :content, placeholder: "商品の説明 (必須1000文字以内) (色、素材、重さ、定価、注意点など) 例)1900年頃のヴィンテージアウターです。ブラックで少し汚れがあります。あなたのハートを射止めます！", rows: "5", class: "textarea-default"
-          .sell-content.clearfix
-            %h3.sell-sub-head 商品の詳細
-            .sell-form-box
-              .form-group.category
-                %label
-                カテゴリー
-                %span.form-require 必須
-                .select-wrap
-                  - @parents.each do |parent|
-                    - if @item.category_id == parent.id
-                      .select-wrap__box.parent
-                        = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択して下さい", selected: parent.parent.parent.id}, {id: "parent"})
-                      .child-edit
-                        = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.parent.id}, {id: "child"})
-                      .grand_child-edit
-                        = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.id}, {id: "grand_child"})
-              .form-group
-                %label
-                  サイズ
-                  %span.form-require 必須 
-                %div
-                  .select-wrap
-                    = f.collection_select(:size_id, Size.where(params[:size_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
-              .form-group
-                %label
-                  ブランド
-                  %span.form-require-sub 任意
-                %div
-                  .select-wrap
-                    = f.text_field :brand, placeholder: "例)シャネル", class: "select-default" 
-              .form-group
-                %label
-                  商品の状態
-                  %span.form-require 必須 
-                %div
-                  .select-wrap
-                    = f.collection_select(:condition_id, Condition.where(params[:condition_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
-          .sell-content.clearfix
-            %h3.sell-sub-head 配送について
-            = link_to "?", "#", target: "_blank", class: "form-question"
-            .sell-form-box
-              .form-group.burden
-                %label
-                  配送料の負担
-                  %span.form-require 必須
-                %div
-                  .select-wrap
-                    = f.collection_select(:delivery_fee_id, DeliveryFee.where(params[:delivery_fee_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
-              .form-group
-                %label
-                  配送方法
-                  %span.form-require 必須
-                %div
-                  .select-wrap
-                    = f.collection_select(:delivery_way_id, DeliveryWay.where(params[:delivery_way_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
-              .form-group
-                %label
-                  発送元の地域
-                  %span.form-require 必須
-                %div
-                  .select-wrap                                                    
-                    = f.collection_select(:prefecture_id, Prefecture.where(params[:prefecture_id]), :id, :name, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
-              .form-group
-                %label
-                  発送までの日数
-                  %span.form-require 必須
-                %div
-                  .select-wrap
-                    = f.collection_select(:delivery_date_id, DeliveryDate.where(params[:delivery_date_id,]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
-          .sell-content.clearfix
-            %h3.sell-sub-head 販売価格(300~9,999,999)
-            = link_to "?", "#", target: "_blank", class: "form-question"
-            .sell-form-box
-              %ul.sell-price
-                %li.form-group
-                  .clearfix
-                    %label.l-left
-                      価格
-                      %span.form-require 必須
-                    .l-right.sell-price-input
-                      %div
-                        = f.text_field :price, placeholder: "例)300", class: "input-default price"
-                %li.clearfix
-                  .l-left 販売手数料(10%)
-                  .l-right.comercial_cost -
-                %li.clearfix.bold
-                  .l-left 販売利益
-                  .l-right.profit -
-          .modal{role: "dialog", tabindex: "-1"}
-            .modal-inner
-          .sell-content.sell-btn-box
+        -# %h2.l-single-head
+        -#   商品の情報を入力
+        -# = form_with model: @item,local: true, class: "sell-form" do |f|
+        -#   .sell-upload-box
+        -#     %h3.sell-upload-head
+        -#       出店画像
+        -#       %span.form-require 必須
+        -#     %p 最大5枚までアップロードできます
+        -#     #image-box
+        -#       #previews
+        -#         - if @item.persisted?
+        -#           - @item.images.each_with_index do |image, i|
+        -#             = image_tag image.src.url, data: { index: i } ,class: 'input-image'
+        -#       = f.fields_for :images do |image|
+        -#         .js-file_group{"data-index": "#{image.index}"}
+        -#           = image.file_field :src, class: "js-file" #sell-upload-drop-file
+        -#           %br/
+        -#           %span.js-remove 削除
+        -#         - if @item.persisted?
+        -#           = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+        -#       - if @item.persisted?
+        -#         .js-file_group{"data-index" => "#{@item.images.count}"}
+        -#           = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+        -#           .js-remove 削除
+        -#   .sell-content
+        -#     .form-group
+        -#       %label
+        -#         商品名
+        -#         %span.form-require 必須
+        -#       %div
+        -#         = f.text_field :name, placeholder: "商品名 (必須 40文字まで)", class: "input-default"
+        -#     .form-group
+        -#       %label
+        -#         商品の説明
+        -#         %span.form-require 必須
+        -#       = f.text_area :content, placeholder: "商品の説明 (必須1000文字以内) (色、素材、重さ、定価、注意点など) 例)1900年頃のヴィンテージアウターです。ブラックで少し汚れがあります。あなたのハートを射止めます！", rows: "5", class: "textarea-default"
+        -#   .sell-content.clearfix
+        -#     %h3.sell-sub-head 商品の詳細
+        -#     .sell-form-box
+        -#       .form-group.category
+        -#         %label
+        -#         カテゴリー
+        -#         %span.form-require 必須
+        -#         .select-wrap
+        -#           - @parents.each do |parent|
+        -#             - if @item.category_id == parent.id
+        -#               .select-wrap__box.parent
+        -#                 = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "選択して下さい", selected: parent.parent.parent.id}, {id: "parent"})
+        -#               .child-edit
+        -#                 = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.parent.id}, {id: "child"})
+        -#               .grand_child-edit
+        -#                 = f.collection_select(:category_id, Category.where(params[:category_id]), :id, :name, {prompt: "選択して下さい", selected: parent.id}, {id: "grand_child"})
+        -#       .form-group
+        -#         %label
+        -#           サイズ
+        -#           %span.form-require 必須 
+        -#         %div
+        -#           .select-wrap
+        -#             = f.collection_select(:size_id, Size.where(params[:size_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
+        -#       .form-group
+        -#         %label
+        -#           ブランド
+        -#           %span.form-require-sub 任意
+        -#         %div
+        -#           .select-wrap
+        -#             = f.text_field :brand, placeholder: "例)シャネル", class: "select-default" 
+        -#       .form-group
+        -#         %label
+        -#           商品の状態
+        -#           %span.form-require 必須 
+        -#         %div
+        -#           .select-wrap
+        -#             = f.collection_select(:condition_id, Condition.where(params[:condition_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
+        -#   .sell-content.clearfix
+        -#     %h3.sell-sub-head 配送について
+        -#     = link_to "?", "#", target: "_blank", class: "form-question"
+        -#     .sell-form-box
+        -#       .form-group.burden
+        -#         %label
+        -#           配送料の負担
+        -#           %span.form-require 必須
+        -#         %div
+        -#           .select-wrap
+        -#             = f.collection_select(:delivery_fee_id, DeliveryFee.where(params[:delivery_fee_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
+        -#       .form-group
+        -#         %label
+        -#           配送方法
+        -#           %span.form-require 必須
+        -#         %div
+        -#           .select-wrap
+        -#             = f.collection_select(:delivery_way_id, DeliveryWay.where(params[:delivery_way_id]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
+        -#       .form-group
+        -#         %label
+        -#           発送元の地域
+        -#           %span.form-require 必須
+        -#         %div
+        -#           .select-wrap                                                    
+        -#             = f.collection_select(:prefecture_id, Prefecture.where(params[:prefecture_id]), :id, :name, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
+        -#       .form-group
+        -#         %label
+        -#           発送までの日数
+        -#           %span.form-require 必須
+        -#         %div
+        -#           .select-wrap
+        -#             = f.collection_select(:delivery_date_id, DeliveryDate.where(params[:delivery_date_id,]), :id, :value, {prompt: "選択して下さい", selected: @item.id}, class: "select-default")
+        -#   .sell-content.clearfix
+        -#     %h3.sell-sub-head 販売価格(300~9,999,999)
+        -#     = link_to "?", "#", target: "_blank", class: "form-question"
+        -#     .sell-form-box
+        -#       %ul.sell-price
+        -#         %li.form-group
+        -#           .clearfix
+        -#             %label.l-left
+        -#               価格
+        -#               %span.form-require 必須
+        -#             .l-right.sell-price-input
+        -#               %div
+        -#                 = f.text_field :price, placeholder: "例)300", class: "input-default price"
+        -#         %li.clearfix
+        -#           .l-left 販売手数料(10%)
+        -#           .l-right.comercial_cost -
+        -#         %li.clearfix.bold
+        -#           .l-left 販売利益
+        -#           .l-right.profit -
+        -#   .modal{role: "dialog", tabindex: "-1"}
+        -#     .modal-inner
+        -#   .sell-content.sell-btn-box
             %div
               %p
                 = link_to "禁止されている出品", "#"
