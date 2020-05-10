@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   end
     
   def edit
-    @parents = Category.all.order("id ASC").limit(607)
+    @parents = Category.order("id ASC").limit(607)
     # カテゴリーに保存されているデータを出力する為、記述した。
   end
 
