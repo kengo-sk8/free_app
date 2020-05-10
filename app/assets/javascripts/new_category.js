@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", function() {
+$(function(){
   $(function(){
     let buildPrompt = `<option value>選択して下さい</option>`
     let buildHtmlOption = function(parent) {

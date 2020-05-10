@@ -58,6 +58,7 @@ class ItemsController < ApplicationController
 
   def mid_category
     @mid_categories = Category.where(ancestry: params[:big_category_id])
+    binding.pry
     render json: @mid_categories
   end
 
@@ -66,41 +67,42 @@ class ItemsController < ApplicationController
     render json: @small_categories
   end
 
-# < 商品購入アクション purchase、pay、done>
-def purchase
-  if @card.blank?
-    flash.now[:alert] = 'カードを登録してください。'
-  else
+  #< 商品購入アクション purchase、pay、done>
+  def purchase
+    if @card.blank?
+      flash.now[:alert] = 'カードを登録してください。'
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      #保管した顧客IDでpayjpから情報取得
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
+      @default_card_information = customer.cards.retrieve(@card.card_id)
+    end
+  end
+
+  def pay
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    customer: @card.customer_id,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+    if @item.update( buyer_id: current_user.id)
+      redirect_to done_items_path(@item.id)
+    else
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def done
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     #保管した顧客IDでpayjpから情報取得
     customer = Payjp::Customer.retrieve(@card.customer_id)
     #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
     @default_card_information = customer.cards.retrieve(@card.card_id)
   end
-end
 
-def pay
-  Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-  charge = Payjp::Charge.create(
-  amount: @item.price,
-  customer: @card.customer_id,
-  card: params['payjp-token'],
-  currency: 'jpy'
-  )
-  if @item.update( buyer_id: current_user.id)
-    redirect_to done_items_path(@item.id)
-  else
-    redirect_back(fallback_location: root_path)
-  end
-end
-
-def done
-  Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-  #保管した顧客IDでpayjpから情報取得
-  customer = Payjp::Customer.retrieve(@card.customer_id)
-  #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
-  @default_card_information = customer.cards.retrieve(@card.card_id)
-end
 
   private
   def item_params

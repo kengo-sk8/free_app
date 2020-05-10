@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to :user
 
   has_many :category
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   # allow_destroy: true ： 親のレコードが削除された際、関連付いている子のレコードも一緒に削除してくれます。(公式ドキュメント有ります)
