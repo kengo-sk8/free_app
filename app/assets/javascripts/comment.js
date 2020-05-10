@@ -1,4 +1,4 @@
-jQuery(function($){
+$(function(){
   function buildHTML(comment){
     var html = `<div class="comments-box__message">
                   <div class="comments-box__message__items">
@@ -26,7 +26,7 @@ jQuery(function($){
     return html;
   }
   // ↓送信ボタンクリック時にイベント発火
-  jQuery('#new_comment').on('submit', function(e){
+  $('#new_comment').on('submit', function(e){
     //↓e.preventDefaultで送信ボタンクリック時の通信を止める 
     e.preventDefault();
     var formData = new FormData(this);
