@@ -20,9 +20,9 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        redirect_to cards_path
       else
-        redirect_to action: "edit", id: current_user.id
+        redirect_to edit_card, id: current_user.id
       end
     end
   end
@@ -47,7 +47,7 @@ class CardsController < ApplicationController
         @card_src = "dis.png"
       end
     else
-      redirect_to action: "confirmation", id: current_user.id
+      redirect_to confirmation_card_path, id: current_user.id
     end
   end
 
@@ -57,7 +57,7 @@ class CardsController < ApplicationController
       customer.delete
       @card.delete
     end
-      redirect_to action: "confirmation", id: current_user.id
+      redirect_to cards_path
   end
 
   private
