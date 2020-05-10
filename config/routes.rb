@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   
   root 'items#index'
   resources :items do   
-    resources :comments, only: [:create, :destroy, :show, :index] #itemのindexとshowにidを渡す為、:show, :indexを追加した
+    resources :comments, only: [:create, :destroy, :show, :index] #itemコントローラのindexとshowにiコメントのidを渡す為、:show, :indexを追加した
     collection do
       get 'items/new/mid_category', to: 'items#mid_category'         #「子」カテゴリーテーブルを作成する為、記述した
       get 'items/new/small_category', to: 'items#small_category'     #「孫」カテゴリーテーブルを作成する為、記述した
