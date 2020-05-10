@@ -20,7 +20,11 @@
 - has_many :items
 - has_many :comments
 - has_one :address
-- has_one :card
+- has_one :card 
+- has_many :sns_credentials
+- belongs_to_active_hash :birth_year
+- belongs_to_active_hash :birth_moom
+- belongs_to_active_hash :birth_day     
 
 
 ## itemsテーブル
@@ -38,10 +42,20 @@
 |prefecture|references|null: false, default: 0| [](発送元の地域)
 |delivery_way|references|null: false, default: 0| [](配送方法)
 |price|integer|null: false| [](販売価格)
+|buyer_id|integer|foreign_key: true|
 
 ### Association
-- has_many :comments
 - belongs_to :user
+- has_many :category
+- has_many :comments, dependent: :destroy
+- has_many :images, dependent: :destroy
+- accepts_nested_attributes_for :images, allow_destroy: true
+- belongs_to_active_hash :condition, resence: true 
+- belongs_to_active_hash :size, presence: true
+- belongs_to_active_hash :delivery_date, presence: true
+- belongs_to_active_hash :delivery_fee, presence: true
+- belongs_to_active_hash :prefecture, presence: true
+- belongs_to_active_hash :delivery_way, presence: true 
 
 
 ## Commentsテーブル(中間テーブル)
@@ -91,6 +105,7 @@
 - has_many :items
 - has_ancestry
 
+
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -99,3 +114,14 @@
 
 ## Association
 - belongs_to :item
+- mount_uploader :src, ImageUploader
+
+
+## sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|provider|string||
+|uid|string||
+|user|references|foreign_key: true|
+### Association
+- belongs_to :user, optional: true, dependent: :destroy
