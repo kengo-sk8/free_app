@@ -33,21 +33,21 @@ class ItemsController < ApplicationController
     end
   end
     
-  # def edit
-  #   @parents = Category.all.order("id ASC").limit(607)
-  #   # カテゴリーに保存されているデータを出力する為、記述した。
-  # end
+  def edit
+    @parents = Category.all.order("id ASC").limit(607)
+    # カテゴリーに保存されているデータを出力する為、記述した。
+  end
 
-  # def update
-  #   @parents = Category.all.order("id ASC").limit(607)
-  #   # カテゴリーに保存されているデータを出力する為、記述した。
-  #   if params[:item][:images_attributes] && @item.update(item_params)
-  #     redirect_to item_path(@item.id)
-  #   else
-  #     flash[:alert] = '商品情報を正しく入力してください'
-  #    redirect_to edit_item_path
-  #   end
-  # end
+  def update
+    @parents = Category.all.order("id ASC").limit(607)
+    # カテゴリーに保存されているデータを出力する為、記述した。
+    if params[:item][:images_attributes] && @item.update(item_params)
+      redirect_to item_path(@item.id)
+    else
+      flash[:alert] = '商品情報を正しく入力してください'
+     redirect_to edit_item_path
+    end
+  end
 
   def show
     @parents = Category.order("id ASC").limit(607)
