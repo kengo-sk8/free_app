@@ -9,13 +9,13 @@ $(function(){
                       ${comment.text}
                       <div class="comments-box__message__items__body__icons">
                         <div class="comments-box__message__items__body__icons__left">
-                          <i class="fa-history"></i>
+                          <i class="fas fa-history"></i>
                           <span>${comment.created_at}</span>
                         </div>
                         <div class="comments-box__message__items__body__icons__right">
                           <div class="message-delete">
                             <a id="delete_btn" rel="nofollow" data-method="delete" href="/items/${comment.item_id}/comments/${comment.id}">
-                              <i class="fa-trash"></i>
+                              <i class="fas fa-trash"></i>
                             </a>
                           </div>
                         </div>
