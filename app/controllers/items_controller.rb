@@ -58,6 +58,7 @@ class ItemsController < ApplicationController
 
   def mid_category
     @mid_categories = Category.where(ancestry: params[:big_category_id])
+    binding.pry
     render json: @mid_categories
   end
 
