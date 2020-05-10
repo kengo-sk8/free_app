@@ -34,7 +34,7 @@ describe User do
     it "phone_number がない場合は登録できないこと" do
       user = build(:user, phone_number: nil)
       user.valid?
-      expect(user.errors[:phone_number ]).to include("を入力してください")
+      expect(user.errors[:phone_number]).to include("を入力してください")
     end
     it "電話番号不適切な形式 " do
       user = build(:user, phone_number: "a80-12345-678")
