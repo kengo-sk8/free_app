@@ -102,16 +102,16 @@
                             = link_to "/items/#{@item.id}/comments/#{comment.id}", method:"delete", id: :delete_btn do
                               = icon('fas', 'trash')
 
-          -if current_user
-            .caution-area
-              %p
-                相手のことを考え丁寧なコメントを心がけましょう。
-              %p
-                不快な言葉遣いなどは利用制限や退会処分となることがあります。
-            = form_for [@item, @comment], html: { id: :new_comment } do |f|
-              = f.text_area :text, placeholder: "コメントして下さい",class: "comment-area"
-              .comment-btn
-                = f.submit "コメントする", class: "comment-btn__submit"
+          -# -if current_user
+          -#   .caution-area
+          -#     %p
+          -#       相手のことを考え丁寧なコメントを心がけましょう。
+          -#     %p
+          -#       不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          -#   = form_for [@item, @comment], html: { id: :new_comment } do |f|
+          -#     = f.text_area :text, placeholder: "コメントして下さい",class: "comment-area"
+          -#     .comment-btn
+          -#       = f.submit "コメントする", class: "comment-btn__submit"
 
         - if user_signed_in? && current_user.id == @item.user_id   
           .edit-btn
