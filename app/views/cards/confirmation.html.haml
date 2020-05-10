@@ -1,15 +1,4 @@
-= render "items/header"
-.header-under
-  .box-under
-    .categoty-link
-      = link_to "カテゴリ" ,"#", class:"link-btn",id: "hover-a"
-      -# = render "products/category_list"
-    .bland-link
-      = link_to "ブランド" ,"#", class:"link-btn",id: "hover-b"
-    .gretel-link
-      -# - breadcrumb :card
-      -# = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
-  -# = render "products/under"
+= render "items/main-header"
 .wrraper
   .mypage
     = render 'users/side-bar'
@@ -30,4 +19,4 @@
       .not__regist
         .not-font
           支払い方法について
-= render 'items/footer'
+= render 'items/main-footer'
