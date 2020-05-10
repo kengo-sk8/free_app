@@ -25,26 +25,26 @@ $(function(){
                 </div>`
     return html;
   }
-  // ↓送信ボタンクリック時にイベント発火
-  $('#new_comment').on('submit', function(e){
-    //↓e.preventDefaultで送信ボタンクリック時の通信を止める 
-    e.preventDefault();
-    var formData = new FormData(this);
-    // ↓非同期通信でコメントが保存されるようにする
-    var url = $(this).attr('action')
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false
-    })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.message-box').append(html);
-      $('.comment-area').val('');
-      $('.comment-btn__submit').prop('disabled', false);
-    })
-  })
-})
+//   // ↓送信ボタンクリック時にイベント発火
+//   $('#new_comment').on('submit', function(e){
+//     //↓e.preventDefaultで送信ボタンクリック時の通信を止める 
+//     e.preventDefault();
+//     var formData = new FormData(this);
+//     // ↓非同期通信でコメントが保存されるようにする
+//     var url = $(this).attr('action')
+//     $.ajax({
+//       url: url,
+//       type: "POST",
+//       data: formData,
+//       dataType: 'json',
+//       processData: false,
+//       contentType: false
+//     })
+//     .done(function(data){
+//       var html = buildHTML(data);
+//       $('.message-box').append(html);
+//       $('.comment-area').val('');
+//       $('.comment-btn__submit').prop('disabled', false);
+//     })
+//   })
+// })
