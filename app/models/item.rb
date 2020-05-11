@@ -20,8 +20,6 @@ class Item < ApplicationRecord
   # belongs_to_active_hashメソッドを記述する事で、各モデル(〇〇.rb)とアソシエーションを定義出来る。
 
   validates :images,
-  :name,
-  :content,
   :condition,
   :category_id,
   :size,
@@ -31,6 +29,8 @@ class Item < ApplicationRecord
   :delivery_date,
   :price, 
   presence: true
-
+  validates :name, presence: true, length: {maximum: 40}
+  validates :content,presence: true, length: {maximum: 1000}
+  
 
 end
