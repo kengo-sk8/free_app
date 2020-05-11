@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_product, only: [:edit, :show, :update, :destroy, :purchase, :pay, :done]
+  before_action :set_product, only: [:edit, :show, :update, :destroy, :purchase, :pay, :done, :search]
   before_action :set_card, only: [:purchase, :pay, :done]
 
   def index
@@ -100,6 +100,11 @@ class ItemsController < ApplicationController
     customer = Payjp::Customer.retrieve(@card.customer_id)
     #保管したカードIDでpayjpから情報取得、カード情報表示のためインスタンス変数に代入
     @default_card_information = customer.cards.retrieve(@card.card_id)
+  end
+
+  #検索アクション
+  def search
+      @items = Item.search(params[:keyword])
   end
 
   private

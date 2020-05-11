@@ -32,5 +32,9 @@ class Item < ApplicationRecord
   :price, 
   presence: true
 
+  def self.search(search)
+    return Name.all unless search
+    Name.where('text LIKE(?)', "%#{search}%")
+  end
 
 end

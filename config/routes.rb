@@ -53,6 +53,7 @@ Rails.application.routes.draw do
       post 'pay/:id'=> 'items#pay', as: 'pay'                        #httpメソッドはpostなので注意
       get 'done/:id'=> 'items#done', as: 'done'                      #購入完了ページ
       delete 'items/:id' => 'items#destroy'
+      get 'search'                                                   # 検索ページ
     end
   end  
 end
