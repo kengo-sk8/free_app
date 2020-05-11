@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  # gem 'active_hash'を導入後、extend ActiveHash::Associations::ActiveRecordExtensionsとbelongs_to_active_hash :〇〇(モデル名)を記述する
+  # gem 'active_hash'を導入したら、extend ActiveHash::Associations::ActiveRecordExtensionsとbelongs_to_active_hash :〇〇(モデル名)を記述する
   belongs_to :user
 
   has_many :category
@@ -27,10 +27,9 @@ class Item < ApplicationRecord
   :delivery_way,
   :prefecture,
   :delivery_date,
-  :price, 
   presence: true
-  validates :name, presence: true, length: {maximum: 40}
-  validates :content,presence: true, length: {maximum: 1000}
-  
+  validates :name, presence: true, length: {maximum: 40} #商品名を40文字以上打てない様に設置した。
+  validates :content,presence: true, length: {maximum: 1000} #商品説明が1000文字しか打てない様に設定した
+  validates :price, presence: true, numericality: {greater_than_or_equal_to: 300} #300円以下の金額は入力出来ない様に設定した
 
 end
