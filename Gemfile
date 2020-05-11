@@ -92,4 +92,6 @@ gem 'active_hash' #item、deviseの登録、出品画面で使用した。(各�
 gem 'rails-i18n' #config/locales内にある〇〇.ja.ymlを起動させる為、導入した。(config/application.rbにconfig.i18n.default_locale = :jaを記載)
 gem 'jquery-turbolinks'  #jsがリロードしないと起動しない為、このgemを導入した。これによりページ遷移後、JSが起動する。
 gem 'fog-aws' #画像をアップロードする際、外部のストレージを選択しアップロードするのを補助してくれるGem
+gem 'kaminari' #ページがいっぱいになると自動的に分けてくれる
+gem 'gretel' #パンくず機能
 

@@ -43,32 +43,27 @@ class UsersController < ApplicationController
 
   def now
     @user = User.find_by(id: params[:id])
-    @item = Item.where(user_id: @user.id)
-    # .page(params[:page]).per(10)
+    @item = Item.where(user_id: @user.id).page(params[:page]).per(10)
   end
 
   def buyed
     @user = User.find_by(id: params[:id])
-    @item = Item.where(user_id: @user.id)
-    # .page(params[:page]).per(10)
+    @item = Item.where(user_id: @user.id).page(params[:page]).per(10)
   end
 
   def nowbuy
     @user = User.find_by(id: params[:id])
-    @item = Item.where(user_id: @user.id)
-    # .page(params[:page]).per(10)
+    @item = Item.where(user_id: @user.id).page(params[:page]).per(10)
   end
 
   def mybuy
     @user = User.find_by(id: params[:id])
-    @item = Item.where(buyer_id: @user.id)
-    # .page(params[:page]).per(10)
+    @item = Item.where(buyer_id: @user.id).page(params[:page]).per(10)
   end
 
   def mybuyed
     @user = User.find_by(id: params[:id])
-    @item = Item.where(buyer_id: @user.id)
-    # .page(params[:page]).per(10)
+    @item = Item.where(buyer_id: @user.id).page(params[:page]).per(10)
   end
 
   def support
