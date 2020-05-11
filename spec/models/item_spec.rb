@@ -18,6 +18,13 @@ describe Item do #必ず頭文字を大文字で記述する。また、describe
       expect(item.errors[:content]).to include("を入力してください")
     end
 
+    it "contentが40文字以内でないと登録できないこと" do
+      item = build(:item, content: "abcdefghijklmnopqrstuvwxyz,abcdefghijklmnopqrstuvwxyz")
+      item.valid?
+      expect(item).to be_invalid
+    end
+
+
     it "conditionがない場合は登録できないこと" do
       item = build(:item, condition_id: nil)
       item.valid?
@@ -65,6 +72,12 @@ describe Item do #必ず頭文字を大文字で記述する。また、describe
       item.valid?
       expect(item.errors[:price]).to include("を入力してください")
     end
+
+    it "priceは300円以下の登録ができないこと" do
+      item = build(:item, price: "299")
+      item.valid?
+      expect(item).to be_invalid
+    end
   end
 
   describe '#update' do
@@ -73,6 +86,12 @@ describe Item do #必ず頭文字を大文字で記述する。また、describe
       item = build(:item, name: nil)
       item.valid?
       expect(item.errors[:name]).to include("を入力してください")
+    end
+
+    it "contentが40文字以内でないと登録できないこと" do
+      item = build(:item, content: "abcdefghijklmnopqrstuvwxyz,abcdefghijklmnopqrstuvwxyz")
+      item.valid?
+      expect(item).to be_invalid
     end
 
     it "descriptionがない場合は登録できないこと" do
@@ -127,6 +146,12 @@ describe Item do #必ず頭文字を大文字で記述する。また、describe
       item = build(:item, price: nil)
       item.valid?
       expect(item.errors[:price]).to include("を入力してください")
+    end
+    
+    it "priceは300円以下の登録ができないこと" do
+      item = build(:item, price: "299")
+      item.valid?
+      expect(item).to be_invalid
     end
   end
 end
