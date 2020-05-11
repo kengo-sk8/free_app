@@ -76,13 +76,13 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'listen'
 gem "haml-rails" #htmlをhamlにする為、記述した
-gem 'devise'
-gem 'payjp'
-gem 'dotenv-rails'
-gem 'pry-rails'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
-gem "omniauth-rails_csrf_protection"
+gem 'devise' #ユーザー
+gem 'payjp' #クレジットカード
+gem 'dotenv-rails' #.envの生成
+gem 'pry-rails' #binding.pry
+gem 'omniauth-facebook' #facebook
+gem 'omniauth-google-oauth2' #google
+gem "omniauth-rails_csrf_protection" #sns
 gem 'font-awesome-sass' #アイコンの画像を挿入する為、記述した
 gem 'carrierwave' #画像を保存する為に導入した
 gem 'mini_magick' #画像を保存する為に導入した

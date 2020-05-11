@@ -8,27 +8,21 @@ class User < ApplicationRecord
     belongs_to_active_hash :birth_moom
     belongs_to_active_hash :birth_day     
   
-  has_many :items
-  has_many :comments
-  has_one :address
+  has_many :items, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_one :address, dependent: :destroy
+  has_many :sns_credentials, dependent: :destroy
   has_one :card 
-  has_many :sns_credentials
 
-  #正規表現の代入
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i  #@が必要
-  VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/  #半角指定 ハイフンなし
-  VALID_KATAKANA_REGEX = /\A[\p{katakana}\p{blank}ー－]+\z/  #カタカナ
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d!@#\$%\^\&*\)\(+=._-]{7,100}\z/i  #パスワード
-  VALID_POSTAL_CODE = /\A\d{3}-\d{4}\z/i  #住所
-
-
-  # 新規登録
+  # バリデーション 
+  validates :phone_number, uniqueness: true
+  validates :password,length: { minimum: 7}
   validates :nickname, presence: true  #空でないこと
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: 'のフォーマットが不適切です'} #一意性(ユニーク)
+  validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :first_name_kana, presence: true, format: { with: VALID_KATAKANA_REGEX, message: 'はカタカナで入力して下さい'}
-  validates :last_name_kana, presence: true, format: { with: VALID_KATAKANA_REGEX, message: 'はカタカナで入力して下さい'}
+  validates :first_name_kana, presence: true, format: {with:/\A[ァ-ヶー－]+\z/}
+  validates :last_name_kana, presence: true, format: {with:/\A[ァ-ヶー－]+\z/}
   validates :birthday_year_id, presence: true
   validates :birthday_moon_id, presence: true
   validates :birthday_day_id, presence: true
@@ -37,4 +31,20 @@ class User < ApplicationRecord
   def birthday
     "#{BirthYear.find(self.birthday_year_id).year}/#{BirthMoom.find(self.birthday_moom_id).month}/#{BirthDay.find(self.birthday_day_id).day}"
   end
+
+  def self.from_omniauth(auth)
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    # sns認証したことがあればアソシエーションで取得
+    # 無ければemailでユーザー検索して取得orビルド(保存はしない)
+    user = sns.user || User.where(email: auth.info.email).first_or_initialize(
+      nickname: auth.info.name,
+        email: auth.info.email
+    )
+    if user.persisted?  #userが登録済みの場合はそのままログインの処理へ行くので、ここでsnsのuser_idを更新しておく
+      sns.user = user
+      sns.save
+    end
+    { user: user, sns: sns }  #User.form_omniauth、メゾットでuserとsnsをハッシュで返す
+  end
+
 end
