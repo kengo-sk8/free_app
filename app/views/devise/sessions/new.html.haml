@@ -13,11 +13,11 @@
     .log-in-main
       .facebook
         .facebook-field
-          = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post,class: "facebook-btn"
+          = link_to 'Facebookでログイン',class: "facebook-btn"
           %i.fab.fa-facebook-square.facebook-icon
       .google
         .google-font
-          = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post,class: "google-btn"
+          = link_to 'Googleでログイン',class: "google-btn"
           .google-photo
             -# = image_tag 'google.jpg', class:"google-photo-size"
     .log-in-bottom
