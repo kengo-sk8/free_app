@@ -15,7 +15,6 @@ class User < ApplicationRecord
   has_one :card 
 
   # バリデーション 
-  validates :phone_number, uniqueness: true
   validates :password,length: { minimum: 7}
   validates :nickname, presence: true  #空でないこと
   validates :email, presence: true, uniqueness: true
