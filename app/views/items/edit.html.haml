@@ -6,6 +6,9 @@
       .sell-container-inner
         %h2.l-single-head
           商品の情報を入力
+        - if flash[:alert]
+          %p.alert
+            = flash[:alert]
         = form_with model: @item,local: true, class: "sell-form" do |f|
           .sell-upload-box
             %h3.sell-upload-head
