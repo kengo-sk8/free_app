@@ -116,7 +116,7 @@
                   .select-wrap
                     = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :value, {include_blank: "選択して下さい", selected: "選択して下さい"}, class: "select-default"
           .sell-content.clearfix
-            %h3.sell-sub-head 販売価格(0 ~ 9,999,999)
+            %h3.sell-sub-head 販売価格(300 ~ 9,999,999)
             = link_to "?", "#", target: "_blank", class: "form-question"
             .sell-form-box
               %ul.sell-price
