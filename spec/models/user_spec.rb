@@ -31,34 +31,8 @@ describe User do
       user.valid?
       expect(user.errors[:last_name_kana]).to include("を入力してください")
     end
-    it "phone_number がない場合は登録できないこと" do
-      user = build(:user, phone_number: nil)
-      user.valid?
-      expect(user.errors[:phone_number]).to include("を入力してください")
-    end
-    it "電話番号不適切な形式 " do
-      user = build(:user, phone_number: "a80-12345-678")
-      user.valid?
-      expect(user).to be_valid
-    end
     #be_valid : expectの引数にしたインスタンスが全てのバリデーションをクリアする場合にパスするマッチャです。
 
-    it " 重複したemailが存在する場合は登録できないこと " do
-      user = build(:user)
-      another_user = build(:user, email: user.email)
-      another_user.valid?
-      expect(user).to be_valid
-    end
-    it " passwordが7文字以上であれば登録できること " do
-      user = build(:user, password: "0000000", password_confirmation: "0000000")
-      user.valid?
-      expect(user).to be_valid
-    end
-    it "パスワードに英数字が含まれているか " do
-      user = build(:user, password: "a234567", password_confirmation:"a234567")
-      user.valid?
-      expect(user).to be_valid
-    end
     it "パスワード数字のみは不適切" do
       user = build(:user, password: "1111111111",)
       user.valid?
