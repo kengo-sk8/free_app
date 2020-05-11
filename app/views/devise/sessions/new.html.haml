@@ -13,13 +13,13 @@
     .log-in-main
       .facebook
         .facebook-field
-          = link_to 'Facebookでログイン',class: "facebook-btn"
+          = link_to "Facebookでログイン", class: "facebook-btn"
           %i.fab.fa-facebook-square.facebook-icon
       .google
         .google-font
-          = link_to 'Googleでログイン',class: "google-btn"
+          = link_to "Googleでログイン", class: "google-btn"
           .google-photo
-            -# = image_tag 'google.jpg', class:"google-photo-size"
+            = image_tag asset_path('google.jpg'), class:"google-photo-size"
     .log-in-bottom
       = form_for(resource, as: resource_name, html: { id: :login_form }, url: session_path(resource_name)) do |f|
         .email
