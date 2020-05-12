@@ -1,6 +1,9 @@
+= render "items/main-header"
 .header-under
   .box-under
-  = render "items/main-header"
+    .gretel-link
+      - breadcrumb :buyed
+      = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
 .wrraper
   .mypage
     = render 'users/side-bar'
