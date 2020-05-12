@@ -102,12 +102,6 @@ class ItemsController < ApplicationController
     @default_card_information = customer.cards.retrieve(@card.card_id)
   end
 
-  #検索アクション
-  # def search
-  #     @items = Item.search(params[:name])
-  #     @search = params[:search]
-  # end
-
 
   def search
       @items = Item.search(params[:keyword])
