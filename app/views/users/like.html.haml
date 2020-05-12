@@ -1,0 +1,24 @@
+= render 'items/main-header'
+.wrraper
+  .mypage
+    = render 'users/side-bar'
+    .like-content
+      %h2 いいね！一覧
+      %ul 
+        - @likes.last(10).each do |like|
+          - item = Item.find_by(id: like.item_id)
+          %li
+            = link_to item_path(item.id), class: "mypage-item-link" do
+              = image_tag item.images[0].src.url
+              .mypage-item-body
+                .mypage-item-name
+                  = item.name
+                .mypage-item-price
+                  = "¥#{item.price}"
+                %i.fas.fa-chevron-right
+            -if item.buyer_id.present? 
+              .item-sold-like
+                .item-sold-like__inner
+                  SOLD
+        = paginate(@likes)
+= render 'items/main-footer'
