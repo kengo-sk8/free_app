@@ -13,6 +13,10 @@ class User < ApplicationRecord
   has_one :address, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
   has_one :card 
+  # いいね機能のアソシエーション
+  has_many :likes, dependent: :destroy
+  has_many :like_tweets, through: :likes, source: :item
+
 
   # バリデーション 
   validates :password,length: { minimum: 7}

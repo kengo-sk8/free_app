@@ -75,6 +75,7 @@
                   = @item.delivery_date.value
         .products-box__option
           .favorite
+            = render 'likes/like_links', item: @item
           .optional
             .optional__btn
               = link_to "#", class: "optional__btn__link" do
