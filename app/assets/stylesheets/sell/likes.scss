@@ -1,0 +1,31 @@
+.like-border {
+  text-decoration: none;
+  color: #ea352d;
+  padding: 6px 10px;
+  border-radius: 40px;
+  border: 1px solid #ea352d;
+  cursor: pointer;
+  .like-button {
+    text-decoration: none;
+    color: #ea352d;
+    .heart {
+      color: #ea352d;
+    }
+  }
+}
+.unlike-border {
+  text-decoration: none;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 40px;
+  border: 1px solid #333;
+  cursor: pointer;
+  .unlike-button {
+    text-decoration: none;
+    color: #333;
+    .heart {
+      color: #333;
+    }
+  }
+}
+

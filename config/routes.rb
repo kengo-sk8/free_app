@@ -41,8 +41,8 @@ Rails.application.routes.draw do
     member do
       get 'confirmation'                    #クレカ追加ページ
     end
-  end 
-  
+  end
+
   root 'items#index'
   resources :items do   
     resources :comments, only: [:create, :destroy, :show, :index] #itemコントローラのindexとshowにiコメントのidを渡す為、:show, :indexを追加した
@@ -53,6 +53,9 @@ Rails.application.routes.draw do
       post 'pay/:id'=> 'items#pay', as: 'pay'                        #httpメソッドはpostなので注意
       get 'done/:id'=> 'items#done', as: 'done'                      #購入完了ページ
       delete 'items/:id' => 'items#destroy'
+      #下記はいいね機能を付与する為のルーティング
+      post   '/like/:item_id' => 'likes#like',   as: 'like'  #どのitemに対するlikeか判断する為、URI Patternは/like/:item_idのように記述した。
+      delete '/like/:item_id' => 'likes#unlike', as: 'unlike'  #オプションでas:を記述することでPrefixの名前を指定出来る。
     end
   end  
 end

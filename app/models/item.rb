@@ -6,6 +6,11 @@ class Item < ApplicationRecord
   has_many :category
   has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  # 下記２行ははいいね機能のアソシエーション
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
+
   accepts_nested_attributes_for :images, allow_destroy: true
   # allow_destroy: true ： 親のレコードが削除された際、関連付いている子のレコードも一緒に削除してくれます。(公式ドキュメント有ります)
   # accepts_nested_attributes_forは、paramsの○○s_attritbutes:というキーの中で特定の値を送ることで、親モデルに紐づいた子モデルの削除、更新が出来る。
