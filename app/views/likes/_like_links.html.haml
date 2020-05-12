@@ -1,0 +1,28 @@
+.like-link{:id => "like-link-#{item.id}"}
+  - if user_signed_in?
+    - if current_user.likes.find_by(item_id: item.id) 
+      .like-border
+        = link_to unlike_items_path(item.id), class: "like-button", method: :delete, remote: true do
+          .iine-button
+            %i.fas.fa-heart.heart.animated.rubberBand
+            いいね！
+            = item.likes.count
+    - else
+      .unlike-border
+        = link_to like_items_path(item.id), class: "unlike-button", method: :post, remote: true do
+          .iine-button
+            %i.far.fa-heart.heart
+            いいね！
+            = item.likes.count
+  - else
+    .like-border
+      = link_to new_user_session_path, class: "like-button" do
+        .iine-button
+          %i.fas.fa-heart.heart.animated.rubberBand
+          いいね！
+          = item.likes.count
+
+// if current_user.likes.find_by(item_id: item.id)の記述で、(いいねしている場合) else (いいねしていない場合)での表示を変更
+// 非同期で行いたい場合、link_toのオプションにremote: trueを入れることで、リンクを押した時にajaxが発火するようになります。
+// remote: trueを入れることでリクエストがhtml形式ではなくjs形式になる。
+// item.likes.countでlikeされた数を取得出来る。

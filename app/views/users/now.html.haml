@@ -1,5 +1,9 @@
+= render "items/main-header"
 .header-under
-  = render "items/main-header"
+  .box-under
+    .gretel-link
+      - breadcrumb :now
+      = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
 .wrraper
   .mypage
     = render 'users/side-bar'
@@ -17,23 +21,16 @@
             .groups
               .image
                 = link_to items_path(item.id), class: "my-link" do
-                  = image_tag item.images[0].image.url
+                  -# = image_tag item.images[0].image.url
               .info
                 .title-field
                   = item.name.truncate(29)
-                .other-field
-                  %i.fas.fa-heart.heart
-                  .count
-                    - if item.likes_count.present?
-                      = item.likes_count
-                    - else
-                      = "#{item.likes_count} 0"
                   .now-now
                     .now-text
                       出品中
               .icon-field
-                = link_to product_path(item.id) do
+                = link_to item_path(item.id) do
                   %i.fa.fa-angle-right.right-icon
-      -# .page
-      -#   = paginate(@product)
+      .page
+        = paginate(@item)
 = render 'items/footer'

@@ -1,6 +1,9 @@
+= render "items/main-header"
 .header-under
   .box-under
-  = render "items/main-header"
+    .gretel-link
+      - breadcrumb :nowbuy
+      = breadcrumbs separator:  "&rsaquo;",class: "crumb-btn"
 .wrraper
   .mypage
     = render 'users/side-bar'
@@ -39,6 +42,6 @@
               .icon-field
                 = link_to done_products_path(product.id) do
                   %i.fa.fa-angle-right.right-icon
-      -# .page
-      -#   = paginate(@product)
+      .page
+        = paginate(@item)
 = render 'items/footer'
