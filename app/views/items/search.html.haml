@@ -1,0 +1,28 @@
+= render "main-header"
+.search
+  .main__fifth
+    .main__fifth__top
+      .main__fifth__top--up
+        商品検索結果
+      .main__fifth__top--under
+    %ul.main__fifth__box
+      - @items.each do |item|
+        .main__fifth__box--new
+          =link_to item_path(item.id), class: "show-btn" do
+            = image_tag item.images[0].src.url, size: '200x200'
+            .comment
+              .comment--name
+                =item.name .truncate(21)
+              %ul.comment--price
+                %li
+                  ¥
+                  = item.price
+              %p.tax (税込み)
+          -if item.buyer_id.present? 
+            .item-sold
+              .item-sold-inner
+                SOLD
+
+
+    = render "main-footer"
+

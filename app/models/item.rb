@@ -33,8 +33,12 @@ class Item < ApplicationRecord
   presence: true
 
   def self.search(search)
-    return Name.all unless search
-    Name.where('text LIKE(?)', "%#{search}%")
+    if search
+      Item.where('name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
   end
+  # scope :name, -> (search){ where('product_name LIKE(?)', "%#{search}%")}
 
 end

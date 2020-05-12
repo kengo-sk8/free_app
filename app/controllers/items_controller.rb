@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_product, only: [:edit, :show, :update, :destroy, :purchase, :pay, :done, :search]
+  before_action :set_product, only: [:edit, :show, :update, :destroy, :purchase, :pay, :done]
   before_action :set_card, only: [:purchase, :pay, :done]
 
   def index
@@ -103,6 +103,12 @@ class ItemsController < ApplicationController
   end
 
   #検索アクション
+  # def search
+  #     @items = Item.search(params[:name])
+  #     @search = params[:search]
+  # end
+
+
   def search
       @items = Item.search(params[:keyword])
   end

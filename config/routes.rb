@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get 'nowbuy'        #取引中
       get 'mybuy'         #購入した商品
       get 'mybuyed'       #過去に購入した商品
+      get 'search' 
     end
     collection do
       get 'signout/:id'=> 'users#singout', as: 'signout'    #ログアウト確認ページ
@@ -53,7 +54,7 @@ Rails.application.routes.draw do
       post 'pay/:id'=> 'items#pay', as: 'pay'                        #httpメソッドはpostなので注意
       get 'done/:id'=> 'items#done', as: 'done'                      #購入完了ページ
       delete 'items/:id' => 'items#destroy'
-      get 'search'                                                   # 検索ページ
+      get :search                                                  #検索ページ
     end
   end  
 end
