@@ -3,15 +3,6 @@
     .pcheader__inner__mainheader__furimalogo
       = link_to root_path do
         = image_tag asset_path("logo.png"), alt: "FURIMA"
-    -# .searchBox
-    -#   %form{action: "#", method: "get"}
-    -#     %input{name: "utf8", type: "hidden", value: "✓"}
-    -#     %input#searchInput.searchBox--input{name: "key", placeholder: "キーワードから探す"}
-    -#     %button{type: "submit"}
-    -#       .searchBox__icon
-    -#         = image_tag asset_path("icon-search 1.png"), alt: "icon-search 1.png"
-    -#     %input{name: "authenticity_token", type: "hidden", value: "#"}
-
     .searchBox
       = form_with(url: search_items_path, local: true, method: :get, class: "searchBox") do |form|
         = form.search_field :keyword, placeholder: "キーワードから探す", class: "#searchInput.searchBox--input" 
