@@ -36,5 +36,14 @@ class Item < ApplicationRecord
   validates :name, presence: true, length: {maximum: 40} #商品名を40文字以上打てない様に設置した。
   validates :content,presence: true, length: {maximum: 1000} #商品説明が1000文字しか打てない様に設定した
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 300} #300円以下の金額は入力出来ない様に設定した
+  
 
+  def self.search(search)
+    if search
+      Item.where('name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
+  # scope :name, -> (search){ where('product_name LIKE(?)', "%#{search}%")}
 end

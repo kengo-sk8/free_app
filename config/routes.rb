@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get 'nowbuy'        #取引中
       get 'mybuy'         #購入した商品
       get 'mybuyed'       #過去に購入した商品
+      get 'search' 
     end
     collection do
       get 'signout/:id'=> 'users#singout', as: 'signout'    #ログアウト確認ページ
@@ -53,6 +54,7 @@ Rails.application.routes.draw do
       post 'pay/:id'=> 'items#pay', as: 'pay'                        #httpメソッドはpostなので注意
       get 'done/:id'=> 'items#done', as: 'done'                      #購入完了ページ
       delete 'items/:id' => 'items#destroy'
+      get :search                                                  #検索ページ
       #下記はいいね機能を付与する為のルーティング
       post   '/like/:item_id' => 'likes#like',   as: 'like'  #どのitemに対するlikeか判断する為、URI Patternは/like/:item_idのように記述した。
       delete '/like/:item_id' => 'likes#unlike', as: 'unlike'  #オプションでas:を記述することでPrefixの名前を指定出来る。
