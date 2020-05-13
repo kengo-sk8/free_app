@@ -6,7 +6,7 @@
       %h2 いいね！一覧
       %ul 
         - @likes.last(10).each do |like|
-          - item = Item.find_by(id: like.item_id)
+          - item = like.item
           %li
             = link_to item_path(item.id), class: "mypage-item-link" do
               = image_tag item.images[0].src.url
