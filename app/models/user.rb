@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_one :card 
   # いいね機能のアソシエーション
   has_many :likes, dependent: :destroy
-  has_many :like_tweets, through: :likes, source: :item
+  has_many :like_items, through: :likes, source: :item
 
 
   # バリデーション 
