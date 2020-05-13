@@ -25,7 +25,8 @@
 - belongs_to_active_hash :birth_year
 - belongs_to_active_hash :birth_moom
 - belongs_to_active_hash :birth_day     
-
+- has_many :likes, dependent: :destroy
+- has_many :like_items, through: :likes, source: :item
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -56,7 +57,8 @@
 - belongs_to_active_hash :delivery_fee, presence: true
 - belongs_to_active_hash :prefecture, presence: true
 - belongs_to_active_hash :delivery_way, presence: true 
-
+- has_many :likes, dependent: :destroy
+- has_many :liking_users, through: :likes, source: :user
 
 ## Commentsテーブル(中間テーブル)
 |Column|Type|Options|
@@ -123,5 +125,17 @@
 |provider|string||
 |uid|string||
 |user|references|foreign_key: true|
-### Association
+
+## Association
 - belongs_to :user, optional: true, dependent: :destroy
+
+
+## likelsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|foreign_key: true, null: false|
+|item|references|foreign_key: true, null: false|
+
+## Association
+- belongs_to :user
+- belongs_to :item
