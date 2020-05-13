@@ -124,13 +124,13 @@
                       %span.form-require 必須
                     .l-right.sell-price-input
                       %div
-                        = f.text_field :price, placeholder: "例)300", class: "input-default price"
+                        = f.text_field :price, placeholder: "例)300", class: "input-default price",id: "sell-price"
                 %li.clearfix
                   .l-left 販売手数料(10%)
-                  .l-right.comercial_cost -
+                  .l-right#comercial_cost --
                 %li.clearfix.bold
                   .l-left 販売利益
-                  .l-right.profit -
+                  .l-right#profit --
           .modal{role: "dialog", tabindex: "-1"}
             .modal-inner
           .sell-content.sell-btn-box
