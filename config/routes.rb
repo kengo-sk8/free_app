@@ -25,7 +25,6 @@ Rails.application.routes.draw do
       get 'nowbuy'        #取引中
       get 'mybuy'         #購入した商品
       get 'mybuyed'       #過去に購入した商品
-      get 'search' 
     end
     collection do
       get 'signout/:id'=> 'users#singout', as: 'signout'    #ログアウト確認ページ
