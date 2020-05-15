@@ -25,7 +25,7 @@
 
 # kengo922の担当箇所
 ## 商品出品機能
-![new](https://user-images.githubusercontent.com/62537601/82069084-cf821800-970d-11ea-8e84-b0633ef89158.gif)
+![new](https://user-images.githubusercontent.com/62537601/82069955-073d8f80-970f-11ea-886f-fd434d150d14.gif)
 - 商品情報を保存するItemテーブルと写真を保存するImageテーブルのレコードを1ページで作成するように実装した。また、accepts_nested_attributes_forをmodelで定義し、1つのformで値を送れるように実装。
 - 画像はcarrierwaveを使用し、複数枚投稿ができる。
 - カテゴリーはancestryを用い、seedに記載した親・子・孫のカテゴリーデータをDBに保存している。
@@ -33,15 +33,14 @@
 - その他の選択項目は、active_hashを用いモデル内にデータを保存している。
 - バリデーションを設定し、必須項目が抜けていると登録できないようになっている。
 
-
 ## 商品編集機能
-![edit](https://user-images.githubusercontent.com/62537601/82068447-f4c25680-970c-11ea-93b4-c8f3a40f3f5b.gif)
+![edit](https://user-images.githubusercontent.com/62537601/82070717-1c66ee00-9710-11ea-9dd8-44c75ee60b8f.gif)
 
 ## いいね機能
-![like](https://user-images.githubusercontent.com/62537601/82066829-e2dfb400-970a-11ea-8ff7-ec446178ba02.gif)
+![like](https://user-images.githubusercontent.com/62537601/82070415-acf0fe80-970f-11ea-814a-ef8e5d737ae6.gif)
 
 ## コメント投稿・削除機能
-![comment](https://user-images.githubusercontent.com/62537601/82068217-ac0a9d80-970c-11ea-9a8e-d5fe53b3f941.gif)
+![comment](https://user-images.githubusercontent.com/62537601/82070467-bed2a180-970f-11ea-8d3f-60fce7a2ccb1.gif)
 
 
 ## usersテーブル
