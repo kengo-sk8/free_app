@@ -2,29 +2,29 @@
 # 概要
 プログラミングスクールTECH::EXPERTの最終課題でフリーマーケットサイトを作成しました。約1ヶ月間、3人チームでアジャイル開発を行いました。
 
-### 開発状況
-## 開発環境  
-  - 開発言語 : Ruby/Ruby on Railsi 
-  - 開発ツール : Github/AWS/Visual Studio Code  
-  - データベース : MySQL  
+## 開発状況
+### 開発環境  
+  - 開発言語  :  Ruby/Ruby on Railsi 
+  - 開発ツール  :  Github/AWS/Visual Studio Code  
+  - データベース  :  MySQL  
 
-## 開発期間  
+### 開発期間  
   - 開発期間 : 28日間(4/18 ~ 5/15)  
   - 平均作業時間 : 12時間以上/ 1日あたり 
 
-## 開発体制  
-  - 人数: 3人  
-  - 開発方式: アジャイル型開発（スクラム）  
-  - タスク管理 : relloによるタスク管理  
+### 開発体制  
+  - 人数  :  3人  
+  - 開発方式  :  アジャイル型開発（スクラム）  
+  - タスク管理  :  relloによるタスク管理  
 
-## 動作概要  
+### 動作概要  
   - 接続先情報  
-  - URL : http://18.178.152.156/ 
-  - ID : kengo  
-  - Pass : s72ifea3 
+  - URL  :  http://18.178.152.156/ 
+  - ID  :  kengo  
+  - Pass  :  s72ifea3 
 
-# kengo922の担当箇所
-## 商品出品機能
+## kengo922の担当箇所
+### 商品出品機能
 ![new](https://user-images.githubusercontent.com/62537601/82072580-e6773900-9712-11ea-9ada-51f5fccbaf59.gif)
 - 商品情報を保存するItemテーブルと写真を保存するImageテーブルのレコードを1ページで作成するように実装した。また、accepts_nested_attributes_forをmodelで定義し、1つのformで値を送れるように実装。
 - 画像はcarrierwaveを使用し、複数枚投稿ができる。
@@ -33,13 +33,13 @@
 - その他の選択項目は、active_hashを用いモデル内にデータを保存している。
 - バリデーションを設定し、必須項目が抜けていると登録できないようになっている。
 
-## 商品編集機能
+### 商品編集機能
 ![edit](https://user-images.githubusercontent.com/62537601/82072616-f4c55500-9712-11ea-990d-0f3f14ec0a6a.gif)
 
-## いいね機能
+### いいね機能
 ![like](https://user-images.githubusercontent.com/62537601/82070415-acf0fe80-970f-11ea-814a-ef8e5d737ae6.gif)
 
-## コメント投稿・削除機能
+### コメント投稿・削除機能
 ![comment](https://user-images.githubusercontent.com/62537601/82072657-00b11700-9713-11ea-93f9-e33a77350811.gif)
 
 
