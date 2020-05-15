@@ -45,5 +45,5 @@ class Item < ApplicationRecord
       Item.all
     end
   end
-  # scope :name, -> (search){ where('product_name LIKE(?)', "%#{search}%")}
+  # scope :name, -> (search){ where('name LIKE(?)', "%#{search}%")}
 end

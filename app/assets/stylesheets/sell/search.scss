@@ -1,0 +1,364 @@
+.search{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: #eae8e8;
+  overflow: scroll;
+  .search__left{
+    width: 30%;
+    .search__left__box{
+      width: 250px;
+      margin: 40px 0 100px 150px;
+      .search__left__box__line{
+        position: relative;
+        width: 250px;
+        height: 50px;
+        margin-left: 30px;
+        select{
+          position: absolute;
+          top:0;
+          left:0;
+          width:250px;
+          height:100%;
+          // -webkit-appearance: none;
+          color: #888;
+          cursor: pointer;
+        }
+        .down{
+          position: absolute;
+          right: 10px;
+          top: 25px;
+          z-index: 10;
+          color: #888;
+          font-size: 25px;
+          transform: translate(0, -50%);
+          float: right;
+        }
+      }
+      .search-box{
+        height: 1400px;
+        width: 300px;
+        background-color: white;
+        border-radius: 10px;
+        margin-top: 50px;
+        .title{
+          padding-top: 8px;
+        }
+        .title-a{
+          height: 0px;
+          width: 90px;
+          padding-top: 30px;
+          padding-bottom: 20px;
+          font-size: 20px;
+          margin: auto;
+        }
+        .search-key,
+        .search-category,
+        .search-brand,
+        .search-money,
+        .search-status{
+          // padding-top: 20px;
+          height: 23px;
+          width: 250px;
+          display: flex;
+          // margin: auto;
+          margin-top: 20px;
+          margin-left: 20px;
+          .icon{
+            padding-top: 2px;
+            padding-right: 5px;
+          }
+        }
+        .select-wrap {
+          margin: 10px auto;
+          height: 150px;
+          width: 250px;
+          margin-right: 15px;
+          &__box {
+            position: relative;
+            .fa-angle-down {
+              position: absolute;
+              right: 16px;
+              top: 40%;
+              z-index: 10;
+              color: #888;
+              font-size: 25px;
+              transform: translate(0, -50%);
+              float: right;
+            }
+            &--select {
+              width: 100%;
+              margin-bottom: 15px;
+              z-index: 2;
+              height: 48px;
+              padding: 0 16px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: 0;
+              font-size: 16px;
+              line-height: 1.5;
+              // -webkit-appearance: none;
+              cursor: pointer;
+            }
+          }
+          .child {
+            display: none;
+            position: relative;
+            .fa-angle-down {
+              position: absolute;
+              right: 16px;
+              top: 40%;
+              z-index: 10;
+              color: #888;
+              font-size: 25px;
+              transform: translate(0, -50%);
+              float: right;
+            }
+          }
+          .grand_child {
+            display: none;
+            position: relative;
+            .fa-angle-down {
+              position: absolute;
+              right: 16px;
+              top: 40%;
+              z-index: 10;
+              color: #888;
+              font-size: 25px;
+              transform: translate(0, -50%);
+              float: right;
+            }
+          }
+        }
+        .ket-group,
+        .bland-group{
+          height: 50px;
+          width: 250px;
+          margin: auto;
+          .key-field,
+          .keyword{
+            height: 45px;
+            width: 100%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(213, 208, 208);
+            margin-left: 10px;
+          }
+        }
+        .money-group{
+          height: 80px;
+          width: 250px;
+          margin: auto;
+          .money{
+            height: 30px;
+            width: 80%;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 10px;
+            border: 1px solid rgb(213, 208, 208);
+            margin-top: 5px;
+            margin-left: 10px;
+          }
+        }
+        .status-group{
+          height: 300px;
+          width: 250px;
+          margin: auto;
+          .group-left,
+          .group-rigth{
+            .group-one,
+            .group-two,
+            .group-thery{
+              height: 50px;
+              width: 100%;
+              display: flex;
+              .radio{
+                padding-top: 6px;
+                padding-right: 5px;
+                .radio-btn{
+                  width: 15px;
+                  height: 15px;
+                  margin-left: 10px;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+        .search-fee{
+          height: 120px;
+          width: 250px;
+          margin: 20px auto;
+          .titles{
+            height: 30px;
+            width: 100%;
+          }
+          .fee-group{
+            height:90px;
+            width: 250px;
+            margin: auto;
+            .fee-one,
+            .fee-two{
+              height: 50px;
+              width: 100%;
+              display: flex;
+              .radio{
+                padding-top: 6px;
+                padding-right: 5px;
+                .radio-btn{
+                  margin-left: 10px;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+        .search-buy{
+          height: 150px;
+          width: 250px;
+          margin: auto;
+          .title-group{
+            height: 30px;
+            width: 250px;
+            display: flex;
+            .icon{
+              padding-top: 13px;
+              padding-right: 5px;
+            }
+          }
+          .buy-group{
+            height: 100px;
+            width: 250px;
+            margin: auto;
+            .buy-one,
+            .buy-two{
+              height: 40px;
+              width: 100%;
+              display: flex;
+              .radio{
+                padding-top: 8px;
+                padding-right: 5px;
+                .radio-btn{
+                  margin-left: 10px;
+                  cursor: pointer;
+                }
+
+              }
+            }
+          }
+        }
+        .search-send{
+          height: 100px;
+          width: 250px;
+          display: flex;
+          margin: auto;
+          .clear{
+            height: 60px;
+            width: 100px;
+            background-color: gray;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 10px;
+            margin-left: 10px;
+            .btn{
+              text-decoration: none;
+              color: white;
+              cursor: pointer;
+            }
+          }
+          .decision{
+            height: 60px;
+            width: 100px;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 10px;
+            margin-left: 20px;
+            .finish{
+              height: 60px;
+              width: 100px;
+              border-radius: 10px;
+              .btn{
+                height: 60px;
+                width: 100px;
+                background-color: red;
+                outline: none;
+                border-radius: 10px;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__right {
+    width: 70%;
+    margin: 30px auto;
+    padding: 0 60px;  
+
+
+    &__box {
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 20px;
+      
+      &--new {
+        width: 150px;
+        height: 240px;
+        margin: 10px 60px 100px 0;
+        z-index: 1;
+
+        .show-btn,
+        .no-btn {
+          text-decoration: none;
+        }
+        .photo {
+          width: 200px;
+          height: 170px;
+          background-color: gray;
+        }
+        .comment {
+          width: 190px;
+          height: 50px;
+          padding: 10px 5px;
+          color: black;
+          &--name {
+            font-size: 15px;
+          }
+          &--price {
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+            height: 20px;
+
+            .i {
+              margin-left: 100px;
+            }
+            .count {
+              margin-right: 20px;
+              font-size: 18px;
+              line-height: 18px;
+            }
+          }
+          .tax {
+            font-size: 7px;
+          }
+        }
+      }
+      &--new:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+input[type="radio" i] {
+  background-color: initial;
+  cursor: default;
+  -webkit-appearance: radio;
+  box-sizing: border-box;
+  margin: 3px 0.5ex;
+  padding: initial;
+  border: initial;
+}

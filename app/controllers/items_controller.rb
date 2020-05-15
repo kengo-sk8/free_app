@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_product, only: [:edit, :show, :update, :destroy, :purchase, :pay, :done]
   before_action :set_card, only: [:purchase, :pay, :done]
 
+
   def index
     @items = Item.all
   end
@@ -104,8 +105,32 @@ class ItemsController < ApplicationController
 
 
   def search
-      @items = Item.search(params[:keyword])
+    # @search_item = Item.ransack(params[:q])
+    # @items = @search_item.result.page(params[:page])
+
+    @item = Item.search(params[:keyword])
+    @parents = Category.all.order("id ASC").limit(13)
+    @q = Item.ransack(params[:q])
+    if params[:buyer] == "2"
+      @items = @q.result(distinct: true).where(buyer_id: nil)
+    elsif params[:buyer] == "1"
+      @items = @q.result(distinct: true).where.not(buyer_id: nil)
+    else
+      @items = Item.all
+    end
+
+    if params[:q].present?
+      # 検索フォームからアクセスした時の処理
+      @search = Item.ransack(search_params)
+      @items = @search.result
+    else
+      # 検索フォーム以外からアクセスした時の処理
+      params[:q] = { sorts: 'id desc' }
+      @search = Item.ransack()
+      @items = Item.all
+    end
   end
+      # @items = Item.search(params[:keyword])
 
   private
   def item_params
@@ -123,4 +148,10 @@ class ItemsController < ApplicationController
   def set_card
     @card = Card.find_by(user_id: current_user.id)
   end
+
+  def search_params
+    params.require(:q).permit(:sorts)
+    # 他のパラメーターもここに入れる
+  end
+
 end

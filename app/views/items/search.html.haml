@@ -1,28 +1,158 @@
 = render "main-header"
 .search
-  .main__fifth
-    .main__fifth__top
-      .main__fifth__top--up
-        商品検索結果
-      .main__fifth__top--under
-    %ul.main__fifth__box
+  .search__left
+    = search_form_for @q, url:search_items_path do |form|
+      .search__left__box
+        .search__left__box__line
+          = form.select( :sorts, { '並び替え ': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc','いいね!の多い順': 'likes_count desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) 
+          %i.fa.fa-angle-down.down
+        .search-box
+        
+          .title-a
+            詳細検索
+          .search-key
+            %i.fas.fa-plus.icon
+            .key-title
+              = form.label :name_cont,"キーワードを追加する"
+          .ket-group
+            = form.search_field :name_cont, placeholder: "商品", class: "key-field" 
+          .search-category
+            %i.fas.fa-list.icon
+            .category-title
+              = form.label :main_name, "カテゴリーを選択する"
+          .select-wrap
+            .select-wrap__box.parent
+              %select#parent.select-wrap__box--select
+                %option{value: 0} 選択して下さい
+                - @parents.each do |parent|
+                  %option{value: "#{parent.id}"} #{parent.name}
+              %i.fa.fa-angle-down.icon
+            .child
+              %select#child.select-wrap__box--select
+              %i.fa.fa-angle-down.icon
+            .grand_child
+              = form.collection_select(:name_eq, [], :id, :main_name, {prompt: "選択して下さい"}, {class: 'select-wrap__box--select', id: "grand_child"})
+              %i.fa.fa-angle-down.icon
+          .search-brand
+            %i.fas.fa-tag.icon
+            .bland-title
+              = form.label :brand_cont, "ブランド名から探す "
+          .bland-group
+            =form.search_field :name_cont, class: "keyword"
+          .search-money
+            %i.fas.fa-yen-sign.icon
+            .money-title
+              = form.label :price, "価格"
+          .money-group
+            =form.search_field :price_gteq, class: "money",placeholder: "¥Min"
+            〜
+            =form.search_field :price_lt, class: "money",placeholder: "¥Max"
+          .search-status
+            %i.fas.fa-star.icon
+            .title-status
+              = form.label :condition_id, "商品の状態"
+          .status-group
+            .group-left
+              .group-one
+                .radio
+                  = form.radio_button :condition_id_eq,1,class:"radio-btn"
+                .title
+                  新品、未使用
+              .group-two
+                .radio
+                  = form.radio_button :condition_id_eq,2,class:"radio-btn"
+                .title
+                  未使用に近い
+              .group-thery
+                .radio
+                  = form.radio_button :condition_id_eq,3,class:"radio-btn"
+                .title
+                  目立った傷や汚れなし
+            .group-rigth
+              .group-one
+                .radio
+                  = form.radio_button :condition_id_eq,4,class:"radio-btn"
+                .title
+                  やや傷や汚れあり
+              .group-two
+                .radio
+                  = form.radio_button :condition_id_eq,5,class:"radio-btn"
+                .title
+                  傷や汚れあり
+              .group-thery
+                .radio
+                  = form.radio_button :condition_id_eq,6,class:"radio-btn"
+                .title
+                  全体的に状態が悪い
+          .search-fee
+            .titles
+              配送料の負担
+            .fee-group
+              .fee-one
+                .radio
+                  = form.radio_button :delivery_fee_id_eq, 2,class:"radio-btn"
+                .title
+                  着払い(購入者負担)
+              .fee-two
+                .radio
+                  = form.radio_button :delivery_fee_id_eq, 1,class:"radio-btn"
+                .title
+                  送料込み(出品者負担)
+          .search-buy
+            .title-group
+              %i.fas.fa-shopping-cart.icon
+              .title
+                販売状況
+            .buy-group
+              .buy-one
+                .radio
+                  = form.radio_button :buyer_id_not_null, 2,name:"buyer",class:"radio-btn"
+                .title
+                  販売中
+              .buy-two
+                .radio
+                  = form.radio_button :buyer_id_not_null, 1,name:"buyer",class:"radio-btn"
+                .title
+                  売り切れ
+          .search-send
+            .clear
+              = link_to 'クリア', "#", class: "btn"
+            .decision
+              = form_with(url:search_items_path, local: true, method: :get, class: "search-form") do |form|
+                .finish
+                  = form.submit "完了", class: 'btn' ,id:"search-btn"
+  .search__right
+    %section.items-box-container
+      -if @search.present?
+        %h2.search-result-head
+          = @q.name_cont
+          %span.item_name_cont
+            の検索結果
+        .search-result-number
+          ="1-#{@items.count}件表示"
+      -else
+        %h2.search-result-nil
+          検索結果
+        .search-result-number
+          ="1-#{@items.count}件表示"
+    .search__right__result
+    %ul.search__right__box
       - @items.each do |item|
-        .main__fifth__box--new
+        %li.search__right__box--new
           =link_to item_path(item.id), class: "show-btn" do
             = image_tag item.images[0].src.url, size: '200x200'
             .comment
               .comment--name
-                =item.name .truncate(21)
+                =item.name.truncate(21)
               %ul.comment--price
-                %li
-                  ¥
-                  = item.price
+                %li= item.price
+                %li.iine-icon
+                  %i.fas.fa-heart
+                  = item.likes.count
               %p.tax (税込み)
           -if item.buyer_id.present? 
             .item-sold
               .item-sold-inner
                 SOLD
-
-
-    = render "main-footer"
+= render "main-footer"
 

@@ -94,4 +94,4 @@ gem 'jquery-turbolinks'  #jsがリロードしないと起動しない為、こ�
 gem 'fog-aws' #画像をアップロードする際、外部のストレージを選択しアップロードするのを補助してくれるGem
 gem 'kaminari' #ページがいっぱいになると自動的に分けてくれる
 gem 'gretel' #パンくず機能
-
+gem 'ransack' #検索機能 メソッドはsearch_form_forを使用する
