@@ -25,7 +25,7 @@
 
 # kengo922の担当箇所
 ## 商品出品機能
-![new](https://user-images.githubusercontent.com/62537601/82068703-4ff44900-970d-11ea-83bc-90769e566394.gif)
+![new](https://user-images.githubusercontent.com/62537601/82069084-cf821800-970d-11ea-8e84-b0633ef89158.gif)
 - 商品情報を保存するItemテーブルと写真を保存するImageテーブルのレコードを1ページで作成するように実装した。また、accepts_nested_attributes_forをmodelで定義し、1つのformで値を送れるように実装。
 - 画像はcarrierwaveを使用し、複数枚投稿ができる。
 - カテゴリーはancestryを用い、seedに記載した親・子・孫のカテゴリーデータをDBに保存している。
