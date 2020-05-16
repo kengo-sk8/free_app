@@ -1,10 +1,10 @@
 # README
 # 概要
-プログラミングスクールTECH::EXPERTの最終課題でフリーマーケットサイトを作成しました。約1ヶ月間、3人チームでアジャイル開発を行いました。
+プログラミングスクールTECH::CAMPの最終課題でフリーマーケットサイトを作成しました。約1ヶ月間、3人チームでアジャイル開発を行いました。
 
 ## 開発状況
 ### 開発環境  
-  - 開発言語  :  Ruby/Ruby on Railsi 
+  - 開発言語  :  Ruby/Ruby on Rails
   - 開発ツール  :  Github/AWS/Visual Studio Code  
   - データベース  :  MySQL  
 
@@ -29,24 +29,22 @@
 - 有効期限  :  12/20
 - CVC  :  123
 
-## kengo922の担当箇所
-### 商品出品機能
-![new](https://user-images.githubusercontent.com/62537601/82072580-e6773900-9712-11ea-9ada-51f5fccbaf59.gif)
-- 商品情報を保存するItemテーブルと写真を保存するImageテーブルのレコードを1ページで作成するように実装した。また、accepts_nested_attributes_forをmodelで定義し、1つのformで値を送れるように実装。
-- 画像はcarrierwaveを使用し、複数枚投稿ができる。
-- カテゴリーはancestryを用い、seedに記載した親・子・孫のカテゴリーデータをDBに保存している。
-- カテゴリーは親カテゴリーを選択すると、子カテゴリー、孫カテゴリーのセレクトボックスが出現するよう非同期にて実装した。
-- その他の選択項目は、active_hashを用いモデル内にデータを保存している。
-- バリデーションを設定し、必須項目が抜けていると登録できないようになっている。
+## 73katoshotaの担当箇所
+### トップページマークアップ
+![トップページ]()
+- トップページ(items#index)のビューを作成しました。
+- 
+- 
+- 
+- 
 
-### 商品編集機能
-![edit](https://user-images.githubusercontent.com/62537601/82072616-f4c55500-9712-11ea-990d-0f3f14ec0a6a.gif)
+### 
+![マイページ]()
 
-### いいね機能
-![like](https://user-images.githubusercontent.com/62537601/82070415-acf0fe80-970f-11ea-814a-ef8e5d737ae6.gif)
+### 検索機能
+![検索]()
 
-### コメント投稿・削除機能
-![comment](https://user-images.githubusercontent.com/62537601/82072657-00b11700-9713-11ea-93f9-e33a77350811.gif)
+
 
 
 ## usersテーブル
