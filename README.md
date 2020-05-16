@@ -62,7 +62,7 @@
 
 ### その他
 - 単体テスト/統合テスト(RSpec)
-- User、Item、CardのバリデーションチェックテストをRSpecを持ちて行った。
+- User、Item、CardのバリデーションチェックテストをRSpecを使用して行った。
 
 
 ## usersテーブル
