@@ -29,6 +29,9 @@
 - 有効期限  :  12/20
 - CVC  :  123
 
+### ER図
+![ER](https://user-images.githubusercontent.com/62537601/82117740-46bab900-97ad-11ea-9153-827955140f68.png)
+
 ## kengo922の担当箇所
 ### 商品出品機能
 ![new](https://user-images.githubusercontent.com/62537601/82072580-e6773900-9712-11ea-9ada-51f5fccbaf59.gif)
@@ -54,8 +57,13 @@
 
 ### コメント投稿・削除機能
 ![comment](https://user-images.githubusercontent.com/62537601/82072657-00b11700-9713-11ea-93f9-e33a77350811.gif)
-- コメント投稿を非同期にて実装
-- アイコンのゴミ箱を押すとコメントを消去することができる
+- コメント投稿を非同期にて実装。
+- アイコンのゴミ箱を押すとコメントを消去することができる。
+
+### その他
+- 単体テスト/統合テスト(RSpec)
+- User、Item、CardのバリデーションチェックテストをRSpecを持ちて行った。
+
 
 ## usersテーブル
 |Column|Type|Options|
